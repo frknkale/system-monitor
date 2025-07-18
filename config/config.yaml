@@ -3,11 +3,26 @@ general:
   interval: 20s
 
 memory:
-  - enabled: true
-    types:
-      RAM: true
-      swap: true
-      total: true
+  enabled: true
+  total: true
+  available: true
+  used: true
+  free: true
+  used_percent: true
+  active: false
+  inactive: false
+  buffers: false
+  cached: true
+  shared: false
+  slab: false
+  dirty: false
+
+  swap_total: false
+  swap_used: false
+  swap_free: false
+  swap_used_percent: false
+  swap_in: false
+  swap_out: false
 
 cpu:
   enabled: true
@@ -15,15 +30,23 @@ cpu:
 # sort_by parameters -> used_space, free_space, total_space, used_percent
 disk:
   - enabled: true
+    mounted: true
+    paths_to_watch:
+      - "*"
     filter:
+      sort_by: used_percent
       top_disk_size: 3
       top_disk_usage: 2
       top_disk_usage_percent: 2
+      top_free_space: 1
 
   - enabled: true
+    mounted: true
+    paths_to_watch:
+      - "/"
     filter:
       sort_by: free_space
-      top_free_space: 3
+      top_disk_size: 3
       
 
 processes:

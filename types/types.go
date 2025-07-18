@@ -8,13 +8,26 @@ type Config struct {
 		OutputPath string        `yaml:"output_path"`
 	} `yaml:"general"`
 
-	Memory []struct {
+	Memory struct {
 		Enabled bool `yaml:"enabled"`
-		Types   struct {
-			RAM   bool `yaml:"RAM"`
-			Swap  bool `yaml:"swap"`
-			Total bool `yaml:"total"`
-		} `yaml:"types"`
+		Total         bool `yaml:"total"`
+		Available     bool `yaml:"available"`
+		Used          bool `yaml:"used"`
+		Free          bool `yaml:"free"`
+		UsedPercent   bool `yaml:"used_percent"`
+		Active        bool `yaml:"active"`
+		Inactive      bool `yaml:"inactive"`
+		Buffers       bool `yaml:"buffers"`
+		Cached        bool `yaml:"cached"`
+		Shared        bool `yaml:"shared"`
+		Slab          bool `yaml:"slab"`
+		Dirty         bool `yaml:"dirty"`
+		SwapTotal     bool `yaml:"swap_total"`
+		SwapUsed      bool `yaml:"swap_used"`
+		SwapFree      bool `yaml:"swap_free"`
+		SwapUsedPercent bool `yaml:"swap_used_percent"`
+		SwapIn        bool `yaml:"swap_in"`
+		SwapOut       bool `yaml:"swap_out"`
 	} `yaml:"memory"`
 
 	CPU struct {
@@ -22,15 +35,17 @@ type Config struct {
 	} `yaml:"cpu"`
 
 	Disk []struct {
-		Enabled bool `yaml:"enabled"`
-		Filter  struct {
-			SortBy				string	`yaml:"sort_by"`
-			TopDiskSize 		int		`yaml:"top_disk_size"`
-			TopDiskUsage    	int		`yaml:"top_disk_usage"`
-			TopDiskUsagePercent	int		`yaml:"top_disk_usage_percent"`
-			TopFreeSpace		int		`yaml:"top_free_space"`
-		} `yaml:"filter"`
-	} `yaml:"disk"`
+		Enabled       bool       `yaml:"enabled"`
+		Mounted       bool       `yaml:"mounted"`
+		PathsToWatch  []string   `yaml:"paths_to_watch"`
+		Filter        struct {
+			SortBy             string `yaml:"sort_by"`
+			TopDiskSize        int    `yaml:"top_disk_size"`
+			TopDiskUsage       int    `yaml:"top_disk_usage"`
+			TopDiskUsagePercent int   `yaml:"top_disk_usage_percent"`
+			TopFreeSpace       int    `yaml:"top_free_space"`
+		}`yaml:"filter"`
+	}`yaml:"disk"`
 
 	Processes []struct {
 		Enabled bool `yaml:"enabled"`

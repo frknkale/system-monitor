@@ -2,86 +2,125 @@ package checks
 
 import (
 	"sort"
-	"github.com/shirou/gopsutil/disk"
+	"github.com/shirou/gopsutil/v3/disk"
 	"monitoring/types"
 )
 
-func CheckDisk(cfg types.Config) interface{} {
+type PartitionInfo struct {
+	Device      string  `json:"device"`
+	Mountpoint  string  `json:"mountpoint"`
+	Fstype      string  `json:"fstype"`
+	TotalMB     float64 `json:"total_mb"`
+	UsedMB      float64 `json:"used_mb"`
+	FreeMB      float64 `json:"free_mb"`
+	UsedPercent float64 `json:"used_percent"`
+	Error       string  `json:"error,omitempty"`
+}
+
+type DiskReport struct {
+	Partitions []PartitionInfo `json:"partitions"`
+}
+
+func CheckDisk(config types.Config) interface{} {
 	var results []map[string]interface{}
 
-	for _, diskCfg := range cfg.Disk {
-		if !diskCfg.Enabled {
-			return nil
+	for _, cfg := range config.Disk {
+		if !cfg.Enabled {
+			continue
+		}
+		filter := cfg.Filter
+
+		var paths []string
+		partMap := make(map[string]string)
+
+		allPartitions, _ := disk.Partitions(!cfg.Mounted)
+		for _, part := range allPartitions {
+			partMap[part.Mountpoint] = part.Device
 		}
 
-		partitions, err := disk.Partitions(true)
-		if err != nil {
-			return map[string]interface{}{"error": err.Error()}
+		if len(cfg.PathsToWatch) == 1 && cfg.PathsToWatch[0] == "*" {
+			for _, part := range allPartitions {
+				paths = append(paths, part.Mountpoint)
+			}
+		} else {
+			paths = cfg.PathsToWatch
 		}
 
-		filter := diskCfg.Filter
-
-		var filtered []map[string]interface{} 
-
-		for _, p := range partitions {
-			usage, err := disk.Usage(p.Mountpoint)
+		var partitions []PartitionInfo
+		for _, mount := range paths {
+			usage, err := disk.Usage(mount)
+			device := partMap[mount]
 			if err != nil {
+				partitions = append(partitions, PartitionInfo{
+					Device:     device,
+					Mountpoint: mount,
+					Error:      err.Error(),
+				})
 				continue
 			}
-			filtered = append(filtered, map[string]interface{}{
-				"device":     p.Device,
-				"mountpoint": p.Mountpoint,
-				"fstype":     p.Fstype,
-				"total_mb":   float64(usage.Total) / 1024 / 1024,
-				"used_mb":    float64(usage.Used) / 1024 / 1024,
-				"free_mb":	  float64(usage.Free) / 1024 / 1024,
-				"used_percent":  float64(usage.UsedPercent),
+
+			partitions = append(partitions, PartitionInfo{
+				Device:      device,
+				Mountpoint:  usage.Path,
+				Fstype:      usage.Fstype,
+				TotalMB:     float64(usage.Total) / 1024 / 1024,
+				UsedMB:      float64(usage.Used) / 1024 / 1024,
+				FreeMB:      float64(usage.Free) / 1024 / 1024,
+				UsedPercent: usage.UsedPercent,
 			})
 		}
-		sortPartitions := func(items  []map[string]interface{}, key string) {
-			keyMap := map[string]string{
-				"used_space":       "used_mb",
-				"free_space":       "free_mb",
-				"total_space":      "total_mb",
-				"used_percent":     "used_percent",
+
+		sortPartitions := func(key string) {
+			keyMap := map[string]func(p PartitionInfo) float64{
+				"used_space":   func(p PartitionInfo) float64 { return p.UsedMB },
+				"free_space":   func(p PartitionInfo) float64 { return p.FreeMB },
+				"total_space":  func(p PartitionInfo) float64 { return p.TotalMB },
+				"used_percent": func(p PartitionInfo) float64 { return p.UsedPercent },
 			}
-			actualKey, ok := keyMap[key]
+
+			fn, ok := keyMap[key]
 			if !ok {
 				return
 			}
-			sort.Slice(items, func(i, j int) bool {
-				return items[i][actualKey].(float64) > items[j][actualKey].(float64)
+
+			sort.Slice(partitions, func(i, j int) bool {
+				return fn(partitions[i]) > fn(partitions[j])
 			})
 		}
-		
+
 		if filter.TopDiskSize > 0 {
-			sortPartitions(filtered, "total_space")
-			filtered = filtered[:filter.TopDiskSize]
+			sortPartitions("total_space")
+			partitions = partitions[:min(filter.TopDiskSize, len(partitions))]
 		}
-
 		if filter.TopDiskUsage > 0 {
-			sortPartitions(filtered, "used_space")
-			filtered = filtered[:filter.TopDiskUsage]
+			sortPartitions("used_space")
+			partitions = partitions[:min(filter.TopDiskUsage, len(partitions))]
 		}
-
 		if filter.TopDiskUsagePercent > 0 {
-			sortPartitions(filtered, "used_percent")
-			filtered = filtered[:filter.TopDiskUsagePercent]
+			sortPartitions("used_percent")
+			partitions = partitions[:min(filter.TopDiskUsagePercent, len(partitions))]
 		}
-
 		if filter.TopFreeSpace > 0 {
-			sortPartitions(filtered, "free_space")
-			filtered = filtered[:filter.TopFreeSpace]
+			sortPartitions("free_space")
+			partitions = partitions[:min(filter.TopFreeSpace, len(partitions))]
 		}
-		
 		if filter.SortBy != "" {
-			sortPartitions(filtered, filter.SortBy)
+			sortPartitions(filter.SortBy)
 		}
 
 		results = append(results, map[string]interface{}{
 			"filter":    filter,
-			"partitions": filtered,
+			"partitions": partitions,
 		})
 	}
+
 	return results
+
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }

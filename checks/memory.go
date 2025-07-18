@@ -1,51 +1,93 @@
 package checks
 
 import (
-	"github.com/shirou/gopsutil/mem"
+	"fmt"
+	"github.com/shirou/gopsutil/v3/mem"
 	"monitoring/types"
 )
 
-func CheckMemory(cfg types.Config) interface{} {
-	for _, memCfg := range cfg.Memory {
-		if !memCfg.Enabled {
-			continue
-		}
-		result := make(map[string]interface{})
+func CheckMemory(cfg types.Config) map[string]string {
+	if !cfg.Memory.Enabled {
+		return nil
+	}
+	
+	config := cfg.Memory
+	result := make(map[string]string)
 
-		if memCfg.Types.RAM {
-			vm, err := mem.VirtualMemory()
-			if err == nil {
-				result["RAM"] = map[string]interface{}{
-					"total_mb": vm.Total / 1024 / 1024,
-					"used_mb":  vm.Used / 1024 / 1024,
-					"free_mb":  vm.Free / 1024 / 1024,
-					"used_percent": vm.UsedPercent,
-				}
-			}
-		}
-		if memCfg.Types.Swap {
-			sm, err := mem.SwapMemory()
-			if err == nil {
-				result["swap"] = map[string]interface{}{
-					"total_mb": sm.Total / 1024 / 1024,
-					"used_mb":  sm.Used / 1024 / 1024,
-					"free_mb":  sm.Free / 1024 / 1024,
-					"used_percent": sm.UsedPercent,
-				}
-			}
-		}
-		if memCfg.Types.Total {
-			vm, err := mem.VirtualMemory()
-			sm, err2 := mem.SwapMemory()
-			if err == nil && err2 == nil {
-				result["total"] = map[string]interface{}{
-					"total_mb": (vm.Total + sm.Total) / 1024 / 1024,
-					"used_mb":  (vm.Used + sm.Used) / 1024 / 1024,
-					"free_mb":  (vm.Free + sm.Free) / 1024 / 1024,
-				}
-			}
-		}
+	format := func(b uint64) string {
+		gb := float64(b) / (1024 * 1024 * 1024)
+		kb := b / 1024
+		return fmt.Sprintf("%.2f GB (%d KB)", gb, kb)
+	}
+
+	// Physical memory
+	vm, err := mem.VirtualMemory()
+	if err != nil {
+		result["error"] = fmt.Sprintf("VirtualMemory error: %v", err)
 		return result
 	}
-	return nil
+
+	if config.Total {
+		result["total"] = format(vm.Total)
+	}
+	if config.Available {
+		result["available"] = format(vm.Available)
+	}
+	if config.Used {
+		result["used"] = format(vm.Used)
+	}
+	if config.Free {
+		result["free"] = format(vm.Free)
+	}
+	if config.UsedPercent {
+		result["used_percent"] = fmt.Sprintf("%.2f%%", vm.UsedPercent)
+	}
+	if config.Active {
+		result["active"] = format(vm.Active)
+	}
+	if config.Inactive {
+		result["inactive"] = format(vm.Inactive)
+	}
+	if config.Buffers {
+		result["buffers"] = format(vm.Buffers)
+	}
+	if config.Cached {
+		result["cached"] = format(vm.Cached)
+	}
+	if config.Shared {
+		result["shared"] = format(vm.Shared)
+	}
+	if config.Slab {
+		result["slab"] = format(vm.Slab)
+	}
+	if config.Dirty {
+		result["dirty"] = format(vm.Dirty)
+	}
+
+	// Swap memory
+	sm, err := mem.SwapMemory()
+	if err == nil {
+		if config.SwapTotal {
+			result["swap_total"] = format(sm.Total)
+		}
+		if config.SwapUsed {
+			result["swap_used"] = format(sm.Used)
+		}
+		if config.SwapFree {
+			result["swap_free"] = format(sm.Free)
+		}
+		if config.SwapUsedPercent {
+			result["swap_used_percent"] = fmt.Sprintf("%.2f%%", sm.UsedPercent)
+		}
+		if config.SwapIn {
+			result["swap_in"] = fmt.Sprintf("%d pages", sm.Sin)
+		}
+		if config.SwapOut {
+			result["swap_out"] = fmt.Sprintf("%d pages", sm.Sout)
+		}
+	} else {
+		result["swap_error"] = fmt.Sprintf("SwapMemory error: %v", err)
+	}
+
+	return result
 }
