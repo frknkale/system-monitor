@@ -4,7 +4,7 @@ import "time"
 
 type Config struct {
 	General struct {
-		Interval   time.Duration `yaml:"interval"`
+		IntervalSeconds   time.Duration `yaml:"interval"`
 		OutputPath string        `yaml:"output_path"`
 	} `yaml:"general"`
 
@@ -57,6 +57,7 @@ type Config struct {
 			ParentPID            int32  `yaml:"parent_pid"`
 			TTY                  string `yaml:"tty"`
 			TopRunningTime       int    `yaml:"top_running_time"`
+			LimitProcesses       int    `yaml:"limit_processes"`
 		} `yaml:"filter"`
 	} `yaml:"processes"`
 
