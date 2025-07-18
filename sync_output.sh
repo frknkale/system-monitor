@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REMOTE="crastle@104.154.77.157:/home/crastle/monitoring/output/"
+REMOTE="furkan@34.42.118.72:/opt/monitoring/output/"
 LOCAL="/mnt/d/Downloads/jotform/lfs-shared/monitoring/output/"
 
-rsync -avz --delete "$REMOTE" "$LOCAL"
+rsync -avz --delete --rsync-path="sudo rsync" "$REMOTE" "$LOCAL"

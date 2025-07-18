@@ -12,6 +12,7 @@ memory:
 cpu:
   enabled: true
 
+# sort_by parameters -> used_space, free_space, total_space, used_percent
 disk:
   - enabled: true
     filter:
