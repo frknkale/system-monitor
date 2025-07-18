@@ -1,0 +1,57 @@
+general:
+  output_path: "./output/output.json"
+  interval: 20s
+
+memory:
+  - enabled: true
+    types:
+      RAM: true
+      swap: true
+      total: true
+
+cpu:
+  enabled: true
+
+disk:
+  - enabled: true
+    filter:
+      top_disk_size: 3
+      top_disk_usage: 2
+      top_disk_usage_percent: 2
+
+  - enabled: true
+    filter:
+      sort_by: free_space
+      top_free_space: 3
+      
+
+processes:
+  - enabled: true
+    filter:
+      running_hour_threshold: 24
+      top_memory_usage: 5
+      top_cpu_usage: 4
+      state: "Z"
+      parent_pid: 1
+      tty: "?"
+
+  - enabled: true
+    filter:
+      top_running_time: 3
+      top_cpu_usage: 2
+      tty: "?"
+      
+  - enabled: true
+    filter:
+      state: "S"
+
+permissions:
+  enabled: true
+  paths:
+    - "/home"
+    - "/etc"
+
+# network:
+#   enabled: true
+#   check_open_ports: true
+#   check_interfaces: true
