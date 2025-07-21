@@ -12,7 +12,7 @@ memory:
   used: true
   free: true
   used_percent: true
-  active: true
+  active: false
   inactive: false
   buffers: false
   cached: true
@@ -60,12 +60,11 @@ processes:
   - enabled: true
     filter:
       # running_hour_threshold: 0
-      # top_memory_usage: 0
+      top_memory_usage: 3
       # top_cpu_usage: 0
       # state: ""
       # parent_pid: 0
       # tty: ""
-      limit_processes: 3
 
   # - enabled: true
   #   filter:
@@ -73,15 +72,35 @@ processes:
   #     top_cpu_usage: 2
   #     tty: "?"
       
-  # - enabled: true
-  #   filter:
-  #     state: "S"
+  - enabled: true
+    filter:
+      state: "S"
+      top_cpu_usage: 4
 
 permissions:
-  enabled: true
-  paths:
-    - "/home"
-    - "/etc"
+  - enabled: true
+    paths:
+      - "/home"
+      - "/var/www/bookstore"
+    show_user_permissions: true
+    check_user_access:
+      - "intern"
+
+  - enabled: true
+    paths:
+      - "/home/furkan"
+    show_user_permissions: false
+    check_user_access:
+      - "furkan"
+      - "intern"
+    
+  - enabled: true
+    paths:
+      - "/opt/monitoring-merged/main.go"
+    show_user_permissions: true
+    check_user_access:
+      - "furkan"
+      - "root"  
 
 # network:
 #   enabled: true

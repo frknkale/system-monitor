@@ -62,6 +62,7 @@ func main() {
 			logger.Log.Printf("Failed to create output dir: %v", err)
 			continue
 		}
+		fmt.Printf("Wrote output to %s\n", outputPath)
 
 		jsonData, err := json.MarshalIndent(result, "", "  ")
 		if err != nil {

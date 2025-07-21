@@ -61,10 +61,12 @@ type Config struct {
 		} `yaml:"filter"`
 	} `yaml:"processes"`
 
-	Permissions struct {
-		Enabled bool     `yaml:"enabled"`
-		Paths   []string `yaml:"paths"`
-	} `yaml:"permissions"`
+	Permissions []struct {
+    Enabled             bool     `yaml:"enabled"`
+    Paths               []string `yaml:"paths"`
+    ShowUserPermissions bool     `yaml:"show_user_permissions"`
+    CheckUserAccess     []string `yaml:"check_user_access"`
+} `yaml:"permissions"`
 
 	Network struct {
 		Enabled         bool `yaml:"enabled"`
