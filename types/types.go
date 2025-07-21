@@ -4,7 +4,7 @@ import "time"
 
 type Config struct {
 	General struct {
-		IntervalSeconds   time.Duration `yaml:"interval"`
+		IntervalSeconds   int `yaml:"interval"`
 		OutputPath string        `yaml:"output_path"`
 	} `yaml:"general"`
 
@@ -71,4 +71,19 @@ type Config struct {
 		CheckOpenPorts  bool `yaml:"check_open_ports"`
 		CheckInterfaces bool `yaml:"check_interfaces"`
 	} `yaml:"network"`
+}
+
+type HealthStatus string
+
+const (
+	HEALTHY   HealthStatus = "healthy"
+	UNHEALTHY HealthStatus = "unhealthy"
+	ERROR     HealthStatus = "error"
+)
+
+type CheckResult struct {
+	Name  string       `json:"name"`
+	Status  HealthStatus `json:"status"`
+	Message string       `json:"message"`
+	Timestamp time.Time    `json:"timestamp"`
 }

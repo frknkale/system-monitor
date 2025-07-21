@@ -1,7 +1,7 @@
 general:
   output_path: "./output/output.json"
   log_path: "./logs/monitoring.log"
-  interval: 20s
+  interval: 10 # in seconds
 
 # Memory Metrics Configuration
 # 1. making the values true will add them to the memory metrics report.
@@ -87,3 +87,11 @@ permissions:
 #   enabled: true
 #   check_open_ports: true
 #   check_interfaces: true
+
+alerter:
+  enabled: true
+  alert_thresholds:
+    memory:
+      used_percent: 80
+    disk:
+      used_percent: 90
