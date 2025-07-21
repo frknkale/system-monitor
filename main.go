@@ -49,6 +49,7 @@ func main() {
 		if err != nil {
 			logger.Log.Fatalf("Failed to create output dir: %v", err)
 		}
+		fmt.Printf("Wrote output to %s\n", outputPath)
 
 		jsonData, err := json.MarshalIndent(result, "", "  ")
 		if err != nil {
@@ -61,7 +62,7 @@ func main() {
 		}
 
 		logger.Log.Println(string(jsonData)) // log full result
-		fmt.Printf(string(jsonData))
+		// fmt.Printf(string(jsonData))
 		time.Sleep(interval)
 	}
 }

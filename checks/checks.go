@@ -2,8 +2,8 @@ package checks
 
 import (
 	"monitoring/types"
-	"monitoring/systemchecks"
-	// "monitoring/servicechecks"
+	"monitoring/checks/systemchecks"
+	// "monitoring/checks/servicechecks"
 )
 
 func RunAllChecks(cfg types.Config) map[string]interface{} {

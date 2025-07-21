@@ -4,22 +4,22 @@
     "cores": [
       {
         "cpu_number": 0,
-        "usage_percent": 2.0000000001145963
+        "usage_percent": 0.9900990098909599
       },
       {
         "cpu_number": 1,
-        "usage_percent": 2.0000000000209184
+        "usage_percent": 0
       }
     ],
-    "idle": "735325.18",
-    "load_15min": "0.05",
-    "load_1min": "0.05",
-    "load_5min": "0.05",
-    "mhz": 2800.252,
+    "idle": "2223258.51",
+    "load_15min": "0.00",
+    "load_1min": "0.00",
+    "load_5min": "0.00",
+    "mhz": 2800.284,
     "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
-    "time_spent_system": "480.77",
-    "time_spent_user": "1525.10",
-    "usage_percent": "2.00",
+    "time_spent_system": "535.75",
+    "time_spent_user": "999.89",
+    "usage_percent": "0.99",
     "vendor_id": "GenuineIntel"
   },
   "disk": [
@@ -38,9 +38,9 @@
           "mountpoint": "/",
           "fstype": "ext2/ext3",
           "total_mb": 18770.75,
-          "used_mb": 4576.05859375,
-          "free_mb": 14178.69140625,
-          "used_percent": 24.39946463562564
+          "used_mb": 3686.91796875,
+          "free_mb": 15067.83203125,
+          "used_percent": 19.658582325810794
         }
       ],
       "paths_to_watch": [
@@ -62,9 +62,9 @@
           "mountpoint": "/",
           "fstype": "ext2/ext3",
           "total_mb": 18770.75,
-          "used_mb": 4576.05859375,
-          "free_mb": 14178.69140625,
-          "used_percent": 24.39946463562564
+          "used_mb": 3686.91796875,
+          "free_mb": 15067.83203125,
+          "used_percent": 19.658582325810794
         }
       ],
       "paths_to_watch": [
@@ -73,69 +73,185 @@
     }
   ],
   "memory": {
-    "available": "5.61 GB (5883944 KB)",
-    "cached": "3.41 GB (3573144 KB)",
-    "free": "2.38 GB (2495844 KB)",
-    "total": "7.75 GB (8129392 KB)",
-    "used": "1.84 GB (1927908 KB)",
-    "used_percent": "23.72%"
+    "available": "7.15 GB (7497620 KB)",
+    "cached": "2.92 GB (3067004 KB)",
+    "free": "4.47 GB (4690500 KB)",
+    "total": "7.75 GB (8129384 KB)",
+    "used": "0.30 GB (313640 KB)",
+    "used_percent": "3.86%"
   },
-  "permissions": {
-    "/etc": {
-      "is_dir": true,
-      "mode": "drwxr-xr-x",
-      "permissions": "-rwxr-xr-x"
+  "permissions": [
+    {
+      "/home": {
+        "group_gid": 0,
+        "group_name": "root",
+        "mode": "drwxr-xr-x",
+        "owner_uid": 0,
+        "owner_user": "root",
+        "user_access": {
+          "intern": {
+            "exec": true,
+            "read": true,
+            "write": false
+          }
+        }
+      },
+      "/var/www/bookstore": {
+        "group_gid": 1014,
+        "group_name": "intern",
+        "mode": "drwxr-xr-x",
+        "owner_uid": 999,
+        "owner_user": "intern",
+        "user_access": {
+          "intern": {
+            "exec": true,
+            "read": true,
+            "write": true
+          }
+        }
+      }
     },
-    "/home": {
-      "is_dir": true,
-      "mode": "drwxr-xr-x",
-      "permissions": "-rwxr-xr-x"
+    {
+      "/home/furkan": {
+        "mode": "drwxr-x---",
+        "user_access": {
+          "furkan": {
+            "exec": true,
+            "read": true,
+            "write": true
+          },
+          "intern": {
+            "exec": false,
+            "read": false,
+            "write": false
+          }
+        }
+      }
+    },
+    {
+      "/opt/monitoring-merged/main.go": {
+        "group_gid": 1013,
+        "group_name": "crastle",
+        "mode": "-rwxrwxrwx",
+        "owner_uid": 1012,
+        "owner_user": "crastle",
+        "user_access": {
+          "furkan": {
+            "exec": true,
+            "read": true,
+            "write": true
+          },
+          "root": {
+            "exec": true,
+            "read": true,
+            "write": true
+          }
+        }
+      }
     }
-  },
+  ],
   "processes": [
     {
       "filter": {
         "RunningHourThreshold": 0,
-        "TopMemoryUsage": 0,
+        "TopMemoryUsage": 3,
         "TopCPUUsage": 0,
         "State": "",
         "ParentPID": 0,
         "TTY": "",
         "TopRunningTime": 0,
-        "LimitProcesses": 3
+        "LimitProcesses": 0
       },
-      "filtered_processes": [
+      "processes": [
         {
-          "pid": 1,
-          "name": "systemd",
-          "cpu_percent": 0.005146916124741281,
-          "memory_percent": 0.17383833,
-          "create_time": "2025-07-14T06:47:57Z",
+          "pid": 95189,
+          "name": "systemd-journald",
+          "cpu_percent": 0.0015574143934144146,
+          "memory_percent": 0.5909919,
+          "create_time": "2025-07-15T06:39:46Z",
           "status": "S",
-          "parent_pid": 0,
-          "running_hours": "102h29m",
+          "parent_pid": 1,
+          "running_hours": "148h34m",
           "tty": "?"
         },
         {
-          "pid": 2,
-          "name": "kthreadd",
-          "cpu_percent": 0.000016261977954734906,
-          "memory_percent": 0,
-          "create_time": "2025-07-14T06:47:57Z",
+          "pid": 26568,
+          "name": "snapd",
+          "cpu_percent": 0.004374179258566255,
+          "memory_percent": 0.47659206,
+          "create_time": "2025-07-10T11:45:26Z",
           "status": "S",
-          "parent_pid": 0,
-          "running_hours": "102h29m",
+          "parent_pid": 1,
+          "running_hours": "263h28m",
           "tty": "?"
         },
         {
-          "pid": 3,
-          "name": "pool_workqueue_release",
-          "cpu_percent": 0,
+          "pid": 126137,
+          "name": "supervisord",
+          "cpu_percent": 0.013824637064482889,
+          "memory_percent": 0.35451642,
+          "create_time": "2025-07-18T06:51:43Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "76h22m",
+          "tty": "?"
+        }
+      ]
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 4,
+        "State": "S",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0,
+        "LimitProcesses": 0
+      },
+      "processes": [
+        {
+          "pid": 155585,
+          "name": "go",
+          "cpu_percent": 6.056392188893304,
+          "memory_percent": 0.24188794,
+          "create_time": "2025-07-21T11:14:04Z",
+          "status": "S",
+          "parent_pid": 148427,
+          "running_hours": "0m",
+          "tty": "pts/0"
+        },
+        {
+          "pid": 126137,
+          "name": "supervisord",
+          "cpu_percent": 0.013824600596693487,
+          "memory_percent": 0.35451642,
+          "create_time": "2025-07-18T06:51:43Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "76h22m",
+          "tty": "?"
+        },
+        {
+          "pid": 56,
+          "name": "hwrng",
+          "cpu_percent": 0.013352796700970525,
           "memory_percent": 0,
-          "create_time": "2025-07-14T06:47:57Z",
+          "create_time": "2025-07-08T14:04:57Z",
           "status": "S",
           "parent_pid": 2,
-          "running_hours": "102h29m",
+          "running_hours": "309h9m",
+          "tty": "?"
+        },
+        {
+          "pid": 95144,
+          "name": "google_osconfig_agent",
+          "cpu_percent": 0.009572570737946502,
+          "memory_percent": 0.29768553,
+          "create_time": "2025-07-15T06:39:46Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "148h34m",
           "tty": "?"
         }
       ]
