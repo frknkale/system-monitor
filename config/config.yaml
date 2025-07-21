@@ -12,7 +12,7 @@ memory:
   used: true
   free: true
   used_percent: true
-  active: false
+  active: true
   inactive: false
   buffers: false
   cached: true
