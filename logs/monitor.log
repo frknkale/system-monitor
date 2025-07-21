@@ -1,0 +1,5453 @@
+2025/07/18 12:36:58 Logger initialized.
+2025/07/18 12:36:58 Running system checks...
+2025/07/18 12:37:03 Monitoring result written to ./output/output.json
+2025/07/18 12:38:39 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 0
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 1.999999999998181
+      }
+    ],
+    "idle": "730833.13",
+    "load_15min": "0.07",
+    "load_1min": "0.04",
+    "load_5min": "0.08",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "439.19",
+    "time_spent_user": "1439.69",
+    "usage_percent": "0.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4494.74609375,
+          "free_mb": 14260.00390625,
+          "used_percent": 23.965907803356483
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4494.74609375,
+          "free_mb": 14260.00390625,
+          "used_percent": 23.965907803356483
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.53 GB (5803804 KB)",
+    "cached": "3.33 GB (3487404 KB)",
+    "free": "2.39 GB (2501976 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.91 GB (2007980 KB)",
+    "used_percent": "24.70%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 24,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0
+      },
+      "processes": []
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 2,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "?",
+        "TopRunningTime": 3
+      },
+      "processes": [
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.319163345299485,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 2.8550453358171084,
+          "memory_percent": 9.012974,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "14m",
+          "tty": "?"
+        }
+      ]
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "S",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0
+      },
+      "processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.005143990737565519,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.000016364763409586927,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 15,
+          "name": "ksoftirqd/0",
+          "cpu_percent": 0.0001936496600562124,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 17,
+          "name": "rcu_exp_par_gp_kthread_worker/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 18,
+          "name": "rcu_exp_gp_kthread_worker",
+          "cpu_percent": 0.000002727459839270139,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 19,
+          "name": "migration/0",
+          "cpu_percent": 0.00045821324439916693,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 20,
+          "name": "idle_inject/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 21,
+          "name": "cpuhp/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 22,
+          "name": "cpuhp/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 23,
+          "name": "idle_inject/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 24,
+          "name": "migration/1",
+          "cpu_percent": 0.0004418484392605706,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 25,
+          "name": "ksoftirqd/1",
+          "cpu_percent": 0.00019637708027125562,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 28,
+          "name": "kdevtmpfs",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 30,
+          "name": "kauditd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 31,
+          "name": "khungtaskd",
+          "cpu_percent": 0.00003818442779596284,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 33,
+          "name": "oom_reaper",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 36,
+          "name": "kcompactd0",
+          "cpu_percent": 0.003504784750654498,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 37,
+          "name": "ksmd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 38,
+          "name": "khugepaged",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 42,
+          "name": "irq/9-acpi",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 50,
+          "name": "watchdogd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 52,
+          "name": "kswapd0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 53,
+          "name": "ecryptfs-kthread",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 56,
+          "name": "hwrng",
+          "cpu_percent": 0.013031793429051024,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 57,
+          "name": "scsi_eh_0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 89,
+          "name": "jbd2/sda1-8",
+          "cpu_percent": 0.0003600243289882327,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 303,
+          "name": "jbd2/sda16-8",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:48:00Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 710,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0008346313298380331,
+          "memory_percent": 0.06740972,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 724,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.00003273063974733441,
+          "memory_percent": 0.25286025,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 781,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.027062295,
+          "create_time": "2025-07-14T06:48:11Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h50m",
+          "tty": "ttyS0"
+        },
+        {
+          "pid": 806,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.025733782,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h50m",
+          "tty": "tty1"
+        },
+        {
+          "pid": 811,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.00002182054413653089,
+          "memory_percent": 0.28272718,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h50m",
+          "tty": "?"
+        },
+        {
+          "pid": 27016,
+          "name": "snapd",
+          "cpu_percent": 0.005196332804399782,
+          "memory_percent": 0.47875658,
+          "create_time": "2025-07-14T16:03:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "92h35m",
+          "tty": "?"
+        },
+        {
+          "pid": 32753,
+          "name": "google_osconfig_agent",
+          "cpu_percent": 0.010454485954606333,
+          "memory_percent": 0.2995058,
+          "create_time": "2025-07-15T06:31:40Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32778,
+          "name": "chronyd",
+          "cpu_percent": 0.000032003641301753216,
+          "memory_percent": 0.04507102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32782,
+          "name": "chronyd",
+          "cpu_percent": 0,
+          "memory_percent": 0.028538419,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 32778,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32810,
+          "name": "multipathd",
+          "cpu_percent": 0.008484520478219966,
+          "memory_percent": 0.33453918,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32816,
+          "name": "polkitd",
+          "cpu_percent": 0.0019948934871649423,
+          "memory_percent": 0.10756032,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32843,
+          "name": "systemd-journald",
+          "cpu_percent": 0.0017779798776028114,
+          "memory_percent": 0.22437102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32848,
+          "name": "sshd",
+          "cpu_percent": 0.000010667878954697536,
+          "memory_percent": 0.09860516,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32871,
+          "name": "systemd-resolved",
+          "cpu_percent": 0.0012801454370513575,
+          "memory_percent": 0.16045481,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32879,
+          "name": "systemd-udevd",
+          "cpu_percent": 0.00013157050007379855,
+          "memory_percent": 0.07813623,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32881,
+          "name": "rsyslogd",
+          "cpu_percent": 0.0005191700667797862,
+          "memory_percent": 0.071788885,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32882,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32883,
+          "name": "systemd-networkd",
+          "cpu_percent": 0.0001315704898743122,
+          "memory_percent": 0.116859905,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 32888,
+          "name": "google_guest_agent",
+          "cpu_percent": 0.009288165160996766,
+          "memory_percent": 0.2844001,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 33018,
+          "name": "systemd-logind",
+          "cpu_percent": 0.0003129255055558652,
+          "memory_percent": 0.106576234,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 33022,
+          "name": "cron",
+          "cpu_percent": 0.00022047023613140036,
+          "memory_percent": 0.03552541,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61655,
+          "name": "supervisord",
+          "cpu_percent": 0.014597619932347206,
+          "memory_percent": 0.35446686,
+          "create_time": "2025-07-17T09:44:14Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 61656,
+          "name": "nginx",
+          "cpu_percent": 0,
+          "memory_percent": 0.090043634,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 61657,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.004986366497218007,
+          "memory_percent": 0.33139008,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 61658,
+          "name": "nginx",
+          "cpu_percent": 0.00002064747860801222,
+          "memory_percent": 0.06829539,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 61659,
+          "name": "nginx",
+          "cpu_percent": 0.0002477697258739859,
+          "memory_percent": 0.069230266,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 61660,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.000020647475774907895,
+          "memory_percent": 0.20956057,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 61661,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.000020647474323254902,
+          "memory_percent": 0.18102215,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "26h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 77788,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77790,
+          "name": "systemd",
+          "cpu_percent": 0.0019175810355342203,
+          "memory_percent": 0.14328255,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77793,
+          "name": "(sd-pam)",
+          "cpu_percent": 0,
+          "memory_percent": 0.04349649,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77952,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.02228949,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77956,
+          "name": "node",
+          "cpu_percent": 0.1179230921964086,
+          "memory_percent": 1.8218336,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 77952,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77993,
+          "name": "node",
+          "cpu_percent": 0.1279031032403581,
+          "memory_percent": 1.0702891,
+          "create_time": "2025-07-18T07:34:31Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 78266,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0006249220281013637,
+          "memory_percent": 0.06273532,
+          "create_time": "2025-07-18T07:45:17Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "4h53m",
+          "tty": "?"
+        },
+        {
+          "pid": 87456,
+          "name": "sshd",
+          "cpu_percent": 0.00022982109475046112,
+          "memory_percent": 0.12724198,
+          "create_time": "2025-07-18T11:26:08Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87553,
+          "name": "sshd",
+          "cpu_percent": 0.057021750979402916,
+          "memory_percent": 0.09535769,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87456,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87554,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87553,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87559,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023864023,
+          "create_time": "2025-07-18T11:26:11Z",
+          "status": "S",
+          "parent_pid": 87554,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87577,
+          "name": "code-2901c5ac6db8a986a5666c3af51ff804d05af0d4",
+          "cpu_percent": 0.1032839331414636,
+          "memory_percent": 0.2371149,
+          "create_time": "2025-07-18T11:26:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.3188391259999144,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87616,
+          "name": "node",
+          "cpu_percent": 0.014498578289741756,
+          "memory_percent": 0.75553006,
+          "create_time": "2025-07-18T11:26:14Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h12m",
+          "tty": "?"
+        },
+        {
+          "pid": 87655,
+          "name": "bash",
+          "cpu_percent": 0.003224869406482628,
+          "memory_percent": 0.06947629,
+          "create_time": "2025-07-18T11:26:18Z",
+          "status": "S",
+          "parent_pid": 77993,
+          "running_hours": "1h12m",
+          "tty": "pts/0"
+        },
+        {
+          "pid": 89782,
+          "name": "node",
+          "cpu_percent": 0.02668193696336901,
+          "memory_percent": 0.82131606,
+          "create_time": "2025-07-18T12:03:03Z",
+          "status": "S",
+          "parent_pid": 87605,
+          "running_hours": "35m",
+          "tty": "?"
+        },
+        {
+          "pid": 93123,
+          "name": "sshd",
+          "cpu_percent": 0.0011033801784091047,
+          "memory_percent": 0.12807846,
+          "create_time": "2025-07-18T12:23:33Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93178,
+          "name": "sshd",
+          "cpu_percent": 0.1028404836350689,
+          "memory_percent": 0.10308274,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93123,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93179,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93178,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93184,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.021502223,
+          "create_time": "2025-07-18T12:23:36Z",
+          "status": "S",
+          "parent_pid": 93179,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93202,
+          "name": "code-17baf841131aa23349f217ca7c570c76ee87b957",
+          "cpu_percent": 0.24048731595563627,
+          "memory_percent": 0.21615392,
+          "create_time": "2025-07-18T12:23:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93231,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023076756,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93202,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93235,
+          "name": "node",
+          "cpu_percent": 0.9552355480438651,
+          "memory_percent": 1.2468337,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93231,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93288,
+          "name": "node",
+          "cpu_percent": 0.253797131571323,
+          "memory_percent": 0.84395,
+          "create_time": "2025-07-18T12:23:41Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "14m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 2.851559752024534,
+          "memory_percent": 9.012974,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "14m",
+          "tty": "?"
+        },
+        {
+          "pid": 93459,
+          "name": "node",
+          "cpu_percent": 0.03312882249203736,
+          "memory_percent": 0.6686355,
+          "create_time": "2025-07-18T12:24:04Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "14m",
+          "tty": "?"
+        },
+        {
+          "pid": 93550,
+          "name": "node",
+          "cpu_percent": 0.07553083505576028,
+          "memory_percent": 0.7548904,
+          "create_time": "2025-07-18T12:25:25Z",
+          "status": "S",
+          "parent_pid": 93448,
+          "running_hours": "13m",
+          "tty": "?"
+        },
+        {
+          "pid": 93574,
+          "name": "bash",
+          "cpu_percent": 0.013988071856882878,
+          "memory_percent": 0.06898425,
+          "create_time": "2025-07-18T12:25:33Z",
+          "status": "S",
+          "parent_pid": 93288,
+          "running_hours": "13m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 96381,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.024405269,
+          "create_time": "2025-07-18T12:38:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "0m",
+          "tty": "?"
+        },
+        {
+          "pid": 96452,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.08556605,
+          "create_time": "2025-07-18T12:38:34Z",
+          "status": "S",
+          "parent_pid": 93574,
+          "running_hours": "0m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 96453,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.030506587,
+          "create_time": "2025-07-18T12:38:34Z",
+          "status": "S",
+          "parent_pid": 96452,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        },
+        {
+          "pid": 96454,
+          "name": "rds-monitor",
+          "cpu_percent": 6.234644349463333,
+          "memory_percent": 0.11425209,
+          "create_time": "2025-07-18T12:38:34Z",
+          "status": "S",
+          "parent_pid": 96453,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        },
+        {
+          "pid": 96724,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.023618003,
+          "create_time": "2025-07-18T12:38:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "0m",
+          "tty": "?"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 12:39:23 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 0
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 0
+      }
+    ],
+    "idle": "730913.94",
+    "load_15min": "0.06",
+    "load_1min": "0.02",
+    "load_5min": "0.06",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "442.31",
+    "time_spent_user": "1442.57",
+    "usage_percent": "0.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4494.87890625,
+          "free_mb": 14259.87109375,
+          "used_percent": 23.96661595729082
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4494.87890625,
+          "free_mb": 14259.87109375,
+          "used_percent": 23.96661595729082
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.56 GB (5832796 KB)",
+    "cached": "3.33 GB (3487556 KB)",
+    "free": "2.41 GB (2530796 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.89 GB (1978980 KB)",
+    "used_percent": "24.34%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 24,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0
+      },
+      "processes": []
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 2,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "?",
+        "TopRunningTime": 3
+      },
+      "processes": [
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.3076315375804295,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 2.8064285090614542,
+          "memory_percent": 9.069215,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "15m",
+          "tty": "?"
+        }
+      ]
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "S",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0
+      },
+      "processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.005146105017241554,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.00001636281371984101,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 15,
+          "name": "ksoftirqd/0",
+          "cpu_percent": 0.00019908085912786558,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 17,
+          "name": "rcu_exp_par_gp_kthread_worker/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 18,
+          "name": "rcu_exp_gp_kthread_worker",
+          "cpu_percent": 0.0000027271348870136742,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 19,
+          "name": "migration/0",
+          "cpu_percent": 0.0004581586520315181,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 20,
+          "name": "idle_inject/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 21,
+          "name": "cpuhp/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 22,
+          "name": "cpuhp/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 23,
+          "name": "idle_inject/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 24,
+          "name": "migration/1",
+          "cpu_percent": 0.0004417957949742408,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 25,
+          "name": "ksoftirqd/1",
+          "cpu_percent": 0.00019908081724704437,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 28,
+          "name": "kdevtmpfs",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 30,
+          "name": "kauditd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 31,
+          "name": "khungtaskd",
+          "cpu_percent": 0.000038179879020472115,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 33,
+          "name": "oom_reaper",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 36,
+          "name": "kcompactd0",
+          "cpu_percent": 0.003507094400276799,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 37,
+          "name": "ksmd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 38,
+          "name": "khugepaged",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 42,
+          "name": "irq/9-acpi",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 50,
+          "name": "watchdogd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 52,
+          "name": "kswapd0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 53,
+          "name": "ecryptfs-kthread",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 56,
+          "name": "hwrng",
+          "cpu_percent": 0.013032968926772514,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 57,
+          "name": "scsi_eh_0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 89,
+          "name": "jbd2/sda1-8",
+          "cpu_percent": 0.0003599814758872837,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 303,
+          "name": "jbd2/sda16-8",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:48:00Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 710,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0008345319740951588,
+          "memory_percent": 0.06740972,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 724,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.00003272674336816131,
+          "memory_percent": 0.25286025,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 781,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.027062295,
+          "create_time": "2025-07-14T06:48:11Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h51m",
+          "tty": "ttyS0"
+        },
+        {
+          "pid": 806,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.025733782,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h51m",
+          "tty": "tty1"
+        },
+        {
+          "pid": 811,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.00002181794668282765,
+          "memory_percent": 0.28272718,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "101h51m",
+          "tty": "?"
+        },
+        {
+          "pid": 27016,
+          "name": "snapd",
+          "cpu_percent": 0.0051956524150785464,
+          "memory_percent": 0.47875658,
+          "create_time": "2025-07-14T16:03:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "92h35m",
+          "tty": "?"
+        },
+        {
+          "pid": 32753,
+          "name": "google_osconfig_agent",
+          "cpu_percent": 0.010456418958737782,
+          "memory_percent": 0.2995058,
+          "create_time": "2025-07-15T06:31:40Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32778,
+          "name": "chronyd",
+          "cpu_percent": 0.00003199867489145467,
+          "memory_percent": 0.04507102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32782,
+          "name": "chronyd",
+          "cpu_percent": 0,
+          "memory_percent": 0.028538419,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 32778,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32810,
+          "name": "multipathd",
+          "cpu_percent": 0.008483203814068151,
+          "memory_percent": 0.33453918,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32816,
+          "name": "polkitd",
+          "cpu_percent": 0.001994583917655753,
+          "memory_percent": 0.10756032,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32843,
+          "name": "systemd-journald",
+          "cpu_percent": 0.0017812593924558583,
+          "memory_percent": 0.22437102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32848,
+          "name": "sshd",
+          "cpu_percent": 0.000010666223653937781,
+          "memory_percent": 0.09860516,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32871,
+          "name": "systemd-resolved",
+          "cpu_percent": 0.0012799468079831371,
+          "memory_percent": 0.16045481,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32879,
+          "name": "systemd-udevd",
+          "cpu_percent": 0.00013155008481934008,
+          "memory_percent": 0.07813623,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32881,
+          "name": "rsyslogd",
+          "cpu_percent": 0.0005190895110566916,
+          "memory_percent": 0.071788885,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32882,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32883,
+          "name": "systemd-networkd",
+          "cpu_percent": 0.00013155007417572548,
+          "memory_percent": 0.116859905,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 32888,
+          "name": "google_guest_agent",
+          "cpu_percent": 0.009290279288937586,
+          "memory_percent": 0.2844001,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 33018,
+          "name": "systemd-logind",
+          "cpu_percent": 0.00031287694730007174,
+          "memory_percent": 0.106576234,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 33022,
+          "name": "cron",
+          "cpu_percent": 0.00022043602448052542,
+          "memory_percent": 0.03552541,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61655,
+          "name": "supervisord",
+          "cpu_percent": 0.014591045711622588,
+          "memory_percent": 0.35446686,
+          "create_time": "2025-07-17T09:44:14Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 61656,
+          "name": "nginx",
+          "cpu_percent": 0,
+          "memory_percent": 0.090043634,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 61657,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.004984120716831634,
+          "memory_percent": 0.33139008,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 61658,
+          "name": "nginx",
+          "cpu_percent": 0.000020638179577109962,
+          "memory_percent": 0.06829539,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 61659,
+          "name": "nginx",
+          "cpu_percent": 0.0002476581375061493,
+          "memory_percent": 0.069230266,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 61660,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.000020638176397910752,
+          "memory_percent": 0.20956057,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 61661,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.000020638174940261155,
+          "memory_percent": 0.18102215,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "26h55m",
+          "tty": "?"
+        },
+        {
+          "pid": 77788,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77790,
+          "name": "systemd",
+          "cpu_percent": 0.0019676637932008255,
+          "memory_percent": 0.14328255,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77793,
+          "name": "(sd-pam)",
+          "cpu_percent": 0,
+          "memory_percent": 0.04349649,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77952,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.02228949,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77956,
+          "name": "node",
+          "cpu_percent": 0.11780571837065111,
+          "memory_percent": 1.8218336,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 77952,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 77993,
+          "name": "node",
+          "cpu_percent": 0.1277619065164746,
+          "memory_percent": 1.0702891,
+          "create_time": "2025-07-18T07:34:31Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "5h4m",
+          "tty": "?"
+        },
+        {
+          "pid": 78266,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0006233762389701627,
+          "memory_percent": 0.06273532,
+          "create_time": "2025-07-18T07:45:17Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "4h54m",
+          "tty": "?"
+        },
+        {
+          "pid": 87456,
+          "name": "sshd",
+          "cpu_percent": 0.00022753856244005967,
+          "memory_percent": 0.12724198,
+          "create_time": "2025-07-18T11:26:08Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87553,
+          "name": "sshd",
+          "cpu_percent": 0.05645516395023441,
+          "memory_percent": 0.09535769,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87456,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87554,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87553,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87559,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023864023,
+          "create_time": "2025-07-18T11:26:11Z",
+          "status": "S",
+          "parent_pid": 87554,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87577,
+          "name": "code-2901c5ac6db8a986a5666c3af51ff804d05af0d4",
+          "cpu_percent": 0.10271270893788575,
+          "memory_percent": 0.2371149,
+          "create_time": "2025-07-18T11:26:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.307320700851896,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87616,
+          "name": "node",
+          "cpu_percent": 0.01458223733497365,
+          "memory_percent": 0.75553006,
+          "create_time": "2025-07-18T11:26:14Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h13m",
+          "tty": "?"
+        },
+        {
+          "pid": 87655,
+          "name": "bash",
+          "cpu_percent": 0.003192769439280371,
+          "memory_percent": 0.06947629,
+          "create_time": "2025-07-18T11:26:18Z",
+          "status": "S",
+          "parent_pid": 77993,
+          "running_hours": "1h13m",
+          "tty": "pts/0"
+        },
+        {
+          "pid": 89782,
+          "name": "node",
+          "cpu_percent": 0.026147737991131015,
+          "memory_percent": 0.82131606,
+          "create_time": "2025-07-18T12:03:03Z",
+          "status": "S",
+          "parent_pid": 87605,
+          "running_hours": "36m",
+          "tty": "?"
+        },
+        {
+          "pid": 93123,
+          "name": "sshd",
+          "cpu_percent": 0.0010526881984591673,
+          "memory_percent": 0.12807846,
+          "create_time": "2025-07-18T12:23:33Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93178,
+          "name": "sshd",
+          "cpu_percent": 0.10654505908904666,
+          "memory_percent": 0.10308274,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93123,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93179,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93178,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93184,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.021502223,
+          "create_time": "2025-07-18T12:23:36Z",
+          "status": "S",
+          "parent_pid": 93179,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93202,
+          "name": "code-17baf841131aa23349f217ca7c570c76ee87b957",
+          "cpu_percent": 0.24313519380303647,
+          "memory_percent": 0.21615392,
+          "create_time": "2025-07-18T12:23:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93231,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023076756,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93202,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93235,
+          "name": "node",
+          "cpu_percent": 0.9227619059486336,
+          "memory_percent": 1.2522954,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93231,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93288,
+          "name": "node",
+          "cpu_percent": 0.2515934632589814,
+          "memory_percent": 0.8517242,
+          "create_time": "2025-07-18T12:23:41Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 2.804340114090679,
+          "memory_percent": 9.072364,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93459,
+          "name": "node",
+          "cpu_percent": 0.032643840906338116,
+          "memory_percent": 0.6686355,
+          "create_time": "2025-07-18T12:24:04Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "15m",
+          "tty": "?"
+        },
+        {
+          "pid": 93550,
+          "name": "node",
+          "cpu_percent": 0.07398416324057162,
+          "memory_percent": 0.74131006,
+          "create_time": "2025-07-18T12:25:25Z",
+          "status": "S",
+          "parent_pid": 93448,
+          "running_hours": "13m",
+          "tty": "?"
+        },
+        {
+          "pid": 93574,
+          "name": "bash",
+          "cpu_percent": 0.013252636522554059,
+          "memory_percent": 0.06898425,
+          "create_time": "2025-07-18T12:25:33Z",
+          "status": "S",
+          "parent_pid": 93288,
+          "running_hours": "13m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 96381,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.024405269,
+          "create_time": "2025-07-18T12:38:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "1m",
+          "tty": "?"
+        },
+        {
+          "pid": 96724,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.023618003,
+          "create_time": "2025-07-18T12:38:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "0m",
+          "tty": "?"
+        },
+        {
+          "pid": 97153,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.085910484,
+          "create_time": "2025-07-18T12:39:18Z",
+          "status": "S",
+          "parent_pid": 93574,
+          "running_hours": "0m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 97154,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.030408178,
+          "create_time": "2025-07-18T12:39:18Z",
+          "status": "S",
+          "parent_pid": 97153,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        },
+        {
+          "pid": 97155,
+          "name": "rds-monitor",
+          "cpu_percent": 6.471094471552311,
+          "memory_percent": 0.11262835,
+          "create_time": "2025-07-18T12:39:18Z",
+          "status": "S",
+          "parent_pid": 97154,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 12:50:49 Logger initialized.
+2025/07/18 12:50:49 Running system checks...
+2025/07/18 12:50:53 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 3.0303030303287812
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 2.0202020203379667
+      }
+    ],
+    "idle": "732265.33",
+    "load_15min": "0.05",
+    "load_1min": "0.18",
+    "load_5min": "0.08",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "448.53",
+    "time_spent_user": "1456.45",
+    "usage_percent": "3.03",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4572.64453125,
+          "free_mb": 14182.10546875,
+          "used_percent": 24.381260913901812
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4572.64453125,
+          "free_mb": 14182.10546875,
+          "used_percent": 24.381260913901812
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.53 GB (5796320 KB)",
+    "cached": "3.40 GB (3569468 KB)",
+    "free": "2.30 GB (2412340 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.92 GB (2015456 KB)",
+    "used_percent": "24.79%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 24,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0
+      },
+      "processes": []
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 2,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "?",
+        "TopRunningTime": 3
+      },
+      "processes": [
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.1540292459386607,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 1.6959616893199188,
+          "memory_percent": 9.121322,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "26m",
+          "tty": "?"
+        }
+      ]
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "S",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0
+      },
+      "processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.00515276148538209,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.000016332048768390326,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 15,
+          "name": "ksoftirqd/0",
+          "cpu_percent": 0.00020142855855209853,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 17,
+          "name": "rcu_exp_par_gp_kthread_worker/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 18,
+          "name": "rcu_exp_gp_kthread_worker",
+          "cpu_percent": 0.000002722007357464215,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 19,
+          "name": "migration/0",
+          "cpu_percent": 0.0004572972239985575,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 20,
+          "name": "idle_inject/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 21,
+          "name": "cpuhp/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 22,
+          "name": "cpuhp/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 23,
+          "name": "idle_inject/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 24,
+          "name": "migration/1",
+          "cpu_percent": 0.0004409651204615915,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 25,
+          "name": "ksoftirqd/1",
+          "cpu_percent": 0.00020415051240552342,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 28,
+          "name": "kdevtmpfs",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 30,
+          "name": "kauditd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 31,
+          "name": "khungtaskd",
+          "cpu_percent": 0.000038108090409415165,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 33,
+          "name": "oom_reaper",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 36,
+          "name": "kcompactd0",
+          "cpu_percent": 0.0035059440872259604,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 37,
+          "name": "ksmd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 38,
+          "name": "khugepaged",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 42,
+          "name": "irq/9-acpi",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 50,
+          "name": "watchdogd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 52,
+          "name": "kswapd0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 53,
+          "name": "ecryptfs-kthread",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 56,
+          "name": "hwrng",
+          "cpu_percent": 0.013030238978848079,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 57,
+          "name": "scsi_eh_0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 89,
+          "name": "jbd2/sda1-8",
+          "cpu_percent": 0.0003593045929365238,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 303,
+          "name": "jbd2/sda16-8",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:48:00Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 710,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0008384069192829345,
+          "memory_percent": 0.06740972,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 724,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.00003266520373875724,
+          "memory_percent": 0.25286025,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 781,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.027062295,
+          "create_time": "2025-07-14T06:48:11Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h2m",
+          "tty": "ttyS0"
+        },
+        {
+          "pid": 806,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.025733782,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h2m",
+          "tty": "tty1"
+        },
+        {
+          "pid": 811,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.000021776919443398333,
+          "memory_percent": 0.28272718,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h2m",
+          "tty": "?"
+        },
+        {
+          "pid": 27016,
+          "name": "snapd",
+          "cpu_percent": 0.005193888723722383,
+          "memory_percent": 0.47875658,
+          "create_time": "2025-07-14T16:03:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "92h47m",
+          "tty": "?"
+        },
+        {
+          "pid": 32753,
+          "name": "google_osconfig_agent",
+          "cpu_percent": 0.010455626974933907,
+          "memory_percent": 0.29793125,
+          "create_time": "2025-07-15T06:31:40Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32778,
+          "name": "chronyd",
+          "cpu_percent": 0.00003192027618288844,
+          "memory_percent": 0.04507102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32782,
+          "name": "chronyd",
+          "cpu_percent": 0,
+          "memory_percent": 0.028538419,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 32778,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32810,
+          "name": "multipathd",
+          "cpu_percent": 0.008483699664546906,
+          "memory_percent": 0.33453918,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32816,
+          "name": "polkitd",
+          "cpu_percent": 0.0019967904653580442,
+          "memory_percent": 0.10756032,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32843,
+          "name": "systemd-journald",
+          "cpu_percent": 0.0017839885889380383,
+          "memory_percent": 0.22437102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32848,
+          "name": "sshd",
+          "cpu_percent": 0.000010640090722778351,
+          "memory_percent": 0.09860516,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32871,
+          "name": "systemd-resolved",
+          "cpu_percent": 0.0012839042494839246,
+          "memory_percent": 0.16045481,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32879,
+          "name": "systemd-udevd",
+          "cpu_percent": 0.0001312277790169405,
+          "memory_percent": 0.07813623,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32881,
+          "name": "rsyslogd",
+          "cpu_percent": 0.0005178177097546684,
+          "memory_percent": 0.071788885,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32882,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32883,
+          "name": "systemd-networkd",
+          "cpu_percent": 0.0001347744642119764,
+          "memory_percent": 0.116859905,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32888,
+          "name": "google_guest_agent",
+          "cpu_percent": 0.009285250968548856,
+          "memory_percent": 0.2844001,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 33018,
+          "name": "systemd-logind",
+          "cpu_percent": 0.000312110374293919,
+          "memory_percent": 0.106576234,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 33022,
+          "name": "cron",
+          "cpu_percent": 0.0002198959391808334,
+          "memory_percent": 0.03552541,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 61655,
+          "name": "supervisord",
+          "cpu_percent": 0.014590230536215991,
+          "memory_percent": 0.35446686,
+          "create_time": "2025-07-17T09:44:14Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61656,
+          "name": "nginx",
+          "cpu_percent": 0,
+          "memory_percent": 0.090043634,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61657,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.00498982722024642,
+          "memory_percent": 0.33139008,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61658,
+          "name": "nginx",
+          "cpu_percent": 0.000020492102074988188,
+          "memory_percent": 0.06829539,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61659,
+          "name": "nginx",
+          "cpu_percent": 0.0002459052070246448,
+          "memory_percent": 0.069230266,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61660,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.00002049209909422299,
+          "memory_percent": 0.20956057,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 61661,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.000020492097349819357,
+          "memory_percent": 0.18102215,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "27h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 77788,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77790,
+          "name": "systemd",
+          "cpu_percent": 0.0019487414255512038,
+          "memory_percent": 0.14328255,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77793,
+          "name": "(sd-pam)",
+          "cpu_percent": 0,
+          "memory_percent": 0.04349649,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77952,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.02228949,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77956,
+          "name": "node",
+          "cpu_percent": 0.11478307370547267,
+          "memory_percent": 1.8218336,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 77952,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77993,
+          "name": "node",
+          "cpu_percent": 0.12637861358211863,
+          "memory_percent": 1.0702891,
+          "create_time": "2025-07-18T07:34:31Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 78266,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0005998914909616498,
+          "memory_percent": 0.06273532,
+          "create_time": "2025-07-18T07:45:17Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "5h5m",
+          "tty": "?"
+        },
+        {
+          "pid": 87456,
+          "name": "sshd",
+          "cpu_percent": 0.0001966311290805291,
+          "memory_percent": 0.12724198,
+          "create_time": "2025-07-18T11:26:08Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87553,
+          "name": "sshd",
+          "cpu_percent": 0.05016059501861022,
+          "memory_percent": 0.09535769,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87456,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87554,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87553,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87559,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023864023,
+          "create_time": "2025-07-18T11:26:11Z",
+          "status": "S",
+          "parent_pid": 87554,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87577,
+          "name": "code-2901c5ac6db8a986a5666c3af51ff804d05af0d4",
+          "cpu_percent": 0.09209527419901667,
+          "memory_percent": 0.2371149,
+          "create_time": "2025-07-18T11:26:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.153777832956273,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87616,
+          "name": "node",
+          "cpu_percent": 0.013977181573768259,
+          "memory_percent": 0.7571046,
+          "create_time": "2025-07-18T11:26:14Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h24m",
+          "tty": "?"
+        },
+        {
+          "pid": 87655,
+          "name": "bash",
+          "cpu_percent": 0.002758231543159496,
+          "memory_percent": 0.06947629,
+          "create_time": "2025-07-18T11:26:18Z",
+          "status": "S",
+          "parent_pid": 77993,
+          "running_hours": "1h24m",
+          "tty": "pts/0"
+        },
+        {
+          "pid": 89782,
+          "name": "node",
+          "cpu_percent": 0.021248944641998006,
+          "memory_percent": 0.82131606,
+          "create_time": "2025-07-18T12:03:03Z",
+          "status": "S",
+          "parent_pid": 87605,
+          "running_hours": "47m",
+          "tty": "?"
+        },
+        {
+          "pid": 93123,
+          "name": "sshd",
+          "cpu_percent": 0.0006094763975608755,
+          "memory_percent": 0.12807846,
+          "create_time": "2025-07-18T12:23:33Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93178,
+          "name": "sshd",
+          "cpu_percent": 0.07078524160869072,
+          "memory_percent": 0.10308274,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93123,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93179,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93178,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93184,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.021502223,
+          "create_time": "2025-07-18T12:23:36Z",
+          "status": "S",
+          "parent_pid": 93179,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93202,
+          "name": "code-17baf841131aa23349f217ca7c570c76ee87b957",
+          "cpu_percent": 0.1582372566567512,
+          "memory_percent": 0.21615392,
+          "create_time": "2025-07-18T12:23:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93231,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023076756,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93202,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93235,
+          "name": "node",
+          "cpu_percent": 0.5624166715243295,
+          "memory_percent": 1.2468337,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93231,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93288,
+          "name": "node",
+          "cpu_percent": 0.18679511152383063,
+          "memory_percent": 0.8671251,
+          "create_time": "2025-07-18T12:23:41Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 1.6985222947189975,
+          "memory_percent": 9.122306,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "26m",
+          "tty": "?"
+        },
+        {
+          "pid": 93459,
+          "name": "node",
+          "cpu_percent": 0.023605139808288784,
+          "memory_percent": 0.6717846,
+          "create_time": "2025-07-18T12:24:04Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "26m",
+          "tty": "?"
+        },
+        {
+          "pid": 93550,
+          "name": "node",
+          "cpu_percent": 0.0438244572541058,
+          "memory_percent": 0.7418021,
+          "create_time": "2025-07-18T12:25:25Z",
+          "status": "S",
+          "parent_pid": 93448,
+          "running_hours": "25m",
+          "tty": "?"
+        },
+        {
+          "pid": 93574,
+          "name": "bash",
+          "cpu_percent": 0.0078904110724655,
+          "memory_percent": 0.06898425,
+          "create_time": "2025-07-18T12:25:33Z",
+          "status": "S",
+          "parent_pid": 93288,
+          "running_hours": "25m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 98101,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.024405269,
+          "create_time": "2025-07-18T12:50:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "0m",
+          "tty": "?"
+        },
+        {
+          "pid": 98185,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.023618003,
+          "create_time": "2025-07-18T12:50:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "0m",
+          "tty": "?"
+        },
+        {
+          "pid": 98273,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.08556605,
+          "create_time": "2025-07-18T12:50:48Z",
+          "status": "S",
+          "parent_pid": 93574,
+          "running_hours": "0m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 98274,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.029571706,
+          "create_time": "2025-07-18T12:50:48Z",
+          "status": "S",
+          "parent_pid": 98273,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        },
+        {
+          "pid": 98275,
+          "name": "rds-monitor",
+          "cpu_percent": 5.9182220746708385,
+          "memory_percent": 0.113415614,
+          "create_time": "2025-07-18T12:50:48Z",
+          "status": "S",
+          "parent_pid": 98274,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 12:51:23 Logger initialized.
+2025/07/18 12:51:23 Running system checks...
+2025/07/18 12:51:27 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 1.0101010101095937
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 3.0303030301506126
+      }
+    ],
+    "idle": "732326.60",
+    "load_15min": "0.06",
+    "load_1min": "0.20",
+    "load_5min": "0.10",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "451.36",
+    "time_spent_user": "1459.11",
+    "usage_percent": "1.01",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4572.77734375,
+          "free_mb": 14181.97265625,
+          "used_percent": 24.38196906783615
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4572.77734375,
+          "free_mb": 14181.97265625,
+          "used_percent": 24.38196906783615
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.52 GB (5786400 KB)",
+    "cached": "3.40 GB (3569568 KB)",
+    "free": "2.29 GB (2402320 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.93 GB (2025376 KB)",
+    "used_percent": "24.91%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 24,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0
+      },
+      "processes": []
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 2,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "?",
+        "TopRunningTime": 3
+      },
+      "processes": [
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.146853362537298,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 1.7173503536262,
+          "memory_percent": 9.337722,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "27m",
+          "tty": "?"
+        }
+      ]
+    },
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "S",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0
+      },
+      "processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.00515501314663214,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.000016330558741608636,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 15,
+          "name": "ksoftirqd/0",
+          "cpu_percent": 0.0002041319420826388,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 17,
+          "name": "rcu_exp_par_gp_kthread_worker/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 18,
+          "name": "rcu_exp_gp_kthread_worker",
+          "cpu_percent": 0.000002721759013745237,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 19,
+          "name": "migration/0",
+          "cpu_percent": 0.00045725550546818564,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 20,
+          "name": "idle_inject/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 21,
+          "name": "cpuhp/0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 22,
+          "name": "cpuhp/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 23,
+          "name": "idle_inject/1",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 24,
+          "name": "migration/1",
+          "cpu_percent": 0.00044092490964240766,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 25,
+          "name": "ksoftirqd/1",
+          "cpu_percent": 0.0002068536567580773,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 28,
+          "name": "kdevtmpfs",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 30,
+          "name": "kauditd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 31,
+          "name": "khungtaskd",
+          "cpu_percent": 0.000038104617215861455,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 33,
+          "name": "oom_reaper",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 36,
+          "name": "kcompactd0",
+          "cpu_percent": 0.0035056245271373587,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 37,
+          "name": "ksmd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 38,
+          "name": "khugepaged",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 42,
+          "name": "irq/9-acpi",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 50,
+          "name": "watchdogd",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 52,
+          "name": "kswapd0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 53,
+          "name": "ecryptfs-kthread",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 56,
+          "name": "hwrng",
+          "cpu_percent": 0.013031772028443602,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 57,
+          "name": "scsi_eh_0",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 89,
+          "name": "jbd2/sda1-8",
+          "cpu_percent": 0.0003592718212531821,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 303,
+          "name": "jbd2/sda16-8",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:48:00Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 710,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0008383304665884555,
+          "memory_percent": 0.06740972,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 724,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.00003266222538277077,
+          "memory_percent": 0.25286025,
+          "create_time": "2025-07-14T06:48:10Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 781,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.027062295,
+          "create_time": "2025-07-14T06:48:11Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h3m",
+          "tty": "ttyS0"
+        },
+        {
+          "pid": 806,
+          "name": "agetty",
+          "cpu_percent": 0,
+          "memory_percent": 0.025733782,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h3m",
+          "tty": "tty1"
+        },
+        {
+          "pid": 811,
+          "name": "/usr/bin/python3",
+          "cpu_percent": 0.000021774934158902622,
+          "memory_percent": 0.28272718,
+          "create_time": "2025-07-14T06:48:12Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "102h3m",
+          "tty": "?"
+        },
+        {
+          "pid": 27016,
+          "name": "snapd",
+          "cpu_percent": 0.0051933680216292135,
+          "memory_percent": 0.47875658,
+          "create_time": "2025-07-14T16:03:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "92h47m",
+          "tty": "?"
+        },
+        {
+          "pid": 32753,
+          "name": "google_osconfig_agent",
+          "cpu_percent": 0.010454385123746154,
+          "memory_percent": 0.29793125,
+          "create_time": "2025-07-15T06:31:40Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32778,
+          "name": "chronyd",
+          "cpu_percent": 0.00003191648492282824,
+          "memory_percent": 0.04507102,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32782,
+          "name": "chronyd",
+          "cpu_percent": 0,
+          "memory_percent": 0.028538419,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 32778,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32810,
+          "name": "multipathd",
+          "cpu_percent": 0.008482691994293535,
+          "memory_percent": 0.33453918,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32816,
+          "name": "polkitd",
+          "cpu_percent": 0.0019965532922071945,
+          "memory_percent": 0.10756032,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32843,
+          "name": "systemd-journald",
+          "cpu_percent": 0.0017873229736558257,
+          "memory_percent": 0.22594556,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32848,
+          "name": "sshd",
+          "cpu_percent": 0.000010638826975519,
+          "memory_percent": 0.09860516,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32871,
+          "name": "systemd-resolved",
+          "cpu_percent": 0.0012837517573729927,
+          "memory_percent": 0.16045481,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32879,
+          "name": "systemd-udevd",
+          "cpu_percent": 0.00013121219222936526,
+          "memory_percent": 0.07813623,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32881,
+          "name": "rsyslogd",
+          "cpu_percent": 0.0005213024805352598,
+          "memory_percent": 0.071788885,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32882,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32883,
+          "name": "systemd-networkd",
+          "cpu_percent": 0.0001347584568367202,
+          "memory_percent": 0.116859905,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 32888,
+          "name": "google_guest_agent",
+          "cpu_percent": 0.009287694462347916,
+          "memory_percent": 0.2844001,
+          "create_time": "2025-07-15T06:31:41Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 33018,
+          "name": "systemd-logind",
+          "cpu_percent": 0.00031207330678142107,
+          "memory_percent": 0.106576234,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 33022,
+          "name": "cron",
+          "cpu_percent": 0.0002198698243460306,
+          "memory_percent": 0.03552541,
+          "create_time": "2025-07-15T06:31:42Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "78h19m",
+          "tty": "?"
+        },
+        {
+          "pid": 61655,
+          "name": "supervisord",
+          "cpu_percent": 0.014605710955993301,
+          "memory_percent": 0.35446686,
+          "create_time": "2025-07-17T09:44:14Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61656,
+          "name": "nginx",
+          "cpu_percent": 0,
+          "memory_percent": 0.090043634,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61657,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.0049881157885654495,
+          "memory_percent": 0.33139008,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61655,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61658,
+          "name": "nginx",
+          "cpu_percent": 0.00002048507352052255,
+          "memory_percent": 0.06829539,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61659,
+          "name": "nginx",
+          "cpu_percent": 0.0002458208646825434,
+          "memory_percent": 0.069230266,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61656,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61660,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.00002048507047312481,
+          "memory_percent": 0.20956057,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 61661,
+          "name": "php-fpm8.3",
+          "cpu_percent": 0.0000204850690880961,
+          "memory_percent": 0.18102215,
+          "create_time": "2025-07-17T09:44:15Z",
+          "status": "S",
+          "parent_pid": 61657,
+          "running_hours": "27h7m",
+          "tty": "?"
+        },
+        {
+          "pid": 77788,
+          "name": "psimon",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "5h17m",
+          "tty": "?"
+        },
+        {
+          "pid": 77790,
+          "name": "systemd",
+          "cpu_percent": 0.001945310723701133,
+          "memory_percent": 0.14328255,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h17m",
+          "tty": "?"
+        },
+        {
+          "pid": 77793,
+          "name": "(sd-pam)",
+          "cpu_percent": 0,
+          "memory_percent": 0.04349649,
+          "create_time": "2025-07-18T07:34:27Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "5h17m",
+          "tty": "?"
+        },
+        {
+          "pid": 77952,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.02228949,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 1,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77956,
+          "name": "node",
+          "cpu_percent": 0.114633561613721,
+          "memory_percent": 1.8218336,
+          "create_time": "2025-07-18T07:34:30Z",
+          "status": "S",
+          "parent_pid": 77952,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 77993,
+          "name": "node",
+          "cpu_percent": 0.12631385270915194,
+          "memory_percent": 1.0702891,
+          "create_time": "2025-07-18T07:34:31Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "5h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 78266,
+          "name": "dbus-daemon",
+          "cpu_percent": 0.0005987980573035985,
+          "memory_percent": 0.06273532,
+          "create_time": "2025-07-18T07:45:17Z",
+          "status": "S",
+          "parent_pid": 77790,
+          "running_hours": "5h6m",
+          "tty": "?"
+        },
+        {
+          "pid": 87456,
+          "name": "sshd",
+          "cpu_percent": 0.0001953450580162566,
+          "memory_percent": 0.12724198,
+          "create_time": "2025-07-18T11:26:08Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87553,
+          "name": "sshd",
+          "cpu_percent": 0.049832393430874894,
+          "memory_percent": 0.09535769,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87456,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87554,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T11:26:10Z",
+          "status": "S",
+          "parent_pid": 87553,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87559,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023864023,
+          "create_time": "2025-07-18T11:26:11Z",
+          "status": "S",
+          "parent_pid": 87554,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87577,
+          "name": "code-2901c5ac6db8a986a5666c3af51ff804d05af0d4",
+          "cpu_percent": 0.09188349815200059,
+          "memory_percent": 0.2371149,
+          "create_time": "2025-07-18T11:26:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87605,
+          "name": "node",
+          "cpu_percent": 1.1468114914748841,
+          "memory_percent": 8.814878,
+          "create_time": "2025-07-18T11:26:13Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87616,
+          "name": "node",
+          "cpu_percent": 0.01388566639934579,
+          "memory_percent": 0.7571046,
+          "create_time": "2025-07-18T11:26:14Z",
+          "status": "S",
+          "parent_pid": 77956,
+          "running_hours": "1h25m",
+          "tty": "?"
+        },
+        {
+          "pid": 87655,
+          "name": "bash",
+          "cpu_percent": 0.0027401582593159952,
+          "memory_percent": 0.06947629,
+          "create_time": "2025-07-18T11:26:18Z",
+          "status": "S",
+          "parent_pid": 77993,
+          "running_hours": "1h25m",
+          "tty": "pts/0"
+        },
+        {
+          "pid": 89782,
+          "name": "node",
+          "cpu_percent": 0.02100401254613998,
+          "memory_percent": 0.82131606,
+          "create_time": "2025-07-18T12:03:03Z",
+          "status": "S",
+          "parent_pid": 87605,
+          "running_hours": "48m",
+          "tty": "?"
+        },
+        {
+          "pid": 93123,
+          "name": "sshd",
+          "cpu_percent": 0.0005972902403664825,
+          "memory_percent": 0.12807846,
+          "create_time": "2025-07-18T12:23:33Z",
+          "status": "S",
+          "parent_pid": 32848,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93178,
+          "name": "sshd",
+          "cpu_percent": 0.07415228167289153,
+          "memory_percent": 0.10308274,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93123,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93179,
+          "name": "bash",
+          "cpu_percent": 0,
+          "memory_percent": 0.04541545,
+          "create_time": "2025-07-18T12:23:35Z",
+          "status": "S",
+          "parent_pid": 93178,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93184,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.021502223,
+          "create_time": "2025-07-18T12:23:36Z",
+          "status": "S",
+          "parent_pid": 93179,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93202,
+          "name": "code-17baf841131aa23349f217ca7c570c76ee87b957",
+          "cpu_percent": 0.1622505787258641,
+          "memory_percent": 0.21615392,
+          "create_time": "2025-07-18T12:23:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93231,
+          "name": "sh",
+          "cpu_percent": 0,
+          "memory_percent": 0.023076756,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93202,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93235,
+          "name": "node",
+          "cpu_percent": 0.555931628425756,
+          "memory_percent": 1.2456528,
+          "create_time": "2025-07-18T12:23:38Z",
+          "status": "S",
+          "parent_pid": 93231,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93288,
+          "name": "node",
+          "cpu_percent": 0.18784392718669832,
+          "memory_percent": 0.856497,
+          "create_time": "2025-07-18T12:23:41Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93448,
+          "name": "node",
+          "cpu_percent": 1.7192885041192254,
+          "memory_percent": 9.3550415,
+          "create_time": "2025-07-18T12:24:03Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93459,
+          "name": "node",
+          "cpu_percent": 0.023124316053042004,
+          "memory_percent": 0.6717846,
+          "create_time": "2025-07-18T12:24:04Z",
+          "status": "S",
+          "parent_pid": 93235,
+          "running_hours": "27m",
+          "tty": "?"
+        },
+        {
+          "pid": 93550,
+          "name": "node",
+          "cpu_percent": 0.043525605438480504,
+          "memory_percent": 0.73540556,
+          "create_time": "2025-07-18T12:25:25Z",
+          "status": "S",
+          "parent_pid": 93448,
+          "running_hours": "26m",
+          "tty": "?"
+        },
+        {
+          "pid": 93574,
+          "name": "bash",
+          "cpu_percent": 0.008363859104371645,
+          "memory_percent": 0.06898425,
+          "create_time": "2025-07-18T12:25:33Z",
+          "status": "S",
+          "parent_pid": 93288,
+          "running_hours": "25m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 98101,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.024405269,
+          "create_time": "2025-07-18T12:50:12Z",
+          "status": "S",
+          "parent_pid": 87559,
+          "running_hours": "1m",
+          "tty": "?"
+        },
+        {
+          "pid": 98185,
+          "name": "sleep",
+          "cpu_percent": 0,
+          "memory_percent": 0.023618003,
+          "create_time": "2025-07-18T12:50:37Z",
+          "status": "S",
+          "parent_pid": 93184,
+          "running_hours": "0m",
+          "tty": "?"
+        },
+        {
+          "pid": 98854,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.08556605,
+          "create_time": "2025-07-18T12:51:22Z",
+          "status": "S",
+          "parent_pid": 93574,
+          "running_hours": "0m",
+          "tty": "pts/1"
+        },
+        {
+          "pid": 98855,
+          "name": "sudo",
+          "cpu_percent": 0,
+          "memory_percent": 0.030358974,
+          "create_time": "2025-07-18T12:51:22Z",
+          "status": "S",
+          "parent_pid": 98854,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        },
+        {
+          "pid": 98856,
+          "name": "rds-monitor",
+          "cpu_percent": 6.315654270191117,
+          "memory_percent": 0.11105382,
+          "create_time": "2025-07-18T12:51:22Z",
+          "status": "S",
+          "parent_pid": 98855,
+          "running_hours": "0m",
+          "tty": "pts/2"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 12:57:09 Logger initialized.
+2025/07/18 12:57:09 Running system checks...
+2025/07/18 12:57:11 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 2.0408163266887605
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 2.0202020203379667
+      }
+    ],
+    "idle": "732996.16",
+    "load_15min": "0.05",
+    "load_1min": "0.02",
+    "load_5min": "0.05",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "456.98",
+    "time_spent_user": "1474.00",
+    "usage_percent": "2.04",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.34765625,
+          "free_mb": 14181.40234375,
+          "used_percent": 24.38500996414242
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.34765625,
+          "free_mb": 14181.40234375,
+          "used_percent": 24.38500996414242
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.51 GB (5775768 KB)",
+    "cached": "3.40 GB (3570192 KB)",
+    "free": "2.28 GB (2391008 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.94 GB (2036008 KB)",
+    "used_percent": "25.05%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 24,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "processes": []
+    }
+  ]
+}
+2025/07/18 12:59:34 Logger initialized.
+2025/07/18 12:59:34 Running system checks...
+2025/07/18 12:59:36 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 4.000000000229193
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 2.0408163264463295
+      }
+    ],
+    "idle": "733277.32",
+    "load_15min": "0.05",
+    "load_1min": "0.06",
+    "load_5min": "0.07",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "459.02",
+    "time_spent_user": "1480.43",
+    "usage_percent": "4.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.34375,
+          "free_mb": 14181.40625,
+          "used_percent": 24.384989136085526
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.34375,
+          "free_mb": 14181.40625,
+          "used_percent": 24.384989136085526
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.56 GB (5826888 KB)",
+    "cached": "3.40 GB (3570204 KB)",
+    "free": "2.33 GB (2442108 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.89 GB (1984888 KB)",
+    "used_percent": "24.42%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 24,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "processes": []
+    }
+  ]
+}
+2025/07/18 13:00:46 Logger initialized.
+2025/07/18 13:00:46 Running system checks...
+2025/07/18 13:00:48 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 2.9999999998226485
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 4.000000000229193
+      }
+    ],
+    "idle": "733416.73",
+    "load_15min": "0.05",
+    "load_1min": "0.04",
+    "load_5min": "0.07",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "460.28",
+    "time_spent_user": "1482.05",
+    "usage_percent": "3.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.36328125,
+          "free_mb": 14181.38671875,
+          "used_percent": 24.385093276369986
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.36328125,
+          "free_mb": 14181.38671875,
+          "used_percent": 24.385093276369986
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.56 GB (5833780 KB)",
+    "cached": "3.40 GB (3570220 KB)",
+    "free": "2.34 GB (2448984 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.89 GB (1977996 KB)",
+    "used_percent": "24.33%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 1,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "processes": []
+    }
+  ]
+}
+2025/07/18 13:01:53 Logger initialized.
+2025/07/18 13:01:53 Running system checks...
+2025/07/18 13:01:55 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 7.999999999527063
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 8.08080808087675
+      }
+    ],
+    "idle": "733547.77",
+    "load_15min": "0.05",
+    "load_1min": "0.01",
+    "load_5min": "0.05",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "461.79",
+    "time_spent_user": "1484.42",
+    "usage_percent": "8.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.74609375,
+          "free_mb": 14181.00390625,
+          "used_percent": 24.38713442594543
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4573.74609375,
+          "free_mb": 14181.00390625,
+          "used_percent": 24.38713442594543
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.54 GB (5809032 KB)",
+    "cached": "3.41 GB (3570644 KB)",
+    "free": "2.31 GB (2423808 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.91 GB (2002744 KB)",
+    "used_percent": "24.64%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 1,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "processes": []
+    }
+  ]
+}
+2025/07/18 13:02:18 Logger initialized.
+2025/07/18 13:02:18 Running system checks...
+2025/07/18 13:02:21 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 2.0202020203379667
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 4.000000000229193
+      }
+    ],
+    "idle": "733595.29",
+    "load_15min": "0.04",
+    "load_1min": "0.01",
+    "load_5min": "0.05",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "463.09",
+    "time_spent_user": "1485.85",
+    "usage_percent": "2.02",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4574.12109375,
+          "free_mb": 14180.62890625,
+          "used_percent": 24.389133919407083
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4574.12109375,
+          "free_mb": 14180.62890625,
+          "used_percent": 24.389133919407083
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.55 GB (5817760 KB)",
+    "cached": "3.41 GB (3571048 KB)",
+    "free": "2.32 GB (2432132 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.90 GB (1994016 KB)",
+    "used_percent": "24.53%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 1,
+        "TopMemoryUsage": 5,
+        "TopCPUUsage": 4,
+        "State": "Z",
+        "ParentPID": 1,
+        "TTY": "?",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "processes": []
+    }
+  ]
+}
+2025/07/18 13:04:26 Logger initialized.
+2025/07/18 13:04:26 Running system checks...
+2025/07/18 13:04:28 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 6.9999999999936335
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 6.0606060606575625
+      }
+    ],
+    "idle": "733845.89",
+    "load_15min": "0.06",
+    "load_1min": "0.37",
+    "load_5min": "0.11",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "464.59",
+    "time_spent_user": "1488.27",
+    "usage_percent": "7.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4574.140625,
+          "free_mb": 14180.609375,
+          "used_percent": 24.389238059691547
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4574.140625,
+          "free_mb": 14180.609375,
+          "used_percent": 24.389238059691547
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.55 GB (5821364 KB)",
+    "cached": "3.41 GB (3571072 KB)",
+    "free": "2.32 GB (2435700 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.90 GB (1990412 KB)",
+    "used_percent": "24.48%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.005149507675660787,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.00001629591004815654,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h16m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h16m",
+          "tty": "?"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 13:05:47 Logger initialized.
+2025/07/18 13:05:47 Running system checks...
+2025/07/18 13:05:49 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 2.9702970296728797
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 2.0202020201004087
+      }
+    ],
+    "idle": "733988.19",
+    "load_15min": "0.09",
+    "load_1min": "0.54",
+    "load_5min": "0.20",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "467.77",
+    "time_spent_user": "1505.15",
+    "usage_percent": "2.97",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4574.703125,
+          "free_mb": 14180.046875,
+          "used_percent": 24.39223729988403
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4574.703125,
+          "free_mb": 14180.046875,
+          "used_percent": 24.39223729988403
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.64 GB (5916304 KB)",
+    "cached": "3.41 GB (3571632 KB)",
+    "free": "2.41 GB (2529968 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.81 GB (1895556 KB)",
+    "used_percent": "23.32%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "filtered_processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.005148368744174664,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h17m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.000016292305843095447,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h17m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h17m",
+          "tty": "?"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 13:09:32 Logger initialized.
+2025/07/18 13:09:32 Running system checks...
+2025/07/18 13:09:34 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 5.940594059688124
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 4.040404040223784
+      }
+    ],
+    "idle": "734424.28",
+    "load_15min": "0.08",
+    "load_1min": "0.02",
+    "load_5min": "0.10",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "471.36",
+    "time_spent_user": "1512.71",
+    "usage_percent": "5.94",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4575.296875,
+          "free_mb": 14179.453125,
+          "used_percent": 24.39540316453165
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4575.296875,
+          "free_mb": 14179.453125,
+          "used_percent": 24.39540316453165
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.64 GB (5910480 KB)",
+    "cached": "3.41 GB (3572376 KB)",
+    "free": "2.41 GB (2523340 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.81 GB (1901372 KB)",
+    "used_percent": "23.39%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "filtered_processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.0051506622153331665,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h21m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.000016282388139943876,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h21m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h21m",
+          "tty": "?"
+        }
+      ]
+    }
+  ]
+}

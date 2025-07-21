@@ -1,7 +1,10 @@
 general:
   output_path: "./output/output.json"
+  log_path: "./logs/monitoring.log"
   interval: 20s
 
+# Memory Metrics Configuration
+# 1. making the values true will add them to the memory metrics report.
 memory:
   enabled: true
   total: true
@@ -27,7 +30,11 @@ memory:
 cpu:
   enabled: true
 
-# sort_by parameters -> used_space, free_space, total_space, used_percent
+
+# Disk Metrics Configuration
+# 1. mounted: true means only mounted partitions will be monitored from selected paths.
+# 2. putting '*' in paths_to_watch_disk will monitor all partitions.
+# 3. sort_by parameters -> used_space, free_space, total_space, used_percent
 disk:
   - enabled: true
     mounted: true
@@ -52,22 +59,23 @@ disk:
 processes:
   - enabled: true
     filter:
-      running_hour_threshold: 24
-      top_memory_usage: 5
-      top_cpu_usage: 4
-      state: "Z"
-      parent_pid: 1
-      tty: "?"
+      # running_hour_threshold: 0
+      # top_memory_usage: 0
+      # top_cpu_usage: 0
+      # state: ""
+      # parent_pid: 0
+      # tty: ""
+      limit_processes: 3
 
-  - enabled: true
-    filter:
-      top_running_time: 3
-      top_cpu_usage: 2
-      tty: "?"
+  # - enabled: true
+  #   filter:
+  #     top_running_time: 3
+  #     top_cpu_usage: 2
+  #     tty: "?"
       
-  - enabled: true
-    filter:
-      state: "S"
+  # - enabled: true
+  #   filter:
+  #     state: "S"
 
 permissions:
   enabled: true

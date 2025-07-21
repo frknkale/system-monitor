@@ -1,4 +1,4 @@
-package checks
+package systemchecks
 
 import (
 	"github.com/shirou/gopsutil/cpu"

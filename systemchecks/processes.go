@@ -1,4 +1,4 @@
-package checks
+package systemchecks
 
 import (
 	"fmt"
@@ -138,10 +138,15 @@ func CheckProcesses(cfg types.Config) interface{} {
 			}
 		}
 
+		if filter.LimitProcesses > 0 && len(filtered) > filter.LimitProcesses {
+			filtered = filtered[:filter.LimitProcesses]
+		}
+
 		result = append(result, map[string]interface{}{
 			"filter":    filter,
-			"processes": filtered,
+			"filtered_processes": filtered,
 		})
 	}
+	
 	return result
 }
