@@ -17,9 +17,6 @@ type PartitionInfo struct {
 	Error       string  `json:"error,omitempty"`
 }
 
-type DiskReport struct {
-	Partitions []PartitionInfo `json:"partitions"`
-}
 
 func CheckDisk(config types.Config) interface{} {
 	var results []map[string]interface{}
@@ -111,6 +108,8 @@ func CheckDisk(config types.Config) interface{} {
 		results = append(results, map[string]interface{}{
 			"filter":    filter,
 			"partitions": partitions,
+			"paths_to_watch": cfg.PathsToWatch,
+			"mounted":        cfg.Mounted,
 		})
 	}
 

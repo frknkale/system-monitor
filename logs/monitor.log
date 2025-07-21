@@ -5451,3 +5451,287 @@
     }
   ]
 }
+2025/07/18 13:15:15 Logger initialized.
+2025/07/18 13:15:15 Running system checks...
+2025/07/18 13:15:17 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 2.9999999998226485
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 3.9603960398145945
+      }
+    ],
+    "idle": "735094.67",
+    "load_15min": "0.05",
+    "load_1min": "0.07",
+    "load_5min": "0.04",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "477.25",
+    "time_spent_user": "1520.40",
+    "usage_percent": "3.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4575.6015625,
+          "free_mb": 14179.1484375,
+          "used_percent": 24.397027752969247
+        }
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4575.6015625,
+          "free_mb": 14179.1484375,
+          "used_percent": 24.397027752969247
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.62 GB (5896280 KB)",
+    "cached": "3.41 GB (3572664 KB)",
+    "free": "2.39 GB (2508724 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.83 GB (1915572 KB)",
+    "used_percent": "23.56%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "filtered_processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.0051485870416763686,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h27m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.00001626725728589557,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h27m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h27m",
+          "tty": "?"
+        }
+      ]
+    }
+  ]
+}
+2025/07/18 13:17:14 Logger initialized.
+2025/07/18 13:17:14 Running system checks...
+2025/07/18 13:17:16 {
+  "cpu": {
+    "cache_size": 33792,
+    "cores": [
+      {
+        "cpu_number": 0,
+        "usage_percent": 2.0000000001145963
+      },
+      {
+        "cpu_number": 1,
+        "usage_percent": 2.0000000000209184
+      }
+    ],
+    "idle": "735325.18",
+    "load_15min": "0.05",
+    "load_1min": "0.05",
+    "load_5min": "0.05",
+    "mhz": 2800.252,
+    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+    "time_spent_system": "480.77",
+    "time_spent_user": "1525.10",
+    "usage_percent": "2.00",
+    "vendor_id": "GenuineIntel"
+  },
+  "disk": [
+    {
+      "filter": {
+        "SortBy": "used_percent",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 2,
+        "TopDiskUsagePercent": 2,
+        "TopFreeSpace": 1
+      },
+      "mounted": true,
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4576.05859375,
+          "free_mb": 14178.69140625,
+          "used_percent": 24.39946463562564
+        }
+      ],
+      "paths_to_watch": [
+        "*"
+      ]
+    },
+    {
+      "filter": {
+        "SortBy": "free_space",
+        "TopDiskSize": 3,
+        "TopDiskUsage": 0,
+        "TopDiskUsagePercent": 0,
+        "TopFreeSpace": 0
+      },
+      "mounted": true,
+      "partitions": [
+        {
+          "device": "/dev/sda1",
+          "mountpoint": "/",
+          "fstype": "ext2/ext3",
+          "total_mb": 18770.75,
+          "used_mb": 4576.05859375,
+          "free_mb": 14178.69140625,
+          "used_percent": 24.39946463562564
+        }
+      ],
+      "paths_to_watch": [
+        "/"
+      ]
+    }
+  ],
+  "memory": {
+    "available": "5.61 GB (5883944 KB)",
+    "cached": "3.41 GB (3573144 KB)",
+    "free": "2.38 GB (2495844 KB)",
+    "total": "7.75 GB (8129392 KB)",
+    "used": "1.84 GB (1927908 KB)",
+    "used_percent": "23.72%"
+  },
+  "permissions": {
+    "/etc": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    },
+    "/home": {
+      "is_dir": true,
+      "mode": "drwxr-xr-x",
+      "permissions": "-rwxr-xr-x"
+    }
+  },
+  "processes": [
+    {
+      "filter": {
+        "RunningHourThreshold": 0,
+        "TopMemoryUsage": 0,
+        "TopCPUUsage": 0,
+        "State": "",
+        "ParentPID": 0,
+        "TTY": "",
+        "TopRunningTime": 0,
+        "LimitProcesses": 3
+      },
+      "filtered_processes": [
+        {
+          "pid": 1,
+          "name": "systemd",
+          "cpu_percent": 0.005146916124741281,
+          "memory_percent": 0.17383833,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h29m",
+          "tty": "?"
+        },
+        {
+          "pid": 2,
+          "name": "kthreadd",
+          "cpu_percent": 0.000016261977954734906,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 0,
+          "running_hours": "102h29m",
+          "tty": "?"
+        },
+        {
+          "pid": 3,
+          "name": "pool_workqueue_release",
+          "cpu_percent": 0,
+          "memory_percent": 0,
+          "create_time": "2025-07-14T06:47:57Z",
+          "status": "S",
+          "parent_pid": 2,
+          "running_hours": "102h29m",
+          "tty": "?"
+        }
+      ]
+    }
+  ]
+}
