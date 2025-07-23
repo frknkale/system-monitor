@@ -4,8 +4,9 @@ import "time"
 
 type Config struct {
 	General struct {
-		IntervalSeconds   int `yaml:"interval"`
-		OutputPath string        `yaml:"output_path"`
+		Interval   string	`yaml:"interval"`
+		OutputPath string 	`yaml:"output_path"`
+		LogPath    string	`yaml:"log_path"`
 	} `yaml:"general"`
 
 	Memory struct {
@@ -62,17 +63,26 @@ type Config struct {
 	} `yaml:"processes"`
 
 	Permissions []struct {
-    Enabled             bool     `yaml:"enabled"`
-    Paths               []string `yaml:"paths"`
-    ShowUserPermissions bool     `yaml:"show_user_permissions"`
-    CheckUserAccess     []string `yaml:"check_user_access"`
-} `yaml:"permissions"`
+		Enabled             bool     `yaml:"enabled"`
+		Paths               []string `yaml:"paths"`
+		ShowUserPermissions bool     `yaml:"show_user_permissions"`
+		CheckUserAccess     []string `yaml:"check_user_access"`
+	} `yaml:"permissions"`
 
 	Network struct {
-		Enabled         bool `yaml:"enabled"`
-		CheckOpenPorts  bool `yaml:"check_open_ports"`
-		CheckInterfaces bool `yaml:"check_interfaces"`
+		Enabled     	bool               `yaml:"enabled"`
+		Interfaces  	bool               `yaml:"interfaces"`
+		Connections 	[]ConnectionFilter `yaml:"connections"`
+		ExternalTargets []string       	   `yaml:"external_targets"`
 	} `yaml:"network"`
+}
+
+type ConnectionFilter struct {
+    Protocols    []string `yaml:"protocols"`
+    Ports        []int    `yaml:"ports"`
+    State        []string `yaml:"state"`
+    PID          []int    `yaml:"pid"`
+    ProgramNames []string `yaml:"program_name"`
 }
 
 type HealthStatus string

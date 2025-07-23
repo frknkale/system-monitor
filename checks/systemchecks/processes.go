@@ -119,27 +119,45 @@ func CheckProcesses(cfg types.Config) interface{} {
 			})
 		}
 
+		filterMap := map[string]interface{}{}
+
 		if filter.TopMemoryUsage > 0 {
+			filterMap["TopMemoryUsage"] = filter.TopMemoryUsage
 			sortByMemory(filtered)
 			if len(filtered) > filter.TopMemoryUsage {
 				filtered = filtered[:filter.TopMemoryUsage]
 			}
 		}
 		if filter.TopCPUUsage > 0 {
+			filterMap["TopCPUUsage"] = filter.TopCPUUsage
 			sortByCPU(filtered)
 			if len(filtered) > filter.TopCPUUsage {
 				filtered = filtered[:filter.TopCPUUsage]
 			}
 		}
 		if filter.TopRunningTime > 0 {
+			filterMap["TopRunningTime"] = filter.TopRunningTime
 			sortByRunningTime(filtered)
 			if len(filtered) > filter.TopRunningTime {
 				filtered = filtered[:filter.TopRunningTime]
 			}
 		}
 
+		if filter.State != "" {
+			filterMap["State"] = filter.State
+		}
+		if filter.ParentPID != 0 {
+			filterMap["ParentPID"] = filter.ParentPID
+		}
+		if filter.TTY != "" {
+			filterMap["TTY"] = filter.TTY
+		}
+		if filter.RunningHourThreshold != 0 {
+			filterMap["RunningHourThreshold"] = filter.RunningHourThreshold
+		}
+
 		result = append(result, map[string]interface{}{
-			"filter":    filter,
+			"filter":    filterMap,
 			"processes": filtered,
 		})
 	}

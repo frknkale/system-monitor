@@ -1,7 +1,7 @@
 general:
   output_path: "./output/output.json"
   log_path: "./logs/monitoring.log"
-  interval: 10 # in seconds
+  interval: 20s 
 
 # Memory Metrics Configuration
 # 1. making the values true will add them to the memory metrics report.
@@ -100,12 +100,27 @@ permissions:
     show_user_permissions: true
     check_user_access:
       - "furkan"
-      - "root"  
+      - "root" 
 
-# network:
-#   enabled: true
-#   check_open_ports: true
-#   check_interfaces: true
+network:
+  enabled: true
+  interfaces: true
+
+  external_targets:
+    - "https://www.google.com:443"
+    - "34.42.118.72:80"
+    - "10.10.0.4:22"
+    - "34.171.30.76:3306"
+
+  connections:
+    - protocols: [tcp]
+      ports: [80]
+      state: [ESTABLISHED, TIME_WAIT, CLOSE_WAIT, LISTEN]
+      program_name: [nginx]
+
+    - ports: [3306]
+
+    - pid: [95195, 126166]
 
 alerter:
   enabled: true

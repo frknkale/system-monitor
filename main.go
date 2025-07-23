@@ -26,14 +26,14 @@ func main() {
 	var cfg types.Config
 	if err := yaml.Unmarshal(data, &cfg); err != nil {
 		fmt.Printf("Failed to parse config file: %v\n", err)
+		logger.Log.Fatalf("Failed to parse config file: %v", err)
 		os.Exit(1)
 	}
+	
+	logPath := cfg.General.LogPath
+	outputPath := cfg.General.OutputPath
 
 	// Initialize logger
-	logPath := "logs/monitor.log"
-	if logPath == "" {
-		logPath = "logs/monitor.log"
-	}
 	err = logger.Init(logPath)
 	if err != nil {
 		fmt.Printf("Logger initialization failed: %v\n", err)
@@ -41,10 +41,12 @@ func main() {
 	}
 	logger.Log.Println("Logger initialized.")
 
+
 	// Determine interval
-	interval := time.Duration(cfg.General.IntervalSeconds) * time.Second
-	if interval <= 0 || interval > time.Hour {
-		fmt.Printf("Invalid interval (%d), defaulting to 30s\n", cfg.General.IntervalSeconds)
+	intervalStr := cfg.General.Interval
+	interval, err := time.ParseDuration(intervalStr)
+	if err != nil || interval <= 0 || interval > time.Hour{
+		fmt.Printf("Invalid interval format (%s), defaulting to 30s\n", intervalStr)
 		interval = 30 * time.Second
 	}
 
@@ -52,17 +54,12 @@ func main() {
 		logger.Log.Println("Running system checks...")
 		result := checks.RunAllChecks(cfg)
 
-		outputPath := cfg.General.OutputPath
-		if outputPath == "" {
-			outputPath = "output/output.json"
-		}
-
 		err := os.MkdirAll(filepath.Dir(outputPath), 0755)
 		if err != nil {
 			logger.Log.Printf("Failed to create output dir: %v", err)
+			fmt.Printf("Failed to create output dir: %v", err)
 			continue
 		}
-		fmt.Printf("Wrote output to %s\n", outputPath)
 
 		jsonData, err := json.MarshalIndent(result, "", "  ")
 		if err != nil {
@@ -73,13 +70,19 @@ func main() {
 		err = os.WriteFile(outputPath, jsonData, 0644)
 		if err != nil {
 			logger.Log.Printf("Failed to write output file: %v", err)
+			fmt.Printf("Failed to write output file: %v", err)
 			continue
 		}
 
-		logger.Log.Println("System check complete.")
-		fmt.Println(string(jsonData))
+		logger.Log.Println("System check completed.")
+		fmt.Println("System check completed.")
+		fmt.Println("Wrote output to %s\n", outputPath)
+
+		logger.Log.Println(string(jsonData))
+		
 		fmt.Println(">>> Sleeping for:", interval)
+
 		time.Sleep(interval)
-		// fmt.Println(">>> Awake from sleep")
+
 	}
 }

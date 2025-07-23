@@ -84,29 +84,36 @@ func CheckDisk(config types.Config) interface{} {
 				return fn(partitions[i]) > fn(partitions[j])
 			})
 		}
+		
+		filterMap := map[string]interface{}{}
 
 		if filter.TopDiskSize > 0 {
+			filterMap["TopDiskSize"] = filter.TopDiskSize
 			sortPartitions("total_space")
 			partitions = partitions[:min(filter.TopDiskSize, len(partitions))]
 		}
 		if filter.TopDiskUsage > 0 {
+			filterMap["TopDiskUsage"] = filter.TopDiskUsage
 			sortPartitions("used_space")
 			partitions = partitions[:min(filter.TopDiskUsage, len(partitions))]
 		}
 		if filter.TopDiskUsagePercent > 0 {
+			filterMap["TopDiskUsagePercent"] = filter.TopDiskUsagePercent
 			sortPartitions("used_percent")
 			partitions = partitions[:min(filter.TopDiskUsagePercent, len(partitions))]
 		}
 		if filter.TopFreeSpace > 0 {
+			filterMap["TopFreeSpace"] = filter.TopFreeSpace
 			sortPartitions("free_space")
 			partitions = partitions[:min(filter.TopFreeSpace, len(partitions))]
 		}
 		if filter.SortBy != "" {
+			filterMap["SortBy"] = filter.SortBy
 			sortPartitions(filter.SortBy)
 		}
 
 		results = append(results, map[string]interface{}{
-			"filter":    filter,
+			"filter":    filterMap,
 			"partitions": partitions,
 			"paths_to_watch": cfg.PathsToWatch,
 			"mounted":        cfg.Mounted,

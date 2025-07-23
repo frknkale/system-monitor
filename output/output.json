@@ -4,22 +4,22 @@
     "cores": [
       {
         "cpu_number": 0,
-        "usage_percent": 0.9900990098909599
+        "usage_percent": 0
       },
       {
         "cpu_number": 1,
         "usage_percent": 0
       }
     ],
-    "idle": "2223258.51",
-    "load_15min": "0.00",
-    "load_1min": "0.00",
-    "load_5min": "0.00",
+    "idle": "2603778.33",
+    "load_15min": "0.01",
+    "load_1min": "0.15",
+    "load_5min": "0.05",
     "mhz": 2800.284,
     "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
-    "time_spent_system": "535.75",
-    "time_spent_user": "999.89",
-    "usage_percent": "0.99",
+    "time_spent_system": "708.86",
+    "time_spent_user": "1250.74",
+    "usage_percent": "0.00",
     "vendor_id": "GenuineIntel"
   },
   "disk": [
@@ -38,9 +38,9 @@
           "mountpoint": "/",
           "fstype": "ext2/ext3",
           "total_mb": 18770.75,
-          "used_mb": 3686.91796875,
-          "free_mb": 15067.83203125,
-          "used_percent": 19.658582325810794
+          "used_mb": 4498.7109375,
+          "free_mb": 14256.0390625,
+          "used_percent": 23.987048281102123
         }
       ],
       "paths_to_watch": [
@@ -50,10 +50,7 @@
     {
       "filter": {
         "SortBy": "free_space",
-        "TopDiskSize": 3,
-        "TopDiskUsage": 0,
-        "TopDiskUsagePercent": 0,
-        "TopFreeSpace": 0
+        "TopDiskSize": 3
       },
       "mounted": true,
       "partitions": [
@@ -62,9 +59,9 @@
           "mountpoint": "/",
           "fstype": "ext2/ext3",
           "total_mb": 18770.75,
-          "used_mb": 3686.91796875,
-          "free_mb": 15067.83203125,
-          "used_percent": 19.658582325810794
+          "used_mb": 4498.7109375,
+          "free_mb": 14256.0390625,
+          "used_percent": 23.987048281102123
         }
       ],
       "paths_to_watch": [
@@ -73,12 +70,136 @@
     }
   ],
   "memory": {
-    "available": "7.15 GB (7497620 KB)",
-    "cached": "2.92 GB (3067004 KB)",
-    "free": "4.47 GB (4690500 KB)",
+    "available": "7.13 GB (7479336 KB)",
+    "cached": "3.75 GB (3933712 KB)",
+    "free": "3.61 GB (3787512 KB)",
     "total": "7.75 GB (8129384 KB)",
-    "used": "0.30 GB (313640 KB)",
-    "used_percent": "3.86%"
+    "used": "0.32 GB (332104 KB)",
+    "used_percent": "4.09%"
+  },
+  "network": {
+    "active_connections": [
+      {
+        "connections": null,
+        "filter": {
+          "Ports": [
+            80
+          ],
+          "ProgramNames": [
+            "nginx"
+          ],
+          "Protocols": [
+            "tcp"
+          ],
+          "State": [
+            "ESTABLISHED",
+            "TIME_WAIT",
+            "CLOSE_WAIT",
+            "LISTEN"
+          ]
+        }
+      },
+      {
+        "connections": null,
+        "filter": {
+          "Ports": [
+            3306
+          ]
+        }
+      },
+      {
+        "connections": null,
+        "filter": {
+          "PID": [
+            95195,
+            126166
+          ]
+        }
+      }
+    ],
+    "external_access": [
+      {
+        "dns": {
+          "dns_resolved": true,
+          "resolved_ips": [
+            "173.194.64.99",
+            "173.194.64.106",
+            "173.194.64.147",
+            "173.194.64.103",
+            "173.194.64.105",
+            "173.194.64.104",
+            "2607:f8b0:4001:c64::67",
+            "2607:f8b0:4001:c64::6a",
+            "2607:f8b0:4001:c64::68",
+            "2607:f8b0:4001:c64::63"
+          ]
+        },
+        "http": {
+          "reachable": true,
+          "status": 200
+        },
+        "icmp": {
+          "reachable": true
+        },
+        "target": "https://www.google.com:443",
+        "unreachable": false
+      },
+      {
+        "icmp": {
+          "error": "ping error: unreachable",
+          "reachable": false
+        },
+        "target": "34.42.118.72:80",
+        "tcp": {
+          "reachable": true
+        },
+        "unreachable": false
+      },
+      {
+        "icmp": {
+          "reachable": true
+        },
+        "target": "10.10.0.4:22",
+        "tcp": {
+          "reachable": true
+        },
+        "unreachable": false
+      },
+      {
+        "icmp": {
+          "error": "ping error: unreachable",
+          "reachable": false
+        },
+        "target": "34.171.30.76:3306",
+        "tcp": {
+          "error": "dial tcp 34.171.30.76:3306: i/o timeout",
+          "reachable": false
+        },
+        "unreachable": true
+      }
+    ],
+    "interfaces": [
+      {
+        "flags": "up|loopback|running",
+        "hwaddr": "",
+        "ip_addresses": [
+          "127.0.0.1/8",
+          "::1/128"
+        ],
+        "mtu": 65536,
+        "name": "lo"
+      },
+      {
+        "flags": "up|broadcast|multicast|running",
+        "hwaddr": "42:01:0a:0a:00:03",
+        "ip_addresses": [
+          "10.10.0.3/32",
+          "fe80::4001:aff:fe0a:3/64"
+        ],
+        "mtu": 1460,
+        "name": "ens4"
+      }
+    ]
   },
   "permissions": [
     {
@@ -153,105 +274,92 @@
   "processes": [
     {
       "filter": {
-        "RunningHourThreshold": 0,
-        "TopMemoryUsage": 3,
-        "TopCPUUsage": 0,
-        "State": "",
-        "ParentPID": 0,
-        "TTY": "",
-        "TopRunningTime": 0,
-        "LimitProcesses": 0
+        "TopMemoryUsage": 3
       },
       "processes": [
         {
           "pid": 95189,
           "name": "systemd-journald",
-          "cpu_percent": 0.0015574143934144146,
-          "memory_percent": 0.5909919,
+          "cpu_percent": 0.001663839415290601,
+          "memory_percent": 0.8347988,
           "create_time": "2025-07-15T06:39:46Z",
           "status": "S",
           "parent_pid": 1,
-          "running_hours": "148h34m",
+          "running_hours": "201h30m",
           "tty": "?"
         },
         {
           "pid": 26568,
           "name": "snapd",
-          "cpu_percent": 0.004374179258566255,
-          "memory_percent": 0.47659206,
+          "cpu_percent": 0.004644933725844431,
+          "memory_percent": 0.47959355,
           "create_time": "2025-07-10T11:45:26Z",
           "status": "S",
           "parent_pid": 1,
-          "running_hours": "263h28m",
+          "running_hours": "316h24m",
           "tty": "?"
         },
         {
           "pid": 126137,
           "name": "supervisord",
-          "cpu_percent": 0.013824637064482889,
+          "cpu_percent": 0.013894329377007715,
           "memory_percent": 0.35451642,
           "create_time": "2025-07-18T06:51:43Z",
           "status": "S",
           "parent_pid": 1,
-          "running_hours": "76h22m",
+          "running_hours": "129h18m",
           "tty": "?"
         }
       ]
     },
     {
       "filter": {
-        "RunningHourThreshold": 0,
-        "TopMemoryUsage": 0,
-        "TopCPUUsage": 4,
         "State": "S",
-        "ParentPID": 0,
-        "TTY": "",
-        "TopRunningTime": 0,
-        "LimitProcesses": 0
+        "TopCPUUsage": 4
       },
       "processes": [
         {
-          "pid": 155585,
-          "name": "go",
-          "cpu_percent": 6.056392188893304,
-          "memory_percent": 0.24188794,
-          "create_time": "2025-07-21T11:14:04Z",
+          "pid": 198293,
+          "name": "main",
+          "cpu_percent": 1.2705080699866371,
+          "memory_percent": 0.16202949,
+          "create_time": "2025-07-23T16:09:43Z",
           "status": "S",
-          "parent_pid": 148427,
+          "parent_pid": 198212,
           "running_hours": "0m",
           "tty": "pts/0"
         },
         {
+          "pid": 198212,
+          "name": "go",
+          "cpu_percent": 1.0947116511385004,
+          "memory_percent": 0.31195477,
+          "create_time": "2025-07-23T16:09:42Z",
+          "status": "S",
+          "parent_pid": 186104,
+          "running_hours": "0m",
+          "tty": "pts/0"
+        },
+        {
+          "pid": 186070,
+          "name": "sshd",
+          "cpu_percent": 0.01809706636856676,
+          "memory_percent": 0.088469185,
+          "create_time": "2025-07-23T11:00:51Z",
+          "status": "S",
+          "parent_pid": 185960,
+          "running_hours": "5h9m",
+          "tty": "?"
+        },
+        {
           "pid": 126137,
           "name": "supervisord",
-          "cpu_percent": 0.013824600596693487,
+          "cpu_percent": 0.01389430556041557,
           "memory_percent": 0.35451642,
           "create_time": "2025-07-18T06:51:43Z",
           "status": "S",
           "parent_pid": 1,
-          "running_hours": "76h22m",
-          "tty": "?"
-        },
-        {
-          "pid": 56,
-          "name": "hwrng",
-          "cpu_percent": 0.013352796700970525,
-          "memory_percent": 0,
-          "create_time": "2025-07-08T14:04:57Z",
-          "status": "S",
-          "parent_pid": 2,
-          "running_hours": "309h9m",
-          "tty": "?"
-        },
-        {
-          "pid": 95144,
-          "name": "google_osconfig_agent",
-          "cpu_percent": 0.009572570737946502,
-          "memory_percent": 0.29768553,
-          "create_time": "2025-07-15T06:39:46Z",
-          "status": "S",
-          "parent_pid": 1,
-          "running_hours": "148h34m",
+          "running_hours": "129h18m",
           "tty": "?"
         }
       ]
