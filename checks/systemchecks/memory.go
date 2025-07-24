@@ -52,7 +52,7 @@ func CheckMemory(cfg types.Config) map[string]string {
 
 		// dummy := 83
 
-		if alerter != nil && vm.UsedPercent > cfg.Alerter.AlertThresholds.Memory.UsagePercent {
+		if alerter != nil && vm.UsedPercent > cfg.Alerter.AlertSettings.Memory.UsagePercent {
 			alerter.RaiseAlert(
 				fmt.Sprintf("Memory usage is above the given threshold: %.2f%% used", vm.UsedPercent),
 				types.UNHEALTHY,

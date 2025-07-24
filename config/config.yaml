@@ -125,7 +125,7 @@ network:
 alerter:
   enabled: true
   log_path: "./logs/alerter.json"
-  alert_thresholds:
+  alert_settings:
     memory:
         enabled: true
         usage_percent: 80
@@ -135,5 +135,5 @@ alerter:
         paths_to_watch:
           - "/"
     cpu:
-      - enabled: true
-        usage_percent: 80
+      enabled: true
+      usage_percent: 80.0

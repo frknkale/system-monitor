@@ -71,7 +71,7 @@ func CheckDisk(config types.Config) interface{} {
 				UsedPercent: usage.UsedPercent,
 			})
 
-			for _, alertRule := range config.Alerter.AlertThresholds.Disk {
+			for _, alertRule := range config.Alerter.AlertSettings.Disk {
 				if !alertRule.Enabled {
 					continue
 				}

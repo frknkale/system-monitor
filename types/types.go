@@ -82,20 +82,21 @@ type Config struct {
 	Alerter struct {
 		Enabled bool `yaml:"enabled"`
 		LogPath string `yaml:"log_path"`
-		AlertThresholds struct {
+		AlertSettings struct {
 			Memory struct {
 				Enabled bool `yaml:"enabled"`
 				UsagePercent float64 `yaml:"usage_percent"`
 			} `yaml:"memory"`
 			CPU struct {
-				UsagePercent int `yaml:"usage_percent"`
+				Enabled	 bool `yaml:"enabled"`
+				UsagePercent float64 `yaml:"usage_percent"`
 			} `yaml:"cpu"`
 			Disk []struct {
 				Enabled     bool     `yaml:"enabled"`
 				UsagePercent int      `yaml:"usage_percent"`
 				PathsToWatch []string `yaml:"paths_to_watch"`
 			} `yaml:"disk"`
-		} `yaml:"alert_thresholds"`
+		} `yaml:"alert_settings"`
 	}
 }
 
@@ -118,6 +119,7 @@ const (
 	MEM_USAGE_PERCENT AlerterSources = "memory_usage_percent"
 	DISK_USAGE_PERCENT AlerterSources = "disk_usage_percent"
 	CPU_USAGE_PERCENT AlerterSources = "cpu_usage_percent"
+	CPU_CORE_USAGE_PERCENT AlerterSources = "cpu_core_usage_percent"
 )
 
 type Alert struct {

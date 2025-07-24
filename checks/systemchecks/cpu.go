@@ -1,14 +1,17 @@
 package systemchecks
 
 import (
+	"fmt"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/v3/load"
 	"monitoring/types"
+	"monitoring/alerter"
 	"time"
-	"fmt"
 )
 
 func CheckCPU(cfg types.Config) interface{} {
+	alerter := alerter.AlerterHandler(cfg)
+
 	if !cfg.CPU.Enabled {
 		return nil
 	}
@@ -29,8 +32,24 @@ func CheckCPU(cfg types.Config) interface{} {
         result["error"] = fmt.Sprintf("Failed to get CPU percentages: %v", err)
         return result
     }
+
+	totalPercent := 0.0
+	for _, percent := range percentages {
+		// fmt.Printf("CPU Core %d: %.2f%%\n", i, percent)
+		totalPercent += percent
+	}
+
+	// fmt.Printf("cputhreshold %.2f%%\n", cfg.Alerter.AlertSettings.CPU.UsagePercent)
+	if alerter != nil && totalPercent > cfg.Alerter.AlertSettings.CPU.UsagePercent {
+		alerter.RaiseAlert(
+			fmt.Sprintf("CPU usage is above the threshold: %.2f%% used", totalPercent),
+			types.UNHEALTHY,
+			types.CPU_USAGE_PERCENT,
+		)
+	}
+
 	
-    loads, err := load.Avg()
+	loads, err := load.Avg()
     if err != nil {
         result["error"] = fmt.Sprintf("Failed to get load averages: %v", err)
         return result
@@ -72,6 +91,7 @@ func CheckCPU(cfg types.Config) interface{} {
 	result["load_1min"] = fmt.Sprintf("%.2f", loads.Load1)
 	result["load_5min"] = fmt.Sprintf("%.2f", loads.Load5)
 	result["load_15min"] = fmt.Sprintf("%.2f", loads.Load15)
+
 
 	return result
 }
