@@ -1,0 +1,4 @@
+{"timestamp":"2025-07-24T12:18:04.970075921Z","message":"Disk usage is above the given threshold: 81.00% used on /","status":"unhealthy","source":"disk_usage_percent"}
+{"timestamp":"2025-07-24T12:18:24.069045344Z","message":"Disk usage is above the given threshold: 81.00% used on /","status":"unhealthy","source":"disk_usage_percent"}
+{"timestamp":"2025-07-24T12:18:38.191804559Z","message":"Disk usage is above the given threshold: 81.00% used on /","status":"unhealthy","source":"disssk_usage_percent"}
+{"timestamp":"2025-07-24T12:21:11.212635009Z","message":"Disk usage is above the given threshold: 81.00% used on /","status":"unhealthy","source":"disk_usage_percent"}

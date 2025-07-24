@@ -1,6 +1,9 @@
 package types
 
-import "time"
+import (
+	// "fmt"
+	"time"
+)
 
 type Config struct {
 	General struct {
@@ -75,6 +78,25 @@ type Config struct {
 		Connections 	[]ConnectionFilter `yaml:"connections"`
 		ExternalTargets []string       	   `yaml:"external_targets"`
 	} `yaml:"network"`
+
+	Alerter struct {
+		Enabled bool `yaml:"enabled"`
+		LogPath string `yaml:"log_path"`
+		AlertThresholds struct {
+			Memory struct {
+				Enabled bool `yaml:"enabled"`
+				UsagePercent float64 `yaml:"usage_percent"`
+			} `yaml:"memory"`
+			CPU struct {
+				UsagePercent int `yaml:"usage_percent"`
+			} `yaml:"cpu"`
+			Disk []struct {
+				Enabled     bool     `yaml:"enabled"`
+				UsagePercent int      `yaml:"usage_percent"`
+				PathsToWatch []string `yaml:"paths_to_watch"`
+			} `yaml:"disk"`
+		} `yaml:"alert_thresholds"`
+	}
 }
 
 type ConnectionFilter struct {
@@ -86,16 +108,28 @@ type ConnectionFilter struct {
 }
 
 type HealthStatus string
+type AlerterSources string
 
 const (
-	HEALTHY   HealthStatus = "healthy"
-	UNHEALTHY HealthStatus = "unhealthy"
-	ERROR     HealthStatus = "error"
+	HEALTHY   	HealthStatus = "healthy"
+	UNHEALTHY 	HealthStatus = "unhealthy"
+	ERROR     	HealthStatus = "error"
+	
+	MEM_USAGE_PERCENT AlerterSources = "memory_usage_percent"
+	DISK_USAGE_PERCENT AlerterSources = "disk_usage_percent"
+	CPU_USAGE_PERCENT AlerterSources = "cpu_usage_percent"
 )
 
-type CheckResult struct {
-	Name  string       `json:"name"`
-	Status  HealthStatus `json:"status"`
-	Message string       `json:"message"`
+type Alert struct {
 	Timestamp time.Time    `json:"timestamp"`
+	Message   string       `json:"message"`
+	Status    HealthStatus `json:"status"`
+	Source    AlerterSources       `json:"source"`
 }
+
+
+// type AlertManager struct {
+// 	Alerts map[string]Alert `json:"alerts"`
+// 	OnAlert func(alert Alert)
+// 	RaiseAlert func(message string, status HealthStatus, source string)
+// }

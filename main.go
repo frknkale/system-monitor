@@ -78,6 +78,8 @@ func main() {
 		fmt.Println("System check completed.")
 		fmt.Println("Wrote output to %s\n", outputPath)
 
+		// fmt.Println(string(jsonData))
+
 		logger.Log.Println(string(jsonData))
 		
 		fmt.Println(">>> Sleeping for:", interval)

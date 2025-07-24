@@ -1,9 +1,11 @@
 package systemchecks
 
 import (
+	"fmt"
 	"sort"
 	"github.com/shirou/gopsutil/v3/disk"
 	"monitoring/types"
+	"monitoring/alerter"
 )
 
 type PartitionInfo struct {
@@ -18,7 +20,10 @@ type PartitionInfo struct {
 }
 
 
+
 func CheckDisk(config types.Config) interface{} {
+	alerter := alerter.AlerterHandler(config)
+	
 	var results []map[string]interface{}
 
 	for _, cfg := range config.Disk {
@@ -65,6 +70,39 @@ func CheckDisk(config types.Config) interface{} {
 				FreeMB:      float64(usage.Free) / 1024 / 1024,
 				UsedPercent: usage.UsedPercent,
 			})
+
+			for _, alertRule := range config.Alerter.AlertThresholds.Disk {
+				if !alertRule.Enabled {
+					continue
+				}
+			
+				watchSet := make(map[string]bool)
+				for _, p := range alertRule.PathsToWatch {
+					watchSet[p] = true
+				}
+				
+				// usage.UsedPercent = 81
+
+				// fmt.Printf("Checking mount: %s with %.2f%% usage\n", usage.Path, usage.UsedPercent)
+				if usage.UsedPercent > float64(alertRule.UsagePercent) && watchSet[usage.Path] {
+					alerter.RaiseAlert(
+						fmt.Sprintf("Disk usage is above the given threshold: %.2f%% used on %s", usage.UsedPercent, usage.Path),
+						types.UNHEALTHY,
+						types.DISK_USAGE_PERCENT,
+					)
+				}
+			}
+			
+			// Alert if disk usage percent exceeds threshold
+			// if alerter != nil &&
+			// 	 int(usage.UsedPercent) > config.Alerter.AlertThresholds.Disk.UsagePercent && 
+			// 	 {
+			// 	alerter.RaiseAlert(
+			// 		fmt.Sprintf("Disk usage is above the given threshold: %.2f%% used on %s", usage.UsedPercent, usage.Path),
+			// 		types.UNHEALTHY,
+			// 		"disk_used_percent",
+			// 	)
+			// }
 		}
 
 		sortPartitions := func(key string) {

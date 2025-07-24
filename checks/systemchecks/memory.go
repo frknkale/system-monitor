@@ -4,13 +4,17 @@ import (
 	"fmt"
 	"github.com/shirou/gopsutil/v3/mem"
 	"monitoring/types"
+	"monitoring/alerter"
 )
 
+
 func CheckMemory(cfg types.Config) map[string]string {
+	alerter := alerter.AlerterHandler(cfg)
+
 	if !cfg.Memory.Enabled {
 		return nil
 	}
-	
+
 	config := cfg.Memory
 	result := make(map[string]string)
 
@@ -19,6 +23,10 @@ func CheckMemory(cfg types.Config) map[string]string {
 		kb := b / 1024
 		return fmt.Sprintf("%.2f GB (%d KB)", gb, kb)
 	}
+
+	// formatGB := func(b uint64) float64 {
+	// 	return float64(b) / (1024 * 1024 * 1024)
+	// }
 
 	// Physical memory
 	vm, err := mem.VirtualMemory()
@@ -41,7 +49,18 @@ func CheckMemory(cfg types.Config) map[string]string {
 	}
 	if config.UsedPercent {
 		result["used_percent"] = fmt.Sprintf("%.2f%%", vm.UsedPercent)
+
+		// dummy := 83
+
+		if alerter != nil && vm.UsedPercent > cfg.Alerter.AlertThresholds.Memory.UsagePercent {
+			alerter.RaiseAlert(
+				fmt.Sprintf("Memory usage is above the given threshold: %.2f%% used", vm.UsedPercent),
+				types.UNHEALTHY,
+				types.MEM_USAGE_PERCENT,
+			)
+		}
 	}
+
 	if config.Active {
 		result["active"] = format(vm.Active)
 	}
@@ -91,3 +110,4 @@ func CheckMemory(cfg types.Config) map[string]string {
 
 	return result
 }
+

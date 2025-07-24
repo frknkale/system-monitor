@@ -1,6 +1,6 @@
 general:
   output_path: "./output/output.json"
-  log_path: "./logs/monitoring.log"
+  log_path: "./logs/monitoring.json"
   interval: 20s 
 
 # Memory Metrics Configuration
@@ -39,7 +39,7 @@ disk:
   - enabled: true
     mounted: true
     paths_to_watch:
-      - "*"
+      - "/"
     filter:
       sort_by: used_percent
       top_disk_size: 3
@@ -47,13 +47,13 @@ disk:
       top_disk_usage_percent: 2
       top_free_space: 1
 
-  - enabled: true
-    mounted: true
-    paths_to_watch:
-      - "/"
-    filter:
-      sort_by: free_space
-      top_disk_size: 3
+  # - enabled: true
+  #   mounted: true
+  #   paths_to_watch:
+  #     - "/"
+  #   filter:
+  #     sort_by: free_space
+  #     top_disk_size: 3
       
 
 processes:
@@ -124,8 +124,16 @@ network:
 
 alerter:
   enabled: true
+  log_path: "./logs/alerter.json"
   alert_thresholds:
     memory:
-      used_percent: 80
+        enabled: true
+        usage_percent: 80
     disk:
-      used_percent: 90
+      - enabled: true
+        usage_percent: 80
+        paths_to_watch:
+          - "/"
+    cpu:
+      - enabled: true
+        usage_percent: 80
