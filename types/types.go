@@ -68,7 +68,7 @@ type Config struct {
 	Permissions []struct {
 		Enabled             bool     `yaml:"enabled"`
 		Paths               []string `yaml:"paths"`
-		ShowUserPermissions bool     `yaml:"show_user_permissions"`
+		ShowOwnerMetadata bool     `yaml:"show_owner_metadata"`
 		CheckUserAccess     []string `yaml:"check_user_access"`
 	} `yaml:"permissions"`
 

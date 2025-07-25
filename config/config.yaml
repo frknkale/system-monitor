@@ -1,10 +1,16 @@
+# ==================================
+# General Configuration
+# ==================================
 general:
-  output_path: "./output/output.json"
-  log_path: "./logs/monitoring.json"
-  interval: 20s 
+  output_path: "./output/output.json"   # Path to write monitoring output
+  log_path: "./logs/monitoring.json"    # Path to write log entries
+  interval: 20s                         # Monitoring interval (s,m,h)
 
+
+# ==================================
 # Memory Metrics Configuration
-# 1. making the values true will add them to the memory metrics report.
+# ==================================
+# Set each memory metric to true to include it in the report.
 memory:
   enabled: true
   total: true
@@ -20,21 +26,39 @@ memory:
   slab: false
   dirty: false
 
-  swap_total: false
-  swap_used: false
-  swap_free: false
-  swap_used_percent: false
-  swap_in: false
-  swap_out: false
+  # Swap memory metrics
+  swap_total: false         # Total swap space
+  swap_used: false          # Swap space used
+  swap_free: false          # Available swap space
+  swap_used_percent: false  # Swap usage percentage
+  swap_in: false            # Pages swapped in from disk
+  swap_out: false           # Pages swapped out to disk
 
+# ==================================
+# CPU Metrics Configuration
+# ==================================
+# This enables CPU monitoring, which includes:
+# - CPU info
+# - Per-core usage
+# - Total usage
+# - Load averages
+# - Time spent in system/use
 cpu:
   enabled: true
 
 
+# =========================
 # Disk Metrics Configuration
-# 1. mounted: true means only mounted partitions will be monitored from selected paths.
-# 2. putting '*' in paths_to_watch_disk will monitor all partitions.
-# 3. sort_by parameters -> used_space, free_space, total_space, used_percent
+# =========================
+# mounted: true means only mounted partitions will be monitored from selected paths.
+# paths_to_watch: List of paths or use '*' to include all
+# 
+# filter options:
+#   sort_by: Sort disks by 'used_space', 'free_space', 'total_space', or 'used_percent'
+#   top_disk_size: Show top N disks with the largest total space
+#   top_disk_usage: Show top N disks with highest used space
+#   top_disk_usage_percent: Show top N disks with highest used space in percent
+#   top_free_space: Show top N disks with most available space
 disk:
   - enabled: true
     mounted: true
@@ -54,8 +78,21 @@ disk:
   #   filter:
   #     sort_by: free_space
   #     top_disk_size: 3
-      
 
+
+# =========================
+# Process Metrics Configuration
+# =========================
+# For each process group:
+# - Results are filtered based on these fields.
+#
+# filter options:
+#   running_hour_threshold: Only include processes running longer than this (in hours)
+#   top_memory_usage: Show top N processes by memory usage
+#   top_cpu_usage: Show top N processes by CPU usage
+#   state: Filter processes by state ("R" = running, "S" = sleeping, "Z" = zombie, etc.)
+#   parent_pid: Only include child processes of this parent PID
+#   tty: Filter processes by controlling terminal ("?", "tty1", etc.)
 processes:
   - enabled: true
     filter:
@@ -77,12 +114,22 @@ processes:
       state: "S"
       top_cpu_usage: 4
 
+
+# ==================================
+# Permissions Check Configuration
+# ==================================
+# Checks ownership and access permissions for given paths.
+#
+# fields:
+#   paths: List of paths or files to check
+#   show_owner_metadata: Whether to include UID/GID/username/group
+#   check_user_access: List of usernames to check access for each path
 permissions:
   - enabled: true
     paths:
       - "/home"
       - "/var/www/bookstore"
-    show_user_permissions: true
+    show_owner_metadata: true
     check_user_access:
       - "intern"
 
@@ -102,6 +149,19 @@ permissions:
       - "furkan"
       - "root" 
 
+# ==================================
+# Network Metrics Configuration
+# ==================================
+# Monitors both external network reachability and active connections.
+#
+# interfaces: true → List network interfaces and their IPs, MTU, flags, etc.
+# external_targets: List of domains/IPs and ports to test via ICMP, TCP, DNS, HTTP
+# connections: Active socket filters
+#   protocols: e.g. [tcp, udp]
+#   ports: e.g. [80, 443]
+#   state: e.g. [ESTABLISHED, LISTEN]
+#   program_name: Filter by owning process name for the connection
+#   pid: Filter by owning process ID for the connection
 network:
   enabled: true
   interfaces: true
@@ -122,6 +182,14 @@ network:
 
     - pid: [95195, 126166]
 
+# ==================================
+# Alerting Configuration
+# ==================================
+# Writes alerts to the specified log file when thresholds are exceeded.
+#
+# Fields per resource:
+#   enabled: true → Enable alerting for the resource
+#   usage_percent: Trigger an alert if usage exceeds this %
 alerter:
   enabled: true
   log_path: "./logs/alerter.json"
