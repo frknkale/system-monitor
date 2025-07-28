@@ -85,7 +85,7 @@ func main() {
 		}
 
 		// Run rsync after writing output.json
-		rsyncCmd := exec.Command("sudo", "-u", "ubuntu","rsync", "-az", "/var/log/monitoring/metrics/output.json", "ubuntu@10.10.0.6:/var/log/remote/test-server-output.json")
+		rsyncCmd := exec.Command("sudo", "-u", "ubuntu","rsync", "--inplace","-az", "/var/log/monitoring/metrics/output.json", "ubuntu@10.10.0.6:/var/log/remote/test-server-output.json")
 		if err := rsyncCmd.Run(); err != nil {
 			// logger.Log.Printf("Failed to rsync output.json: %v", err)
 			fmt.Printf("Failed to rsync output.json: %v\n", err)
