@@ -48,7 +48,7 @@ func CheckPermissions(cfg types.Config) interface{} {
 				"mode":        mode.String(),
 			}
 
-			if permBlock.ShowUserPermissions {
+			if permBlock.ShowOwnerMetadata {
 				ownerUID := stat.Uid
 				groupGID := stat.Gid
 
