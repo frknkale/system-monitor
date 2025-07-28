@@ -1,6 +1,6 @@
 general:
-  output_path: "./output/output.json"
-  log_path: "./logs/monitoring.json"
+  output_path: "/var/log/monitoring/metrics/output.json"
+  log_path: "/var/log/monitoring/logs/monitoring.json"
   interval: 20s 
 
 # Memory Metrics Configuration
@@ -124,7 +124,7 @@ network:
 
 alerter:
   enabled: true
-  log_path: "./logs/alerter.json"
+  log_path: "/var/log/monitoring/logs/alerter.json"
   alert_settings:
     memory:
         enabled: true

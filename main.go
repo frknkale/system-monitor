@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"time"
 
@@ -61,22 +62,42 @@ func main() {
 			continue
 		}
 
-		jsonData, err := json.MarshalIndent(result, "", "  ")
+		jsonData, err := json.Marshal(result)
 		if err != nil {
-			logger.Log.Printf("Failed to marshal JSON: %v", err)
-			continue
+		    logger.Log.Printf("Failed to marshal JSON: %v", err)
+		    continue
 		}
 
-		err = os.WriteFile(outputPath, jsonData, 0644)
+		f, err := os.OpenFile(outputPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 		if err != nil {
-			logger.Log.Printf("Failed to write output file: %v", err)
-			fmt.Printf("Failed to write output file: %v", err)
-			continue
+		    logger.Log.Printf("Failed to open output file: %v", err)
+		    continue
+		}
+		defer f.Close()
+
+		if _, err := f.Write(jsonData); err != nil {
+		    logger.Log.Printf("Failed to write JSON to file: %v", err)
+		    continue
+		}
+		if _, err := f.Write([]byte("\n")); err != nil {
+		    logger.Log.Printf("Failed to write newline to file: %v", err)
+		    continue
+		}
+
+		// Run rsync after writing output.json
+		rsyncCmd := exec.Command("rsync", "-az", "/var/log/monitoriing/metrics/output.json", "ubuntu@10.10.0.6:/var/log/remote/test-server-output.json")
+		if err := rsyncCmd.Run(); err != nil {
+			// logger.Log.Printf("Failed to rsync output.json: %v", err)
+			fmt.Printf("Failed to rsync output.json: %v\n", err)
+		} else {
+			fmt.Printf("Successfully rsynced output.json to remote server.\n")
+			// logger.Log.Println("Successfully rsynced output.json to remote server.")
 		}
 
 		logger.Log.Println("System check completed.")
 		fmt.Println("System check completed.")
 		fmt.Println("Wrote output to %s\n", outputPath)
+		
 
 		// fmt.Println(string(jsonData))
 
