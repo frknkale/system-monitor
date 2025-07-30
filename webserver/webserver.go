@@ -3,22 +3,17 @@ package webserver
 import (
 	"encoding/json"
 	"net/http"
+	"html/template"
 	"time"
 	"os"
 	"fmt"
 	"bufio"
+    "strconv"
+    "strings"
+	"monitoring/types"
 	// "bytes"
 	// "io/ioutil"
 )
-
-type Status struct {
-	Timestamp string `json:"time"`
-	Host      string `json:"host"`
-	Disk      map[string]interface{} `json:"disks"`
-	Memory    map[string]interface{} `json:"memory"`
-	CPU       map[string]interface{} `json:"cpu"`
-	Services  map[string]interface{} `json:"services"`
-}
 
 func healthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -29,7 +24,7 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func statusHandler(w http.ResponseWriter, r *http.Request) {
-	path := "/var/log/web/test-server-output.json"
+	path := "/var/log/monitoring/metrics/output.json"
 
 	file, err := os.Open(path)
 	if err != nil {
@@ -96,7 +91,7 @@ func readLatestStatus(path string) (map[string]interface{}, error) {
 
 func sectionHandler(section string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		data, err := readLatestStatus("/var/log/web/test-server-output.json")
+		data, err := readLatestStatus("/var/log/monitoring/metrics/output.json")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -114,8 +109,69 @@ func sectionHandler(section string) http.HandlerFunc {
 }
 
 
+func dashboardHandler(w http.ResponseWriter, r *http.Request) {
+	raw, err := readLatestStatus("/var/log/monitoring/metrics/output.json")
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	var data types.DashboardData
+
+	// Timestamp
+	if ts, ok := raw["timestamp"].(string); ok {
+		data.Timestamp = ts
+	}
+
+	// CPU Usage
+	if cpuMap, ok := raw["cpu"].(map[string]interface{}); ok {
+		if val, ok := cpuMap["usage_percent"].(string); ok {
+		    val = strings.TrimSuffix(val, "%")
+		    if f, err := strconv.ParseFloat(val, 64); err == nil {
+		        data.CPUPercent = f
+		    }
+		}
+	}
+
+	// Memory Usage (string percent -> float)
+	if memMap, ok := raw["memory"].(map[string]interface{}); ok {
+		if strVal, ok := memMap["used_percent"].(string); ok {
+			strVal = strings.TrimSuffix(strVal, "%")
+			if fval, err := strconv.ParseFloat(strVal, 64); err == nil {
+				data.MemoryPercent = fval
+			}
+		}
+	}
+
+	// Disk Usage (first disk, first partition)
+	if diskArray, ok := raw["disk"].([]interface{}); ok && len(diskArray) > 0 {
+		if diskEntry, ok := diskArray[0].(map[string]interface{}); ok {
+			if parts, ok := diskEntry["partitions"].([]interface{}); ok {
+				for _, part := range parts {
+					if partMap, ok := part.(map[string]interface{}); ok {
+						if mount, ok := partMap["mountpoint"].(string); ok && mount == "/" {
+							if val, ok := partMap["used_percent"].(float64); ok {
+								data.DiskRootPercent = val
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	tmpl, err := template.ParseFiles("webserver/templates/dashboard.html")
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	tmpl.Execute(w, data)
+}
+
+
 func WebServer() {
-	http.HandleFunc("/healthz", healthHandler)
+	http.HandleFunc("/", dashboardHandler)
 	http.HandleFunc("/status", statusHandler)
 
 	http.HandleFunc("/cpu", sectionHandler("cpu"))

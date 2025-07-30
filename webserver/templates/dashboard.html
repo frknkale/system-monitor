@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>System Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 2em; }
+        h1 { color: #444; }
+        .metric { margin: 1em 0; }
+        .nav a {
+            margin-right: 1em;
+            text-decoration: none;
+            color: #2a5db0;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Dashboard</h1>
+    <div class="nav">
+        <a href="/status">Raw Status JSON</a>
+        <a href="/cpu">CPU</a>
+        <a href="/memory">Memory</a>
+        <a href="/disk">Disk</a>
+        <a href="/network">Network</a>
+        <a href="/services">Services</a>
+        <a href="/permissions">Permissions</a>
+        <a href="/processes">Processes</a>
+    </div>
+
+    <p><strong>Last Updated:</strong> {{.Timestamp}}</p>
+    <div class="metric"><strong>CPU Usage:</strong> {{printf "%.2f" .CPUPercent}}%</div>
+    <div class="metric"><strong>Memory Usage:</strong> {{printf "%.2f" .MemoryPercent}}%</div>
+    <div class="metric"><strong>Disk Usage (/):</strong> {{printf "%.2f" .DiskRootPercent}}%</div>
+</body>
+</html>

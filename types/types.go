@@ -153,9 +153,18 @@ type Alert struct {
 	Source    AlerterSources `json:"source"`
 }
 
+type Status struct {
+	Timestamp string `json:"time"`
+	Host      string `json:"host"`
+	Disk      map[string]interface{} `json:"disks"`
+	Memory    map[string]interface{} `json:"memory"`
+	CPU       map[string]interface{} `json:"cpu"`
+	Services  map[string]interface{} `json:"services"`
+}
 
-// type AlertManager struct {
-// 	Alerts map[string]Alert `json:"alerts"`
-// 	OnAlert func(alert Alert)
-// 	RaiseAlert func(message string, status HealthStatus, source string)
-// }
+type DashboardData struct {
+	Timestamp   string
+	CPUPercent  float64
+	MemoryPercent float64
+	DiskRootPercent float64
+}
