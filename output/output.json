@@ -4,22 +4,22 @@
   "cores": [
    {
     "cpu_number": 0,
-    "usage_percent": 0
+    "usage_percent": 0.9900990098909599
    },
    {
     "cpu_number": 1,
     "usage_percent": 0
    }
   ],
-  "idle": "3759925.12",
+  "idle": "3783772.51",
   "load_15min": "0.00",
   "load_1min": "0.00",
   "load_5min": "0.00",
   "mhz": 2800.284,
   "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
-  "time_spent_system": "965.30",
-  "time_spent_user": "1600.29",
-  "usage_percent": "0.00",
+  "time_spent_system": "991.74",
+  "time_spent_user": "1628.55",
+  "usage_percent": "0.99",
   "vendor_id": "GenuineIntel"
  },
  "disk": [
@@ -38,9 +38,9 @@
      "mountpoint": "/",
      "fstype": "ext2/ext3",
      "total_mb": 18770.75,
-     "used_mb": 4559.3046875,
-     "free_mb": 14195.4453125,
-     "used_percent": 24.310133099614763
+     "used_mb": 4603.35546875,
+     "free_mb": 14151.39453125,
+     "used_percent": 24.545011097188713
     }
    ],
    "paths_to_watch": [
@@ -49,12 +49,12 @@
   }
  ],
  "memory": {
-  "available": "7.14 GB (7486096 KB)",
-  "cached": "3.82 GB (4000704 KB)",
-  "free": "3.54 GB (3712320 KB)",
+  "available": "7.16 GB (7509196 KB)",
+  "cached": "3.85 GB (4033292 KB)",
+  "free": "3.53 GB (3702600 KB)",
   "total": "7.75 GB (8129384 KB)",
-  "used": "0.31 GB (325356 KB)",
-  "used_percent": "4.00%"
+  "used": "0.29 GB (302256 KB)",
+  "used_percent": "3.72%"
  },
  "network": {
   "active_connections": [
@@ -118,16 +118,16 @@
     "dns": {
      "dns_resolved": true,
      "resolved_ips": [
-      "64.233.181.147",
-      "64.233.181.99",
-      "64.233.181.105",
-      "64.233.181.103",
-      "64.233.181.104",
-      "64.233.181.106",
-      "2607:f8b0:4001:c62::93",
-      "2607:f8b0:4001:c62::63",
-      "2607:f8b0:4001:c62::69",
-      "2607:f8b0:4001:c62::67"
+      "173.194.206.99",
+      "173.194.206.106",
+      "173.194.206.103",
+      "173.194.206.105",
+      "173.194.206.104",
+      "173.194.206.147",
+      "2607:f8b0:4001:c09::6a",
+      "2607:f8b0:4001:c09::68",
+      "2607:f8b0:4001:c09::63",
+      "2607:f8b0:4001:c09::69"
      ]
     },
     "http": {
@@ -263,34 +263,34 @@
     {
      "pid": 95189,
      "name": "systemd-journald",
-     "cpu_percent": 0.001647153333449048,
-     "memory_percent": 1.4108818,
+     "cpu_percent": 0.0016656209558472959,
+     "memory_percent": 1.4946766,
      "create_time": "2025-07-15T06:39:46Z",
      "status": "S",
      "parent_pid": 1,
-     "running_hours": "362h14m",
+     "running_hours": "365h33m",
      "tty": "?"
     },
     {
      "pid": 26568,
      "name": "snapd",
-     "cpu_percent": 0.004277743688706297,
-     "memory_percent": 0.48087284,
+     "cpu_percent": 0.004273030766774842,
+     "memory_percent": 0.4887455,
      "create_time": "2025-07-10T11:45:26Z",
      "status": "S",
      "parent_pid": 1,
-     "running_hours": "477h8m",
+     "running_hours": "480h28m",
      "tty": "?"
     },
     {
      "pid": 126137,
      "name": "supervisord",
-     "cpu_percent": 0.013911779712743344,
+     "cpu_percent": 0.013917127054569035,
      "memory_percent": 0.35609093,
      "create_time": "2025-07-18T06:51:43Z",
      "status": "S",
      "parent_pid": 1,
-     "running_hours": "290h2m",
+     "running_hours": "293h21m",
      "tty": "?"
     }
    ]
@@ -302,47 +302,47 @@
    },
    "processes": [
     {
-     "pid": 254582,
+     "pid": 261892,
      "name": "go",
-     "cpu_percent": 9.666195381314187,
-     "memory_percent": 0.30363923,
-     "create_time": "2025-07-30T08:54:11Z",
+     "cpu_percent": 8.213136702800625,
+     "memory_percent": 0.28011963,
+     "create_time": "2025-07-30T12:13:29Z",
      "status": "S",
-     "parent_pid": 254581,
+     "parent_pid": 261891,
      "running_hours": "0m",
      "tty": "pts/1"
     },
     {
-     "pid": 254643,
+     "pid": 261940,
      "name": "main",
-     "cpu_percent": 4.4546681343960035,
-     "memory_percent": 0.14421757,
-     "create_time": "2025-07-30T08:54:11Z",
+     "cpu_percent": 5.026171630155588,
+     "memory_percent": 0.14274144,
+     "create_time": "2025-07-30T12:13:29Z",
      "status": "S",
-     "parent_pid": 254582,
+     "parent_pid": 261892,
      "running_hours": "0m",
      "tty": "pts/1"
     },
     {
-     "pid": 253792,
-     "name": "systemd",
-     "cpu_percent": 0.05046104510686742,
-     "memory_percent": 0.14160974,
-     "create_time": "2025-07-30T08:50:37Z",
+     "pid": 126137,
+     "name": "supervisord",
+     "cpu_percent": 0.013917116188462498,
+     "memory_percent": 0.35609093,
+     "create_time": "2025-07-18T06:51:43Z",
      "status": "S",
      "parent_pid": 1,
-     "running_hours": "3m",
+     "running_hours": "293h21m",
      "tty": "?"
     },
     {
-     "pid": 253899,
-     "name": "sshd",
-     "cpu_percent": 0.036696920982961095,
-     "memory_percent": 0.08782953,
-     "create_time": "2025-07-30T08:50:37Z",
+     "pid": 56,
+     "name": "hwrng",
+     "cpu_percent": 0.01356781184805333,
+     "memory_percent": 0,
+     "create_time": "2025-07-08T14:04:57Z",
      "status": "S",
-     "parent_pid": 253790,
-     "running_hours": "3m",
+     "parent_pid": 2,
+     "running_hours": "526h8m",
      "tty": "?"
     }
    ]
@@ -350,34 +350,358 @@
  ],
  "services": [
   {
-   "active": false,
-   "cpu": "13ms",
-   "duration": "2 weeks 4 days ago",
-   "error": "exit status 3",
-   "raw_active": "Active: failed (Result: exit-code) since Fri 2025-07-11 12:22:50 UTC; 2 weeks 4 days ago",
-   "service": "nginx",
-   "since": "Fri 2025-07-11 12:22:50 UTC",
-   "status": "failed",
-   "sub_status": "Result: exit-code"
-  },
-  {
-   "error": "service not found",
-   "service": "mysql"
-  },
-  {
    "active": true,
-   "cpu": "3min 18.820s",
-   "duration": "1 week 5 days ago",
-   "memory": "28.7M (peak: 32.1M)",
-   "raw_active": "Active: active (running) since Fri 2025-07-18 06:51:43 UTC; 1 week 5 days ago",
-   "service": "supervisor",
-   "since": "Fri 2025-07-18 06:51:43 UTC",
+   "cpu": "15.183s",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "memory": "1.6M (peak: 2.3M)",
+   "pid": "685 (dbus-daemon)",
+   "raw_active": "Active: active (running) since Tue 2025-07-08 14:05:11 UTC; 3 weeks 0 days ago",
+   "service": "dbus.service",
+   "since": "Tue 2025-07-08 14:05:11 UTC",
    "status": "active",
    "sub_status": "running"
   },
   {
-   "error": "service not found",
-   "service": "php-fpm"
+   "active": true,
+   "cpu": "5ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "130 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "kmod-static-nodes.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "61ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "328 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:04 UTC; 3 weeks 0 days ago",
+   "service": "ldconfig.service",
+   "since": "Tue 2025-07-08 14:05:04 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "1ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "752 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:12 UTC; 3 weeks 0 days ago",
+   "service": "plymouth-quit-wait.service",
+   "since": "Tue 2025-07-08 14:05:12 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "2ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "753 (code=exited, status=1/FAILURE)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:12 UTC; 3 weeks 0 days ago",
+   "service": "plymouth-quit.service",
+   "since": "Tue 2025-07-08 14:05:12 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "7ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "329 (code=exited, status=1/FAILURE)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:01 UTC; 3 weeks 0 days ago",
+   "service": "plymouth-read-write.service",
+   "since": "Tue 2025-07-08 14:05:01 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "25.582s",
+   "duration": "2 weeks 1 day ago",
+   "enable_state": "static",
+   "memory": "2.1M (peak: 2.6M)",
+   "pid": "95156 (polkitd)",
+   "raw_active": "Active: active (running) since Tue 2025-07-15 06:39:47 UTC; 2 weeks 1 day ago",
+   "service": "polkit.service",
+   "since": "Tue 2025-07-15 06:39:47 UTC",
+   "status": "active",
+   "sub_status": "running"
+  },
+  {
+   "active": true,
+   "cpu": "6ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "330 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:01 UTC; 3 weeks 0 days ago",
+   "service": "systemd-binfmt.service",
+   "since": "Tue 2025-07-08 14:05:01 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "12ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "290 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:01 UTC; 3 weeks 0 days ago",
+   "service": "systemd-fsck@dev-disk-by\\x2dlabel-BOOT.service",
+   "since": "Tue 2025-07-08 14:05:01 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "22ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "297 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:01 UTC; 3 weeks 0 days ago",
+   "service": "systemd-fsck@dev-disk-by\\x2dlabel-UEFI.service",
+   "since": "Tue 2025-07-08 14:05:01 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "17ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "346 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:02 UTC; 3 weeks 0 days ago",
+   "service": "systemd-journal-catalog-update.service",
+   "since": "Tue 2025-07-08 14:05:02 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "10ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "186 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-journal-flush.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "21.969s",
+   "duration": "2 weeks 1 day ago",
+   "enable_state": "static",
+   "memory": "86.2M (peak: 86.7M)",
+   "pid": "95189 (systemd-journal)",
+   "raw_active": "Active: active (running) since Tue 2025-07-15 06:39:47 UTC; 2 weeks 1 day ago",
+   "service": "systemd-journald.service",
+   "since": "Tue 2025-07-15 06:39:47 UTC",
+   "status": "active",
+   "sub_status": "running"
+  },
+  {
+   "active": true,
+   "cpu": "4.185s",
+   "duration": "2 weeks 1 day ago",
+   "enable_state": "static",
+   "memory": "1.5M (peak: 2.3M)",
+   "pid": "95347 (systemd-logind)",
+   "raw_active": "Active: active (running) since Tue 2025-07-15 06:39:48 UTC; 2 weeks 1 day ago",
+   "service": "systemd-logind.service",
+   "since": "Tue 2025-07-15 06:39:48 UTC",
+   "status": "active",
+   "sub_status": "running"
+  },
+  {
+   "active": true,
+   "cpu": "9ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "347 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:02 UTC; 3 weeks 0 days ago",
+   "service": "systemd-machine-id-commit.service",
+   "since": "Tue 2025-07-08 14:05:02 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "19ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "145 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-modules-load.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "9ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "187 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-random-seed.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "8ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "174 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-sysctl.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "14ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "188 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-sysusers.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "15ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "167 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-tmpfiles-setup-dev-early.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "7ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "196 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-tmpfiles-setup-dev.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "21ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "331 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:01 UTC; 3 weeks 0 days ago",
+   "service": "systemd-tmpfiles-setup.service",
+   "since": "Tue 2025-07-08 14:05:01 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "88ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "147 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:00 UTC; 3 weeks 0 days ago",
+   "service": "systemd-udev-trigger.service",
+   "since": "Tue 2025-07-08 14:05:00 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "1.539s",
+   "duration": "2 weeks 1 day ago",
+   "enable_state": "static",
+   "memory": "2.2M (peak: 5.9M)",
+   "pid": "95178 (systemd-udevd)",
+   "raw_active": "Active: active (running) since Tue 2025-07-15 06:39:47 UTC; 2 weeks 1 day ago",
+   "service": "systemd-udevd.service",
+   "since": "Tue 2025-07-15 06:39:47 UTC",
+   "status": "active",
+   "sub_status": "running"
+  },
+  {
+   "active": true,
+   "cpu": "4ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "464 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:04 UTC; 3 weeks 0 days ago",
+   "service": "systemd-update-done.service",
+   "since": "Tue 2025-07-08 14:05:04 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "5ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "349 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:01 UTC; 3 weeks 0 days ago",
+   "service": "systemd-update-utmp.service",
+   "since": "Tue 2025-07-08 14:05:01 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "9ms",
+   "duration": "3 weeks 0 days ago",
+   "enable_state": "static",
+   "pid": "749 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Tue 2025-07-08 14:05:12 UTC; 3 weeks 0 days ago",
+   "service": "systemd-user-sessions.service",
+   "since": "Tue 2025-07-08 14:05:12 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "9ms",
+   "duration": "2 weeks 4 days ago",
+   "enable_state": "static",
+   "pid": "61553 (code=exited, status=0/SUCCESS)",
+   "raw_active": "Active: active (exited) since Sat 2025-07-12 00:05:50 UTC; 2 weeks 4 days ago",
+   "service": "user-runtime-dir@1009.service",
+   "since": "Sat 2025-07-12 00:05:50 UTC",
+   "status": "active",
+   "sub_status": "exited"
+  },
+  {
+   "active": true,
+   "cpu": "941ms",
+   "duration": "3h 23min ago",
+   "enable_state": "static",
+   "memory": "10.7M (peak: 55.1M)",
+   "pid": "253792 (systemd)",
+   "raw_active": "Active: active (running) since Wed 2025-07-30 08:50:38 UTC; 3h 23min ago",
+   "service": "user@1009.service",
+   "since": "Wed 2025-07-30 08:50:38 UTC",
+   "status": "active",
+   "sub_status": "running"
   }
  ]
 }
