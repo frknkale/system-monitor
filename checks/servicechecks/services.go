@@ -23,17 +23,27 @@ func CheckServices(cfg types.Config) []map[string]interface{} {
 			result, err := CheckAllServices(manager)
 			if err != nil {
 				logger.Log.Printf("Failed to fetch all services: %v", err)
-			} else {
-				services = append(services, result...)
+				return services
 			}
+			services = append(services, result...)
 		} else {
-			status, err := CheckServiceStatus(serviceName, manager)
+			service, err := CheckServiceStatus(serviceName, manager)
 			if err != nil {
 				logger.Log.Printf("Failed to fetch status for %s: %v", serviceName, err)
+				return services
 			}
-			services = append(services, status)
+			services = append(services, service)
 		}
 	}
+	if len(cfg.Services.ServiceList)==0 {
+		result, err := CheckAllServices(manager)
+		if err != nil {
+			logger.Log.Printf("Failed to fetch all services: %v", err)
+		} else {
+			services = append(services, result...)
+		}
+	}
+	services = applyFilters(services, cfg.Services.Filter, manager)
 
 	return services
 }
@@ -63,6 +73,10 @@ func CheckServiceStatus(service, manager string) (map[string]interface{}, error)
 	switch manager {
 	case "systemctl":
 		result = parseSystemctl(output, result)
+		enabledStatus, err := CheckServiceEnabled(service)
+		if err == nil {
+			result["enable_state"] = enabledStatus
+		}
 	case "supervisorctl":
 		result = parseSupervisorctl(output, result)
 	}
@@ -99,6 +113,9 @@ func parseSystemctl(output string, result map[string]interface{}) map[string]int
 			result["active"] = result["status"] == "active"
 		}
 
+		if strings.HasPrefix(trimmed, "Main PID:") {
+			result["pid"] = strings.TrimSpace(strings.TrimPrefix(trimmed, "Main PID:"))
+		}
 		if strings.HasPrefix(trimmed, "Memory:") {
 			result["memory"] = strings.TrimSpace(strings.TrimPrefix(trimmed, "Memory:"))
 		}
@@ -142,7 +159,7 @@ func CheckAllServices(manager string) ([]map[string]interface{}, error) {
 	}
 
 	out, err := cmd.CombinedOutput()
-	if err != nil {
+	if err != nil && !strings.Contains(err.Error(), "exit status 3"){  // not really an error, CheckServiceStatus will handle
 		logger.Log.Printf("Error running %s list: %v", manager, err)
 		fmt.Printf("Error running %s list: %v\n", manager, err)
 		return nil, err
@@ -169,13 +186,50 @@ func parseServiceList(output string, manager string) []map[string]interface{} {
 			continue
 		}
 
-		status, err := CheckServiceStatus(serviceName, manager)
+		service, err := CheckServiceStatus(serviceName, manager)
 		if err != nil {
 			continue
 		}
 
-		services = append(services, status)
+		services = append(services, service)
 	}
 
 	return services
+}
+
+func CheckServiceEnabled(service string) (string, error) {
+    cmd := exec.Command("systemctl", "is-enabled", service)
+    out, err := cmd.CombinedOutput()
+    enabled := strings.TrimSpace(string(out))
+    if err != nil && enabled == "" {
+        return "unknown", err
+    }
+    return enabled, nil
+}
+
+func applyFilters(services []map[string]interface{}, filter types.ServiceFilter, manager string) []map[string]interface{} {
+	var filtered []map[string]interface{}
+
+	for _, service := range services{
+		if filter.State != "" {
+			if status, ok := service["status"].(string); !ok || status != filter.State {
+				continue
+			}
+		}
+		if manager == "systemctl" {
+			if filter.SubState != "" {
+				if subStatus, ok := service["sub_status"].(string); !ok || subStatus != filter.SubState {
+					continue
+				}
+			}
+			if filter.EnableState != "" {
+				if enableState, ok := service["enable_state"].(string); !ok || enableState != filter.EnableState {
+					continue
+				}
+			}
+		}
+		filtered = append(filtered, service)
+	}
+    return filtered
+
 }

@@ -190,12 +190,17 @@ network:
 services:
   enabled: true
   manager: "systemctl"   # "systemctl", "supervisorctl"
+  filter:
+    state: failed         # state: active, inactive, failed, activating, deactivating, reloading
+    sub_state: running    # sub_state: running, exited, dead, auto-restart, reload, listening, etc.
+    enable_state: static  # enable_state: enabled, disabled, static, masked, indirect, generated, transient
+
   service_list:
-    - "nginx"
-    - "mysql"
-    - "supervisor"
-    - "php-fpm"
-    # -  "all"
+    # - "nginx"
+    # - "mysql"
+    # - "supervisor"
+    # - "php-fpm"
+    - "all"
 
 # ==================================
 # Alerting Configuration

@@ -85,9 +85,10 @@ type Config struct {
 	} `yaml:"network"`
 	
 	Services struct {
-		Enabled  bool        `yaml:"enabled"`
-		Manager  string   	 `yaml:"manager"`
-		ServiceList []string `yaml:"service_list"`
+		Enabled  bool        	`yaml:"enabled"`
+		Manager  string   	  	`yaml:"manager"`
+		Filter 	 ServiceFilter  `yaml:"filter"` 
+		ServiceList []string 	`yaml:"service_list"`
 	} `yaml:"services"`
 
 	Alerter struct {
@@ -117,6 +118,12 @@ type ConnectionFilter struct {
     State        []string `yaml:"state"`
     PID          []int    `yaml:"pid"`
     ProgramNames []string `yaml:"program_name"`
+}
+
+type ServiceFilter struct {
+    State    string `yaml:"state"`
+    SubState string `yaml:"sub_state"`
+    EnableState  string `yaml:"enable_state"`
 }
 
 type HealthStatus string
