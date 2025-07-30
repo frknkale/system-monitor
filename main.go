@@ -33,6 +33,7 @@ func main() {
 	
 	logPath := cfg.General.LogPath
 	outputPath := cfg.General.OutputPath
+	remote := cfg.General.Remote
 
 	// Initialize logger
 	err = logger.Init(logPath)
@@ -84,21 +85,25 @@ func main() {
 		    continue
 		}
 
-		// Run rsync after writing output.json
-		rsyncCmd := exec.Command("sudo", "-u", "ubuntu","rsync", "--inplace","-az", "/var/log/monitoring/metrics/output.json", "ubuntu@10.10.0.6:/var/log/remote/test-server-output.json")
-		if err := rsyncCmd.Run(); err != nil {
-			// logger.Log.Printf("Failed to rsync output.json: %v", err)
-			fmt.Printf("Failed to rsync output.json: %v\n", err)
-		} else {
-			fmt.Printf("Successfully rsynced output.json to remote server.\n")
-			// logger.Log.Println("Successfully rsynced output.json to remote server.")
+		if remote.Enabled{
+			user, host, path:= remote.User, remote.Host, remote.RemotePath
+			rsyncCmd := exec.Command(
+				"sudo", "-u", user, "rsync", "--inplace", "-az", outputPath,
+				fmt.Sprintf("%s@%s:%s", user, host, path))
+				
+			if err := rsyncCmd.Run(); err != nil {
+				logger.Log.Printf("Failed to rsync output.json to %s@%s:%s: %v",user, host, path, err)
+				fmt.Printf("Failed to rsync output.json to %s@%s:%s: %v\n",user, host, path, err)
+			} else {
+				logger.Log.Printf("Successfully rsynced output.json to %s@%s:%s",user, host, path)
+				fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n",user, host, path)
+			}
 		}
 
-		logger.Log.Println("System check completed.")
-		fmt.Println("System check completed.")
-		fmt.Println("Wrote output to %s\n", outputPath)
+		logger.Log.Println("Checks completed.")
+		fmt.Println("Checks completed.")
+		fmt.Printf("Wrote output to %s\n", outputPath)
 		
-
 		// fmt.Println(string(jsonData))
 
 		logger.Log.Println(string(jsonData))
@@ -106,6 +111,5 @@ func main() {
 		fmt.Println(">>> Sleeping for:", interval)
 
 		time.Sleep(interval)
-
 	}
 }

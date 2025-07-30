@@ -1,7 +1,6 @@
 package types
 
 import (
-	// "fmt"
 	"time"
 )
 
@@ -10,6 +9,12 @@ type Config struct {
 		Interval   string	`yaml:"interval"`
 		OutputPath string 	`yaml:"output_path"`
 		LogPath    string	`yaml:"log_path"`
+		Remote	   struct {
+			Enabled	   bool     `yaml:"enabled"`
+			Host       string	`yaml:"host"`
+			User	   string	`yaml:"user"`
+			RemotePath string	`yaml:"remote_path"`
+		} `yaml:"remote"`
 	} `yaml:"general"`
 
 	Memory struct {
@@ -68,7 +73,7 @@ type Config struct {
 	Permissions []struct {
 		Enabled             bool     `yaml:"enabled"`
 		Paths               []string `yaml:"paths"`
-		ShowOwnerMetadata bool     `yaml:"show_owner_metadata"`
+		ShowOwnerMetadata 	bool     `yaml:"show_owner_metadata"`
 		CheckUserAccess     []string `yaml:"check_user_access"`
 	} `yaml:"permissions"`
 
@@ -78,6 +83,12 @@ type Config struct {
 		Connections 	[]ConnectionFilter `yaml:"connections"`
 		ExternalTargets []string       	   `yaml:"external_targets"`
 	} `yaml:"network"`
+	
+	Services struct {
+		Enabled  bool        `yaml:"enabled"`
+		Manager  string   	 `yaml:"manager"`
+		ServiceList []string `yaml:"service_list"`
+	} `yaml:"services"`
 
 	Alerter struct {
 		Enabled bool `yaml:"enabled"`
@@ -123,10 +134,10 @@ const (
 )
 
 type Alert struct {
-	Timestamp time.Time    `json:"timestamp"`
-	Message   string       `json:"message"`
-	Status    HealthStatus `json:"status"`
-	Source    AlerterSources       `json:"source"`
+	Timestamp time.Time      `json:"timestamp"`
+	Message   string         `json:"message"`
+	Status    HealthStatus	 `json:"status"`
+	Source    AlerterSources `json:"source"`
 }
 
 

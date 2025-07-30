@@ -4,7 +4,12 @@
 general:
   output_path: "/var/log/monitoring/metrics/output.json"
   log_path: "/var/log/monitoring/logs/monitoring.json"
-  interval: 60s 
+  interval: 60s
+  remote:
+    enabled: true
+    host: "10.10.0.6"
+    user: "ubuntu"
+    remote_path: "/var/log/remote/test-server-output.json"
 
 
 # ==================================
@@ -181,6 +186,16 @@ network:
     - ports: [3306]
 
     - pid: [95195, 126166]
+
+services:
+  enabled: true
+  manager: "systemctl"   # "systemctl", "supervisorctl"
+  service_list:
+    - "nginx"
+    - "mysql"
+    - "supervisor"
+    - "php-fpm"
+    # -  "all"
 
 # ==================================
 # Alerting Configuration

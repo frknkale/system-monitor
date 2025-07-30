@@ -1,368 +1,383 @@
 {
-  "cpu": {
-    "cache_size": 33792,
-    "cores": [
-      {
-        "cpu_number": 0,
-        "usage_percent": 0
-      },
-      {
-        "cpu_number": 1,
-        "usage_percent": 0
-      }
-    ],
-    "idle": "2603778.33",
-    "load_15min": "0.01",
-    "load_1min": "0.15",
-    "load_5min": "0.05",
-    "mhz": 2800.284,
-    "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
-    "time_spent_system": "708.86",
-    "time_spent_user": "1250.74",
-    "usage_percent": "0.00",
-    "vendor_id": "GenuineIntel"
-  },
-  "disk": [
-    {
-      "filter": {
-        "SortBy": "used_percent",
-        "TopDiskSize": 3,
-        "TopDiskUsage": 2,
-        "TopDiskUsagePercent": 2,
-        "TopFreeSpace": 1
-      },
-      "mounted": true,
-      "partitions": [
-        {
-          "device": "/dev/sda1",
-          "mountpoint": "/",
-          "fstype": "ext2/ext3",
-          "total_mb": 18770.75,
-          "used_mb": 4498.7109375,
-          "free_mb": 14256.0390625,
-          "used_percent": 23.987048281102123
-        }
-      ],
-      "paths_to_watch": [
-        "*"
-      ]
-    },
-    {
-      "filter": {
-        "SortBy": "free_space",
-        "TopDiskSize": 3
-      },
-      "mounted": true,
-      "partitions": [
-        {
-          "device": "/dev/sda1",
-          "mountpoint": "/",
-          "fstype": "ext2/ext3",
-          "total_mb": 18770.75,
-          "used_mb": 4498.7109375,
-          "free_mb": 14256.0390625,
-          "used_percent": 23.987048281102123
-        }
-      ],
-      "paths_to_watch": [
-        "/"
-      ]
-    }
+ "cpu": {
+  "cache_size": 33792,
+  "cores": [
+   {
+    "cpu_number": 0,
+    "usage_percent": 0
+   },
+   {
+    "cpu_number": 1,
+    "usage_percent": 0
+   }
   ],
-  "memory": {
-    "available": "7.13 GB (7479336 KB)",
-    "cached": "3.75 GB (3933712 KB)",
-    "free": "3.61 GB (3787512 KB)",
-    "total": "7.75 GB (8129384 KB)",
-    "used": "0.32 GB (332104 KB)",
-    "used_percent": "4.09%"
-  },
-  "network": {
-    "active_connections": [
-      {
-        "connections": null,
-        "filter": {
-          "Ports": [
-            80
-          ],
-          "ProgramNames": [
-            "nginx"
-          ],
-          "Protocols": [
-            "tcp"
-          ],
-          "State": [
-            "ESTABLISHED",
-            "TIME_WAIT",
-            "CLOSE_WAIT",
-            "LISTEN"
-          ]
-        }
-      },
-      {
-        "connections": null,
-        "filter": {
-          "Ports": [
-            3306
-          ]
-        }
-      },
-      {
-        "connections": null,
-        "filter": {
-          "PID": [
-            95195,
-            126166
-          ]
-        }
-      }
-    ],
-    "external_access": [
-      {
-        "dns": {
-          "dns_resolved": true,
-          "resolved_ips": [
-            "173.194.64.99",
-            "173.194.64.106",
-            "173.194.64.147",
-            "173.194.64.103",
-            "173.194.64.105",
-            "173.194.64.104",
-            "2607:f8b0:4001:c64::67",
-            "2607:f8b0:4001:c64::6a",
-            "2607:f8b0:4001:c64::68",
-            "2607:f8b0:4001:c64::63"
-          ]
-        },
-        "http": {
-          "reachable": true,
-          "status": 200
-        },
-        "icmp": {
-          "reachable": true
-        },
-        "target": "https://www.google.com:443",
-        "unreachable": false
-      },
-      {
-        "icmp": {
-          "error": "ping error: unreachable",
-          "reachable": false
-        },
-        "target": "34.42.118.72:80",
-        "tcp": {
-          "reachable": true
-        },
-        "unreachable": false
-      },
-      {
-        "icmp": {
-          "reachable": true
-        },
-        "target": "10.10.0.4:22",
-        "tcp": {
-          "reachable": true
-        },
-        "unreachable": false
-      },
-      {
-        "icmp": {
-          "error": "ping error: unreachable",
-          "reachable": false
-        },
-        "target": "34.171.30.76:3306",
-        "tcp": {
-          "error": "dial tcp 34.171.30.76:3306: i/o timeout",
-          "reachable": false
-        },
-        "unreachable": true
-      }
-    ],
-    "interfaces": [
-      {
-        "flags": "up|loopback|running",
-        "hwaddr": "",
-        "ip_addresses": [
-          "127.0.0.1/8",
-          "::1/128"
-        ],
-        "mtu": 65536,
-        "name": "lo"
-      },
-      {
-        "flags": "up|broadcast|multicast|running",
-        "hwaddr": "42:01:0a:0a:00:03",
-        "ip_addresses": [
-          "10.10.0.3/32",
-          "fe80::4001:aff:fe0a:3/64"
-        ],
-        "mtu": 1460,
-        "name": "ens4"
-      }
-    ]
-  },
-  "permissions": [
+  "idle": "3759925.12",
+  "load_15min": "0.00",
+  "load_1min": "0.00",
+  "load_5min": "0.00",
+  "mhz": 2800.284,
+  "model_name": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+  "time_spent_system": "965.30",
+  "time_spent_user": "1600.29",
+  "usage_percent": "0.00",
+  "vendor_id": "GenuineIntel"
+ },
+ "disk": [
+  {
+   "filter": {
+    "SortBy": "used_percent",
+    "TopDiskSize": 3,
+    "TopDiskUsage": 2,
+    "TopDiskUsagePercent": 2,
+    "TopFreeSpace": 1
+   },
+   "mounted": true,
+   "partitions": [
     {
-      "/home": {
-        "group_gid": 0,
-        "group_name": "root",
-        "mode": "drwxr-xr-x",
-        "owner_uid": 0,
-        "owner_user": "root",
-        "user_access": {
-          "intern": {
-            "exec": true,
-            "read": true,
-            "write": false
-          }
-        }
-      },
-      "/var/www/bookstore": {
-        "group_gid": 1014,
-        "group_name": "intern",
-        "mode": "drwxr-xr-x",
-        "owner_uid": 999,
-        "owner_user": "intern",
-        "user_access": {
-          "intern": {
-            "exec": true,
-            "read": true,
-            "write": true
-          }
-        }
-      }
-    },
-    {
-      "/home/furkan": {
-        "mode": "drwxr-x---",
-        "user_access": {
-          "furkan": {
-            "exec": true,
-            "read": true,
-            "write": true
-          },
-          "intern": {
-            "exec": false,
-            "read": false,
-            "write": false
-          }
-        }
-      }
-    },
-    {
-      "/opt/monitoring-merged/main.go": {
-        "group_gid": 1013,
-        "group_name": "crastle",
-        "mode": "-rwxrwxrwx",
-        "owner_uid": 1012,
-        "owner_user": "crastle",
-        "user_access": {
-          "furkan": {
-            "exec": true,
-            "read": true,
-            "write": true
-          },
-          "root": {
-            "exec": true,
-            "read": true,
-            "write": true
-          }
-        }
-      }
+     "device": "/dev/sda1",
+     "mountpoint": "/",
+     "fstype": "ext2/ext3",
+     "total_mb": 18770.75,
+     "used_mb": 4559.3046875,
+     "free_mb": 14195.4453125,
+     "used_percent": 24.310133099614763
     }
+   ],
+   "paths_to_watch": [
+    "/"
+   ]
+  }
+ ],
+ "memory": {
+  "available": "7.14 GB (7486096 KB)",
+  "cached": "3.82 GB (4000704 KB)",
+  "free": "3.54 GB (3712320 KB)",
+  "total": "7.75 GB (8129384 KB)",
+  "used": "0.31 GB (325356 KB)",
+  "used_percent": "4.00%"
+ },
+ "network": {
+  "active_connections": [
+   {
+    "connections": null,
+    "filter": {
+     "Ports": [
+      80
+     ],
+     "ProgramNames": [
+      "nginx"
+     ],
+     "Protocols": [
+      "tcp"
+     ],
+     "State": [
+      "ESTABLISHED",
+      "TIME_WAIT",
+      "CLOSE_WAIT",
+      "LISTEN"
+     ]
+    }
+   },
+   {
+    "connections": null,
+    "filter": {
+     "Ports": [
+      3306
+     ]
+    }
+   },
+   {
+    "connections": [
+     {
+      "foreign_address": "0.0.0.0:*",
+      "local_address": "127.0.0.53:53",
+      "pid": "95195",
+      "program": "systemd-resol",
+      "protocol": "tcp",
+      "state": "LISTEN"
+     },
+     {
+      "foreign_address": "0.0.0.0:*",
+      "local_address": "127.0.0.54:53",
+      "pid": "95195",
+      "program": "systemd-resol",
+      "protocol": "tcp",
+      "state": "LISTEN"
+     }
+    ],
+    "filter": {
+     "PID": [
+      95195,
+      126166
+     ]
+    }
+   }
   ],
-  "processes": [
-    {
-      "filter": {
-        "TopMemoryUsage": 3
-      },
-      "processes": [
-        {
-          "pid": 95189,
-          "name": "systemd-journald",
-          "cpu_percent": 0.001663839415290601,
-          "memory_percent": 0.8347988,
-          "create_time": "2025-07-15T06:39:46Z",
-          "status": "S",
-          "parent_pid": 1,
-          "running_hours": "201h30m",
-          "tty": "?"
-        },
-        {
-          "pid": 26568,
-          "name": "snapd",
-          "cpu_percent": 0.004644933725844431,
-          "memory_percent": 0.47959355,
-          "create_time": "2025-07-10T11:45:26Z",
-          "status": "S",
-          "parent_pid": 1,
-          "running_hours": "316h24m",
-          "tty": "?"
-        },
-        {
-          "pid": 126137,
-          "name": "supervisord",
-          "cpu_percent": 0.013894329377007715,
-          "memory_percent": 0.35451642,
-          "create_time": "2025-07-18T06:51:43Z",
-          "status": "S",
-          "parent_pid": 1,
-          "running_hours": "129h18m",
-          "tty": "?"
-        }
-      ]
+  "external_access": [
+   {
+    "dns": {
+     "dns_resolved": true,
+     "resolved_ips": [
+      "64.233.181.147",
+      "64.233.181.99",
+      "64.233.181.105",
+      "64.233.181.103",
+      "64.233.181.104",
+      "64.233.181.106",
+      "2607:f8b0:4001:c62::93",
+      "2607:f8b0:4001:c62::63",
+      "2607:f8b0:4001:c62::69",
+      "2607:f8b0:4001:c62::67"
+     ]
     },
-    {
-      "filter": {
-        "State": "S",
-        "TopCPUUsage": 4
-      },
-      "processes": [
-        {
-          "pid": 198293,
-          "name": "main",
-          "cpu_percent": 1.2705080699866371,
-          "memory_percent": 0.16202949,
-          "create_time": "2025-07-23T16:09:43Z",
-          "status": "S",
-          "parent_pid": 198212,
-          "running_hours": "0m",
-          "tty": "pts/0"
-        },
-        {
-          "pid": 198212,
-          "name": "go",
-          "cpu_percent": 1.0947116511385004,
-          "memory_percent": 0.31195477,
-          "create_time": "2025-07-23T16:09:42Z",
-          "status": "S",
-          "parent_pid": 186104,
-          "running_hours": "0m",
-          "tty": "pts/0"
-        },
-        {
-          "pid": 186070,
-          "name": "sshd",
-          "cpu_percent": 0.01809706636856676,
-          "memory_percent": 0.088469185,
-          "create_time": "2025-07-23T11:00:51Z",
-          "status": "S",
-          "parent_pid": 185960,
-          "running_hours": "5h9m",
-          "tty": "?"
-        },
-        {
-          "pid": 126137,
-          "name": "supervisord",
-          "cpu_percent": 0.01389430556041557,
-          "memory_percent": 0.35451642,
-          "create_time": "2025-07-18T06:51:43Z",
-          "status": "S",
-          "parent_pid": 1,
-          "running_hours": "129h18m",
-          "tty": "?"
-        }
-      ]
-    }
+    "http": {
+     "reachable": true,
+     "status": 200
+    },
+    "icmp": {
+     "error": "ping error: unreachable",
+     "reachable": false
+    },
+    "target": "https://www.google.com:443",
+    "unreachable": false
+   },
+   {
+    "icmp": {
+     "error": "ping error: unreachable",
+     "reachable": false
+    },
+    "target": "34.42.118.72:80",
+    "tcp": {
+     "error": "dial tcp 34.42.118.72:80: connect: connection refused",
+     "reachable": false
+    },
+    "unreachable": true
+   },
+   {
+    "icmp": {
+     "error": "ping error: unreachable",
+     "reachable": false
+    },
+    "target": "10.10.0.4:22",
+    "tcp": {
+     "reachable": true
+    },
+    "unreachable": false
+   },
+   {
+    "icmp": {
+     "error": "ping error: unreachable",
+     "reachable": false
+    },
+    "target": "34.171.30.76:3306",
+    "tcp": {
+     "error": "dial tcp 34.171.30.76:3306: i/o timeout",
+     "reachable": false
+    },
+    "unreachable": true
+   }
+  ],
+  "interfaces": [
+   {
+    "flags": "up|loopback|running",
+    "hwaddr": "",
+    "ip_addresses": [
+     "127.0.0.1/8",
+     "::1/128"
+    ],
+    "mtu": 65536,
+    "name": "lo"
+   },
+   {
+    "flags": "up|broadcast|multicast|running",
+    "hwaddr": "42:01:0a:0a:00:03",
+    "ip_addresses": [
+     "10.10.0.3/32",
+     "fe80::4001:aff:fe0a:3/64"
+    ],
+    "mtu": 1460,
+    "name": "ens4"
+   }
   ]
+ },
+ "permissions": [
+  {
+   "/home": {
+    "group_gid": 0,
+    "group_name": "root",
+    "mode": "drwxr-xr-x",
+    "owner_uid": 0,
+    "owner_user": "root",
+    "user_access": {
+     "intern": {
+      "exec": true,
+      "read": true,
+      "write": false
+     }
+    }
+   },
+   "/var/www/bookstore": {
+    "group_gid": 1014,
+    "group_name": "intern",
+    "mode": "drwxr-xr-x",
+    "owner_uid": 999,
+    "owner_user": "intern",
+    "user_access": {
+     "intern": {
+      "exec": true,
+      "read": true,
+      "write": true
+     }
+    }
+   }
+  },
+  {
+   "/home/furkan": {
+    "mode": "drwxr-x---",
+    "user_access": {
+     "furkan": {
+      "exec": true,
+      "read": true,
+      "write": true
+     },
+     "intern": {
+      "exec": false,
+      "read": false,
+      "write": false
+     }
+    }
+   }
+  },
+  {
+   "/opt/monitoring-merged/main.go": {
+    "error": "stat /opt/monitoring-merged/main.go: no such file or directory"
+   }
+  }
+ ],
+ "processes": [
+  {
+   "filter": {
+    "TopMemoryUsage": 3
+   },
+   "processes": [
+    {
+     "pid": 95189,
+     "name": "systemd-journald",
+     "cpu_percent": 0.001647153333449048,
+     "memory_percent": 1.4108818,
+     "create_time": "2025-07-15T06:39:46Z",
+     "status": "S",
+     "parent_pid": 1,
+     "running_hours": "362h14m",
+     "tty": "?"
+    },
+    {
+     "pid": 26568,
+     "name": "snapd",
+     "cpu_percent": 0.004277743688706297,
+     "memory_percent": 0.48087284,
+     "create_time": "2025-07-10T11:45:26Z",
+     "status": "S",
+     "parent_pid": 1,
+     "running_hours": "477h8m",
+     "tty": "?"
+    },
+    {
+     "pid": 126137,
+     "name": "supervisord",
+     "cpu_percent": 0.013911779712743344,
+     "memory_percent": 0.35609093,
+     "create_time": "2025-07-18T06:51:43Z",
+     "status": "S",
+     "parent_pid": 1,
+     "running_hours": "290h2m",
+     "tty": "?"
+    }
+   ]
+  },
+  {
+   "filter": {
+    "State": "S",
+    "TopCPUUsage": 4
+   },
+   "processes": [
+    {
+     "pid": 254582,
+     "name": "go",
+     "cpu_percent": 9.666195381314187,
+     "memory_percent": 0.30363923,
+     "create_time": "2025-07-30T08:54:11Z",
+     "status": "S",
+     "parent_pid": 254581,
+     "running_hours": "0m",
+     "tty": "pts/1"
+    },
+    {
+     "pid": 254643,
+     "name": "main",
+     "cpu_percent": 4.4546681343960035,
+     "memory_percent": 0.14421757,
+     "create_time": "2025-07-30T08:54:11Z",
+     "status": "S",
+     "parent_pid": 254582,
+     "running_hours": "0m",
+     "tty": "pts/1"
+    },
+    {
+     "pid": 253792,
+     "name": "systemd",
+     "cpu_percent": 0.05046104510686742,
+     "memory_percent": 0.14160974,
+     "create_time": "2025-07-30T08:50:37Z",
+     "status": "S",
+     "parent_pid": 1,
+     "running_hours": "3m",
+     "tty": "?"
+    },
+    {
+     "pid": 253899,
+     "name": "sshd",
+     "cpu_percent": 0.036696920982961095,
+     "memory_percent": 0.08782953,
+     "create_time": "2025-07-30T08:50:37Z",
+     "status": "S",
+     "parent_pid": 253790,
+     "running_hours": "3m",
+     "tty": "?"
+    }
+   ]
+  }
+ ],
+ "services": [
+  {
+   "active": false,
+   "cpu": "13ms",
+   "duration": "2 weeks 4 days ago",
+   "error": "exit status 3",
+   "raw_active": "Active: failed (Result: exit-code) since Fri 2025-07-11 12:22:50 UTC; 2 weeks 4 days ago",
+   "service": "nginx",
+   "since": "Fri 2025-07-11 12:22:50 UTC",
+   "status": "failed",
+   "sub_status": "Result: exit-code"
+  },
+  {
+   "error": "service not found",
+   "service": "mysql"
+  },
+  {
+   "active": true,
+   "cpu": "3min 18.820s",
+   "duration": "1 week 5 days ago",
+   "memory": "28.7M (peak: 32.1M)",
+   "raw_active": "Active: active (running) since Fri 2025-07-18 06:51:43 UTC; 1 week 5 days ago",
+   "service": "supervisor",
+   "since": "Fri 2025-07-18 06:51:43 UTC",
+   "status": "active",
+   "sub_status": "running"
+  },
+  {
+   "error": "service not found",
+   "service": "php-fpm"
+  }
+ ]
 }
