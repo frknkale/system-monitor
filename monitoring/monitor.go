@@ -7,16 +7,15 @@ import (
 	"os/exec"
 	"path/filepath"
 	"time"
-
 	"gopkg.in/yaml.v3"
+
 	"monitoring/checks"
 	"monitoring/logger"
 	"monitoring/types"
+	"monitoring/cache"
 )
 
-func Monitoring(cfgPath string) {
-	cfgFile := "config/config.yaml"
-
+func Monitoring(cfgFile string) {
 	// Read config file
 	data, err := os.ReadFile(cfgFile)
 	if err != nil {
@@ -54,7 +53,6 @@ func Monitoring(cfgPath string) {
 
 	for {
 		logger.Log.Println("Running system checks...")
-		result := checks.RunAllChecks(cfg)
 
 		err := os.MkdirAll(filepath.Dir(outputPath), 0755)
 		if err != nil {
@@ -62,6 +60,10 @@ func Monitoring(cfgPath string) {
 			fmt.Printf("Failed to create output dir: %v", err)
 			continue
 		}
+
+		result := checks.RunAllChecks(cfg)
+
+		cache.SetCache(result)		// Store the result in the shared cache for Web Server
 
 		jsonData, err := json.Marshal(result)
 		if err != nil {
@@ -97,21 +99,6 @@ func Monitoring(cfgPath string) {
 			} else {
 				logger.Log.Printf("Successfully rsynced output.json to %s@%s:%s",user, host, path)
 				fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n",user, host, path)
-			}
-		}
-
-		if cfg.General.Web.Enabled {
-			user, server, path := cfg.General.Web.User, cfg.General.Web.Server, cfg.General.Web.WebPath
-			rsyncCmd := exec.Command(
-				"sudo", "-u", user, "rsync", "--inplace", "-az", outputPath,
-				fmt.Sprintf("%s@%s:%s", user, server, path))
-
-			if err := rsyncCmd.Run(); err != nil {
-				logger.Log.Printf("Failed to rsync output.json to %s@%s:%s: %v", user, server, path, err)
-				fmt.Printf("Failed to rsync output.json to %s@%s:%s: %v\n", user, server, path, err)
-			} else {
-				logger.Log.Printf("Successfully rsynced output.json to %s@%s:%s", user, server, path)
-				fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n", user, server, path)
 			}
 		}
 

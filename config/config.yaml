@@ -3,20 +3,14 @@
 # ==================================
 general:
   output_path: "/var/log/monitoring/metrics/output.json"
-  # log_path: "/var/log/monitoring/logs/monitoring.json"
-  log_path: "./logs/monitoring.json"
-  interval: 10s
+  log_path: "/var/log/monitoring/logs/monitoring.json"
+
+  interval: 1m
   remote:
     enabled: true
     host: "10.10.0.6"
     user: "ubuntu"
     remote_path: "/var/log/remote/test-server-output.json"
-  web:
-    enabled: true
-    server: "10.10.0.7"
-    user: "ubuntu"
-    web_path: "/var/log/web/test-server-output.json"
-
 
 # ==================================
 # Memory Metrics Configuration
@@ -198,8 +192,8 @@ services:
   manager: "systemctl"   # "systemctl", "supervisorctl"
   filter:
     state: failed         # state: active, inactive, failed, activating, deactivating, reloading
-    sub_state: running    # sub_state: running, exited, dead, auto-restart, reload, listening, etc.
-    enable_state: static  # enable_state: enabled, disabled, static, masked, indirect, generated, transient
+    # sub_state: running    # sub_state: running, exited, dead, auto-restart, reload, listening, etc.
+    # enable_state: static  # enable_state: enabled, disabled, static, masked, indirect, generated, transient
 
   service_list:
     # - "nginx"

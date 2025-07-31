@@ -15,12 +15,6 @@ type Config struct {
 			User	   string	`yaml:"user"`
 			RemotePath string	`yaml:"remote_path"`
 		} `yaml:"remote"`
-		Web struct {
-			Enabled  bool   `yaml:"enabled"`
-			Server   string `yaml:"server"`
-			User     string `yaml:"user"`
-			WebPath  string `yaml:"web_path"`
-		} `yaml:"web"`
 	} `yaml:"general"`
 
 	Memory struct {
