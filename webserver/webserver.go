@@ -5,11 +5,9 @@ import (
 	"net/http"
 	"html/template"
 	"time"
-	"os"
 	"fmt"
     "strconv"
     "strings"
-	"gopkg.in/yaml.v3"
 	// "reflect"
 
 	"monitoring/types"
@@ -27,14 +25,6 @@ var (
 	sem = make(chan struct{}, 1)
 	i = 0
 )
-
-func LoadConfig(path string) error {
-	data, err := os.ReadFile(path)
-	if err != nil {
-		return err
-	}
-	return yaml.Unmarshal(data, &config)
-}
 
 func getData(fresh bool) map[string]interface{} { // If fresh is true, or the cache is expired, fetch fresh data
 	data := cache.GetCache()
@@ -80,7 +70,6 @@ func sectionHandler(section string) http.HandlerFunc {
 		fresh := r.URL.Query().Get("fresh") == "true"
 		data := getData(fresh)
 		// fmt.Println("Available sections:", reflect.ValueOf(data).MapKeys())
-		fmt.Printf("Section: %s — Type: %T\n", section, data[section])
 		sectionData, ok := data[section]
 		if !ok {
 			http.Error(w, fmt.Sprintf("Section '%s' not found", section), http.StatusNotFound)
@@ -160,7 +149,7 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	data := getData(fresh)
 
 	var dashboardData types.DashboardData
-	dashboardData.Timestamp = cache.GetLastUpdated().Format(time.RFC3339)
+	dashboardData.Timestamp = cache.GetLastUpdated().Format("Monday, 02-Jan-06 15:04:05")
 
 	if cpuMap, ok := data["cpu"].(map[string]interface{}); ok {
 		if val, ok := cpuMap["usage_percent"].(string); ok {
@@ -202,7 +191,7 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 
 	dataStruct := struct {
 		types.DashboardData
-		Alerts []types.Alert
+		Alerts     []types.Alert
 	}{
 		DashboardData: dashboardData,
 		Alerts:        alerts,
@@ -213,8 +202,11 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 
 
 
-func WebServer() {
+func WebServer(cfg types.Config) {
+	config = cfg
+
 	alertcache.Init(config.Alerter.LogPath)
+
 	http.HandleFunc("/", dashboardHandler)
 	http.HandleFunc("/status", statusHandler)
 

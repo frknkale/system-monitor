@@ -3,8 +3,7 @@
 # ==================================
 general:
   output_path: "/var/log/monitoring/metrics/output.json"
-  # log_path: "/var/log/monitoring/logs/monitoring.json"
-  log_path: "./logs/monitoring.json"  # Local path for testing
+  log_path: "/var/log/monitoring/logs/monitoring.json"
   interval: 1m
   remote:
     enabled: true
@@ -189,9 +188,9 @@ network:
 
 services:
   enabled: true
-  manager: "systemctl"   # "systemctl", "supervisorctl"
+  manager: "supervisorctl"   # "systemctl", "supervisorctl"
   filter:
-    state: active         # state: active, inactive, failed, activating, deactivating, reloading
+    # state: active         # state: active, inactive, failed, activating, deactivating, reloading
     # sub_state: running    # sub_state: running, exited, dead, auto-restart, reload, listening, etc.
     # enable_state: static  # enable_state: enabled, disabled, static, masked, indirect, generated, transient
 

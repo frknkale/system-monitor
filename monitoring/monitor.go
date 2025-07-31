@@ -7,7 +7,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"time"
-	"gopkg.in/yaml.v3"
 
 	"monitoring/checks"
 	"monitoring/logger"
@@ -15,20 +14,8 @@ import (
 	"monitoring/cache"
 )
 
-func Monitoring(cfgFile string) {
+func Monitoring(cfg types.Config) {
 	// Read config file
-	data, err := os.ReadFile(cfgFile)
-	if err != nil {
-		fmt.Printf("Failed to read config file: %v\n", err)
-		os.Exit(1)
-	}
-
-	var cfg types.Config
-	if err := yaml.Unmarshal(data, &cfg); err != nil {
-		fmt.Printf("Failed to parse config file: %v\n", err)
-		logger.Log.Fatalf("Failed to parse config file: %v", err)
-		os.Exit(1)
-	}
 	
 	logPath := cfg.General.LogPath
 	outputPath := cfg.General.OutputPath
@@ -36,7 +23,7 @@ func Monitoring(cfgFile string) {
 	remote := cfg.General.Remote
 
 	// Initialize logger
-	err = logger.Init(logPath)
+	err := logger.Init(logPath)
 	if err != nil {
 		fmt.Printf("Logger initialization failed: %v\n", err)
 		os.Exit(1)
@@ -102,21 +89,6 @@ func Monitoring(cfgFile string) {
 				fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n",user, host, path)
 			}
 		}
-
-		// if cfg.General.Web.Enabled {
-		// 	user, server, path := cfg.General.Web.User, cfg.General.Web.Server, cfg.General.Web.WebPath
-		// 	rsyncCmd := exec.Command(
-		// 		"sudo", "-u", user, "rsync", "--inplace", "-az", outputPath,
-		// 		fmt.Sprintf("%s@%s:%s", user, server, path))
-
-		// 	if err := rsyncCmd.Run(); err != nil {
-		// 		logger.Log.Printf("Failed to rsync output.json to %s@%s:%s: %v", user, server, path, err)
-		// 		fmt.Printf("Failed to rsync output.json to %s@%s:%s: %v\n", user, server, path, err)
-		// 	} else {
-		// 		logger.Log.Printf("Successfully rsynced output.json to %s@%s:%s", user, server, path)
-		// 		fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n", user, server, path)
-		// 	}
-		// }
 
 		if cfg.Alerter.Enabled {
 			user, host, path := cfg.Alerter.Remote.User, cfg.Alerter.Remote.Host, cfg.Alerter.Remote.RemotePath

@@ -21,9 +21,7 @@ type PartitionInfo struct {
 
 
 
-func CheckDisk(config types.Config) interface{} {
-	alerter := alerter.AlerterHandler(config)
-	
+func CheckDisk(config types.Config) interface{} {	
 	var results []map[string]interface{}
 
 	for _, cfg := range config.Disk {
@@ -82,9 +80,10 @@ func CheckDisk(config types.Config) interface{} {
 				}
 				
 				// usage.UsedPercent = 81
-
-				// fmt.Printf("Checking mount: %s with %.2f%% usage\n", usage.Path, usage.UsedPercent)
-				if usage.UsedPercent > float64(alertRule.UsagePercent) && watchSet[usage.Path] {
+				
+				alerter := alerter.GetAlertManager()
+				
+				if alerter!=nil && usage.UsedPercent > float64(alertRule.UsagePercent) && watchSet[usage.Path] {
 					alerter.RaiseAlert(
 						fmt.Sprintf("Disk usage is above the given threshold: %.2f%% used on %s", usage.UsedPercent, usage.Path),
 						types.UNHEALTHY,

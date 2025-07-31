@@ -9,9 +9,8 @@ import (
 	"time"
 )
 
-func CheckCPU(cfg types.Config) interface{} {
-	alerter := alerter.AlerterHandler(cfg)
 
+func CheckCPU(cfg types.Config) interface{} {
 	if !cfg.CPU.Enabled {
 		return nil
 	}
@@ -33,16 +32,12 @@ func CheckCPU(cfg types.Config) interface{} {
         return result
     }
 
-	totalPercent := 0.0
-	for _, percent := range percentages {
-		// fmt.Printf("CPU Core %d: %.2f%%\n", i, percent)
-		totalPercent += percent
-	}
-
+	alerter := alerter.GetAlertManager()
+	
 	// fmt.Printf("cputhreshold %.2f%%\n", cfg.Alerter.AlertSettings.CPU.UsagePercent)
-	if alerter != nil && 85 > cfg.Alerter.AlertSettings.CPU.UsagePercent {
+	if alerter != nil && percentages[0] > cfg.Alerter.AlertSettings.CPU.UsagePercent {
 		alerter.RaiseAlert(
-			fmt.Sprintf("CPU usage is above the threshold: %.2f%% used", totalPercent),
+			fmt.Sprintf("CPU usage is above the threshold: %.2f%% used", percentages[0]),
 			types.UNHEALTHY,
 			types.CPU_USAGE_PERCENT,
 		)

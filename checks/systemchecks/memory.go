@@ -9,8 +9,6 @@ import (
 
 
 func CheckMemory(cfg types.Config) map[string]string {
-	alerter := alerter.AlerterHandler(cfg)
-
 	if !cfg.Memory.Enabled {
 		return nil
 	}
@@ -50,7 +48,9 @@ func CheckMemory(cfg types.Config) map[string]string {
 	if config.UsedPercent {
 		result["used_percent"] = fmt.Sprintf("%.2f%%", vm.UsedPercent)
 
-		// dummy := 83
+		// vm.UsedPercent = 83
+
+		alerter := alerter.GetAlertManager()
 
 		if alerter != nil && vm.UsedPercent > cfg.Alerter.AlertSettings.Memory.UsagePercent {
 			alerter.RaiseAlert(

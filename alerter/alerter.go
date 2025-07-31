@@ -9,20 +9,29 @@ import (
 	"encoding/json"
 	"github.com/google/uuid"
 )
+ 
+var alertManager *AlertManager
 
 type AlertManager struct {
 	Alerts map[string]types.Alert `json:"alerts"`
 	OnAlert func(alert types.Alert)
 	LogPath string `json:"log_path"`
-	// RaiseAlert func(message string, status types.HealthStatus, source string)
+}
+func GetAlertManager() *AlertManager {
+	return alertManager
 }
 
-func NewAlertManager(logPath string) *AlertManager {
-	return &AlertManager{
+func Init(cfg types.Config) {
+	if !cfg.Alerter.Enabled {
+		alertManager = nil
+		return
+	}
+
+	alertManager = &AlertManager{
 		Alerts: make(map[string]types.Alert),
-		LogPath: logPath,
+		LogPath: cfg.Alerter.LogPath,
 		OnAlert: func(alert types.Alert) {
-			fmt.Printf("New alert: %s at %s\n", alert.Message, alert.Timestamp)
+			fmt.Printf("New alert: %s at %s\n", alert.Message, alert.FormattedTimestamp)
 		},
 	}
 }
@@ -30,7 +39,8 @@ func NewAlertManager(logPath string) *AlertManager {
 func (alMan *AlertManager) RaiseAlert(message string, status types.HealthStatus, source types.AlerterSources) {
 	key := fmt.Sprintf("%s:%s", source, message)
 	if existing, ok := alMan.Alerts[key]; ok {
-		if time.Since(existing.Timestamp) < 3*time.Minute {
+		// fmt.Println("KEY:",key)
+		if time.Since(existing.Timestamp) < 2*time.Minute {
 			// Alert already exists and is recent, skip raising a new one
 			return
 		}
@@ -38,6 +48,7 @@ func (alMan *AlertManager) RaiseAlert(message string, status types.HealthStatus,
 	alert := types.Alert{
 		ID: 	  uuid.NewString(),
 		Timestamp: time.Now(),
+		FormattedTimestamp: time.Now().Format("Monday, 02-Jan-06 15:04:05"),
 		Message:   message,
 		Status:    types.HealthStatus(status),
 		Source:    source,
@@ -75,11 +86,4 @@ func (alMan *AlertManager) LogAlerts(alert types.Alert) {
 		fmt.Printf("Failed to write alert to log file: %v\n", err)
 	}
 	fmt.Printf("Alert logged: %s\n", alert.Message)
-}
-
-func AlerterHandler(cfg types.Config) *AlertManager {
-	if !cfg.Alerter.Enabled {
-		return nil
-	}
-	return NewAlertManager(cfg.Alerter.LogPath)
 }

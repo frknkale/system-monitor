@@ -1,93 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>System Dashboard</title>
-    <style>
-        body { font-family: sans-serif; padding: 2em; }
-        h1 { color: #444; }
-        .metric { margin: 1em 0; }
-        .nav a {
-            margin-right: 1em;
-            text-decoration: none;
-            color: #2a5db0;
-        }
-        .nav a:hover {
-            text-decoration: underline;
-        }
-        .alerts {
-            margin: 1.5em 0;
-            padding: 1em;
-            border: 1px solid #ccc;
-            background-color: #fdfdfd;
-        }
-        .alert-critical {
-            color: red;
-            font-weight: bold;
-        }
-        .alert-warning {
-            color: orange;
-        }
-        .alerts-scroll {
-            max-height: 200px;
-            overflow-y: auto;
-            padding-right: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-        }
-    </style>
-</head>
-<body>
-    <h1>System Dashboard</h1>
-    <div class="nav">
-        <a href="/status">Raw Status JSON</a>
-        <a href="/cpu">CPU</a>
-        <a href="/memory">Memory</a>
-        <a href="/disk">Disk</a>
-        <a href="/network">Network</a>
-        <a href="/services">Services</a>
-        <a href="/permissions">Permissions</a>
-        <a href="/processes">Processes</a>
-    </div>
-    
-    <div class="alerts">
-        <h2>Recent Alerts</h2>
-        <div class="alerts-scroll">
-            {{if .Alerts}}
-                <ul>
-                    {{range .Alerts}}
-                    <li class="{{if eq .Status "unhealthy"}}alert-critical{{else}}alert-warning{{end}}">
-                        <strong>{{.Timestamp}}</strong> — {{.Message}} (source: {{.Source}})
-                        <button onclick="dismissAlert('{{.ID}}')">Dismiss</button>
-                    </li>
-                    {{end}}
-                </ul>
-            {{else}}
-                <p style="color: green;">No recent alerts</p>
-            {{end}}
-        </div>
-    </div>
-
-
-    <p><strong>Last Updated:</strong> {{.Timestamp}}</p>
-    <div class="metric"><strong>CPU Usage:</strong> {{printf "%.2f" .CPUPercent}}%</div>
-    <div class="metric"><strong>Memory Usage:</strong> {{printf "%.2f" .MemoryPercent}}%</div>
-    <div class="metric"><strong>Disk Usage (/):</strong> {{printf "%.2f" .DiskRootPercent}}%</div>
-    
-    <script>
-    function dismissAlert(id) {
-        fetch('/alerts/dismiss?id=' + encodeURIComponent(id), {
-            method: 'POST'
-        }).then(resp => {
-            if (resp.ok) {
-                location.reload();
-            } else {
-                alert("Failed to dismiss alert.");
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>System Dashboard</title>
+        <style>
+            body { font-family: sans-serif; padding: 2em; }
+            h1 { color: #444; }
+            .metric { margin: 1em 0; }
+            .nav a {
+                margin-right: 1em;
+                text-decoration: none;
+                color: #2a5db0;
             }
-        });
-    }
-    </script>
-    
+            .nav a:hover {
+                text-decoration: underline;
+            }
+            .alerts {
+                margin: 1.5em 0;
+                padding: 1em;
+                border: 1px solid #ccc;
+                background-color: #fdfdfd;
+            }
+            .alert-critical {
+                color: red;
+                font-weight: bold;
+            }
+            .alert-warning {
+                color: orange;
+            }
+            .alerts-scroll {
+                max-height: 200px;
+                overflow-y: auto;
+                padding-right: 10px;
+                border: 1px solid #ccc;
+                background-color: #f9f9f9;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>System Dashboard</h1>
+        <div class="nav">
+            <a href="/status">Raw Status JSON</a>
+            <a href="/cpu">CPU</a>
+            <a href="/memory">Memory</a>
+            <a href="/disk">Disk</a>
+            <a href="/network">Network</a>
+            <a href="/services">Services</a>
+            <a href="/permissions">Permissions</a>
+            <a href="/processes">Processes</a>
+        </div>
 
-</body>
-</html>
+        <p><strong>Last Updated:</strong> {{.Timestamp}}</p>
+        <div class="metric"><strong>CPU Usage:</strong> {{printf "%.2f" .CPUPercent}}%</div>
+        <div class="metric"><strong>Memory Usage:</strong> {{printf "%.2f" .MemoryPercent}}%</div>
+        <div class="metric"><strong>Disk Usage (/):</strong> {{printf "%.2f" .DiskRootPercent}}%</div>
+        
+        <div class="alerts">
+            <h2>Recent Alerts</h2>
+            <div class="alerts-scroll">
+                {{if .Alerts}}
+                    <ul>
+                        {{range .Alerts}}
+                        <li class="{{if eq .Status "unhealthy"}}alert-critical{{else}}alert-warning{{end}}">
+                            <strong>{{.FormattedTimestamp}}</strong> - {{.Message}} (source: {{.Source}})
+                            <button onclick="dismissAlert('{{.ID}}')">Dismiss</button>
+                        </li>
+                        {{end}}
+                    </ul>
+                {{else}}
+                    <p style="color: green;">No recent alerts</p>
+                {{end}}
+            </div>
+        </div>
+
+        <script>
+        function dismissAlert(id) {
+            fetch('/alerts/dismiss?id=' + encodeURIComponent(id), {
+                method: 'POST'
+            }).then(resp => {
+                if (resp.ok) {
+                    location.reload();
+                } else {
+                    alert("Failed to dismiss alert.");
+                }
+            });
+        }
+        </script>
+        
+
+    </body>
+    </html>

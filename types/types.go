@@ -142,12 +142,12 @@ const (
 	MEM_USAGE_PERCENT AlerterSources = "memory_usage_percent"
 	DISK_USAGE_PERCENT AlerterSources = "disk_usage_percent"
 	CPU_USAGE_PERCENT AlerterSources = "cpu_usage_percent"
-	CPU_CORE_USAGE_PERCENT AlerterSources = "cpu_core_usage_percent"
 )
 
 type Alert struct {
 	ID 	  string         `json:"id"`
 	Timestamp time.Time      `json:"timestamp"`
+	FormattedTimestamp string      `json:"formattedTimestamp"`
 	Message   string         `json:"message"`
 	Status    HealthStatus	 `json:"status"`
 	Source    AlerterSources `json:"source"`

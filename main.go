@@ -1,20 +1,22 @@
 package main
 
 import (
+	"monitoring/cache"
+	"monitoring/config"
 	"monitoring/monitoring"
 	"monitoring/webserver"
-	"monitoring/cache"
+	"monitoring/alerter"
 )
 
 func main() {
 	cache.SetCache(map[string]interface{}{"status": "loading"})
 
-	err := webserver.LoadConfig("config/config.yaml")
-	if err != nil {
-		panic(err)
-	}
+	config.ReadConfig("config/config.yaml")
+	cfg:= config.GetConfig()
 	
-	go monitoring.Monitoring("config/config.yaml")
-	go webserver.WebServer()
+	alerter.Init(cfg)
+	
+	go monitoring.Monitoring(cfg)
+	go webserver.WebServer(cfg)
 	select {}
 }
