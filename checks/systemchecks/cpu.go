@@ -27,7 +27,7 @@ func CheckCPU(cfg types.Config) interface{} {
 		"cache_size": infoStats[0].CacheSize,
 	}
 
-	percentages, err := cpu.Percent(time.Second, true)
+	percentages, err := cpu.Percent(3*time.Second, true)
     if err != nil {
         result["error"] = fmt.Sprintf("Failed to get CPU percentages: %v", err)
         return result
@@ -64,6 +64,15 @@ func CheckCPU(cfg types.Config) interface{} {
         result["error"] = "CPU times returned empty slice"
         return result
     }
+	totalIdle := 0.0
+	totalTime := 0.0
+
+	for _, cpuTime := range times {
+		total := cpuTime.User + cpuTime.System + cpuTime.Idle + cpuTime.Iowait + cpuTime.Irq + cpuTime.Softirq
+		totalIdle += cpuTime.Idle
+		totalTime += total
+	}
+	idlePercentage := (totalIdle / totalTime) * 100
 
 	var cores []map[string]interface{}
 	for i, info := range infoStats {
@@ -80,14 +89,14 @@ func CheckCPU(cfg types.Config) interface{} {
 
 	result["time_spent_user"] = fmt.Sprintf("%.2f", times[0].User)
     result["time_spent_system"] = fmt.Sprintf("%.2f", times[0].System)
-    result["idle"] = fmt.Sprintf("%.2f", times[0].Idle)
+    result["idle_percent"] = fmt.Sprintf("%.2f", idlePercentage)
     // result["iowait"] = fmt.Sprintf("%.2f", times[0].Iowait)
     // result["irq"] = fmt.Sprintf("%.2f", times[0].Irq)
     // result["softirq"] = fmt.Sprintf("%.2f", times[0].Softirq)
     // result["steal"] = fmt.Sprintf("%.2f", times[0].Steal)
     // result["guest"] = fmt.Sprintf("%.2f", times[0].Guest)
     // result["guest_nice"] = fmt.Sprintf("%.2f", times[0].GuestNice)
-	result["usage_percent"] = fmt.Sprintf("%.2f", percentages[0])
+	result["usage_percent"] = fmt.Sprintf("%.2f", 100*loads.Load1/float64(len(infoStats)))
 	result["load_1min"] = fmt.Sprintf("%.2f", loads.Load1)
 	result["load_5min"] = fmt.Sprintf("%.2f", loads.Load5)
 	result["load_15min"] = fmt.Sprintf("%.2f", loads.Load15)

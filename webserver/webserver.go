@@ -7,13 +7,54 @@ import (
 	"time"
 	"os"
 	"fmt"
-	"bufio"
     "strconv"
     "strings"
+	"gopkg.in/yaml.v3"
+
 	"monitoring/types"
+	"monitoring/checks"
+	"monitoring/cache"
+	"monitoring/checks/systemchecks"
+	
 	// "bytes"
 	// "io/ioutil"
 )
+
+var (
+	config    types.Config
+	sem = make(chan struct{}, 1)
+	i = 0
+)
+
+func LoadConfig(path string) error {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	return yaml.Unmarshal(data, &config)
+}
+
+func getData(fresh bool) map[string]interface{} { // If fresh is true, or the cache is expired, fetch fresh data
+	data := cache.GetCache()
+	if len(sem) == 0 && (fresh || cache.IsExpired()) {
+		sem <- struct{}{}
+		go func() {
+			defer func() {
+				<-sem
+			}()
+			i++
+			fmt.Println("Refreshing Data...")
+			fmt.Println("Number of goroutines running concurrently:",i)
+			data := checks.RunAllChecks(config)
+			i--
+			cache.SetCache(data)
+			fmt.Println("Refresh ended.")
+		}()
+	}
+
+	return data  // Serve the old cache immediately while the fresh data is being fetched
+}
+
 
 func healthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -24,78 +65,19 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func statusHandler(w http.ResponseWriter, r *http.Request) {
-	path := "/var/log/monitoring/metrics/output.json"
+	fresh := r.URL.Query().Get("fresh") == "true"   // Check for ?fresh=true
 
-	file, err := os.Open(path)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("Failed to open file: %v", err), http.StatusInternalServerError)
-		return
-	}
-	defer file.Close()
-
-	var lastLine string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-		if line != "" {
-			lastLine = line
-		}
-	}
-
-	if err := scanner.Err(); err != nil {
-		http.Error(w, fmt.Sprintf("Failed to scan file: %v", err), http.StatusInternalServerError)
-		return
-	}
-
-	if lastLine == "" {
-		http.Error(w, "No valid lines in status file", http.StatusInternalServerError)
-		return
-	}
-
-	var result map[string]interface{}
-	if err := json.Unmarshal([]byte(lastLine), &result); err != nil {
-		http.Error(w, fmt.Sprintf("Failed to parse JSON: %v", err), http.StatusInternalServerError)
-		return
-	}
+	data:= getData(fresh)
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(result)
-}
-
-func readLatestStatus(path string) (map[string]interface{}, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		return nil, fmt.Errorf("failed to open file: %w", err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	var lastLine string
-	for scanner.Scan() {
-		line := scanner.Text()
-		if line != "" {
-			lastLine = line
-		}
-	}
-	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("failed to scan file: %w", err)
-	}
-
-	var result map[string]interface{}
-	if err := json.Unmarshal([]byte(lastLine), &result); err != nil {
-		return nil, fmt.Errorf("failed to parse JSON: %w", err)
-	}
-
-	return result, nil
+	json.NewEncoder(w).Encode(data)
 }
 
 func sectionHandler(section string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		data, err := readLatestStatus("/var/log/monitoring/metrics/output.json")
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
+		fresh := r.URL.Query().Get("fresh") == "true"   // Check for ?fresh=true
+
+		data:= getData(fresh)
 
 		sectionData, ok := data[section]
 		if !ok {
@@ -110,54 +92,40 @@ func sectionHandler(section string) http.HandlerFunc {
 
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
-	raw, err := readLatestStatus("/var/log/monitoring/metrics/output.json")
-	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
-	}
+	fresh := r.URL.Query().Get("fresh") == "true"   // Check for ?fresh=true
 
-	var data types.DashboardData
+	data:= getData(fresh)
 
-	// Timestamp
-	if ts, ok := raw["timestamp"].(string); ok {
-		data.Timestamp = ts
-	}
+	var dashboardData types.DashboardData
+
+	dashboardData.Timestamp = cache.GetLastUpdated().Format(time.RFC3339)
 
 	// CPU Usage
-	if cpuMap, ok := raw["cpu"].(map[string]interface{}); ok {
+	if cpuMap, ok := data["cpu"].(map[string]interface{}); ok {
 		if val, ok := cpuMap["usage_percent"].(string); ok {
 		    val = strings.TrimSuffix(val, "%")
 		    if f, err := strconv.ParseFloat(val, 64); err == nil {
-		        data.CPUPercent = f
+		        dashboardData.CPUPercent = f
 		    }
 		}
 	}
 
 	// Memory Usage (string percent -> float)
-	if memMap, ok := raw["memory"].(map[string]interface{}); ok {
-		if strVal, ok := memMap["used_percent"].(string); ok {
-			strVal = strings.TrimSuffix(strVal, "%")
-			if fval, err := strconv.ParseFloat(strVal, 64); err == nil {
-				data.MemoryPercent = fval
-			}
-		}
+	var strVal string
+	if memoryMap, ok := data["memory"].(map[string]interface{}); ok {
+		strVal = memoryMap["used_percent"].(string)
+	} else if memoryMap, ok := data["memory"].(map[string]string); ok {
+		strVal = memoryMap["used_percent"]
 	}
+	strVal = strings.TrimSuffix(strVal, "%")
+	if fval, err := strconv.ParseFloat(strVal, 64); err == nil {
+        dashboardData.MemoryPercent = fval
+    }
 
 	// Disk Usage (first disk, first partition)
-	if diskArray, ok := raw["disk"].([]interface{}); ok && len(diskArray) > 0 {
-		if diskEntry, ok := diskArray[0].(map[string]interface{}); ok {
-			if parts, ok := diskEntry["partitions"].([]interface{}); ok {
-				for _, part := range parts {
-					if partMap, ok := part.(map[string]interface{}); ok {
-						if mount, ok := partMap["mountpoint"].(string); ok && mount == "/" {
-							if val, ok := partMap["used_percent"].(float64); ok {
-								data.DiskRootPercent = val
-							}
-						}
-					}
-				}
-			}
-		}
+	if diskArray, ok := data["disk"].([]map[string]interface{}); ok && len(diskArray) > 0 {
+		partition:= diskArray[0]["partitions"].([]systemchecks.PartitionInfo)[0]
+		dashboardData.DiskRootPercent = partition.UsedPercent
 	}
 
 	tmpl, err := template.ParseFiles("webserver/templates/dashboard.html")
@@ -166,7 +134,7 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl.Execute(w, data)
+	tmpl.Execute(w, dashboardData)
 }
 
 

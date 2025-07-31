@@ -7,16 +7,15 @@ import (
 	"os/exec"
 	"path/filepath"
 	"time"
-
 	"gopkg.in/yaml.v3"
+
 	"monitoring/checks"
 	"monitoring/logger"
 	"monitoring/types"
+	"monitoring/cache"
 )
 
-func Monitoring(cfgPath string) {
-	cfgFile := "config/config.yaml"
-
+func Monitoring(cfgFile string) {
 	// Read config file
 	data, err := os.ReadFile(cfgFile)
 	if err != nil {
@@ -55,7 +54,6 @@ func Monitoring(cfgPath string) {
 
 	for {
 		logger.Log.Println("Running system checks...")
-		result := checks.RunAllChecks(cfg)
 
 		err := os.MkdirAll(filepath.Dir(outputPath), 0755)
 		if err != nil {
@@ -63,6 +61,10 @@ func Monitoring(cfgPath string) {
 			fmt.Printf("Failed to create output dir: %v", err)
 			continue
 		}
+
+		result := checks.RunAllChecks(cfg)
+
+		cache.SetCache(result)		// Store the result in the shared cache for Web Server
 
 		jsonData, err := json.Marshal(result)
 		if err != nil {
