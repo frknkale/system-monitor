@@ -40,7 +40,7 @@ func CheckCPU(cfg types.Config) interface{} {
 	}
 
 	// fmt.Printf("cputhreshold %.2f%%\n", cfg.Alerter.AlertSettings.CPU.UsagePercent)
-	if alerter != nil && totalPercent > cfg.Alerter.AlertSettings.CPU.UsagePercent {
+	if alerter != nil && 85 > cfg.Alerter.AlertSettings.CPU.UsagePercent {
 		alerter.RaiseAlert(
 			fmt.Sprintf("CPU usage is above the threshold: %.2f%% used", totalPercent),
 			types.UNHEALTHY,

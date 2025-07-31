@@ -103,20 +103,20 @@ func Monitoring(cfgFile string) {
 			}
 		}
 
-		if cfg.General.Web.Enabled {
-			user, server, path := cfg.General.Web.User, cfg.General.Web.Server, cfg.General.Web.WebPath
-			rsyncCmd := exec.Command(
-				"sudo", "-u", user, "rsync", "--inplace", "-az", outputPath,
-				fmt.Sprintf("%s@%s:%s", user, server, path))
+		// if cfg.General.Web.Enabled {
+		// 	user, server, path := cfg.General.Web.User, cfg.General.Web.Server, cfg.General.Web.WebPath
+		// 	rsyncCmd := exec.Command(
+		// 		"sudo", "-u", user, "rsync", "--inplace", "-az", outputPath,
+		// 		fmt.Sprintf("%s@%s:%s", user, server, path))
 
-			if err := rsyncCmd.Run(); err != nil {
-				logger.Log.Printf("Failed to rsync output.json to %s@%s:%s: %v", user, server, path, err)
-				fmt.Printf("Failed to rsync output.json to %s@%s:%s: %v\n", user, server, path, err)
-			} else {
-				logger.Log.Printf("Successfully rsynced output.json to %s@%s:%s", user, server, path)
-				fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n", user, server, path)
-			}
-		}
+		// 	if err := rsyncCmd.Run(); err != nil {
+		// 		logger.Log.Printf("Failed to rsync output.json to %s@%s:%s: %v", user, server, path, err)
+		// 		fmt.Printf("Failed to rsync output.json to %s@%s:%s: %v\n", user, server, path, err)
+		// 	} else {
+		// 		logger.Log.Printf("Successfully rsynced output.json to %s@%s:%s", user, server, path)
+		// 		fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n", user, server, path)
+		// 	}
+		// }
 
 		if cfg.Alerter.Enabled {
 			user, host, path := cfg.Alerter.Remote.User, cfg.Alerter.Remote.Host, cfg.Alerter.Remote.RemotePath

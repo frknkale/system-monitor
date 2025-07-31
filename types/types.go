@@ -146,6 +146,7 @@ const (
 )
 
 type Alert struct {
+	ID 	  string         `json:"id"`
 	Timestamp time.Time      `json:"timestamp"`
 	Message   string         `json:"message"`
 	Status    HealthStatus	 `json:"status"`

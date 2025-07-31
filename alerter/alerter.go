@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"os"
 	"encoding/json"
+	"github.com/google/uuid"
 )
 
 type AlertManager struct {
@@ -35,6 +36,7 @@ func (alMan *AlertManager) RaiseAlert(message string, status types.HealthStatus,
 		}
 	}
 	alert := types.Alert{
+		ID: 	  uuid.NewString(),
 		Timestamp: time.Now(),
 		Message:   message,
 		Status:    types.HealthStatus(status),
