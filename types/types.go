@@ -94,11 +94,6 @@ type Config struct {
 	Alerter struct {
 		Enabled bool `yaml:"enabled"`
 		LogPath string `yaml:"log_path"`
-		Remote struct {
-			Host       string	`yaml:"host"`
-			User	   string	`yaml:"user"`
-			RemotePath string	`yaml:"remote_path"`
-		} `yaml:"remote"`
 		AlertSettings struct {
 			Memory struct {
 				Enabled bool `yaml:"enabled"`

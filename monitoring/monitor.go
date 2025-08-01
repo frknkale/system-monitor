@@ -15,11 +15,8 @@ import (
 )
 
 func Monitoring(cfg types.Config) {
-	// Read config file
-	
 	logPath := cfg.General.LogPath
 	outputPath := cfg.General.OutputPath
-	alertPath := cfg.Alerter.LogPath
 	remote := cfg.General.Remote
 
 	// Initialize logger
@@ -89,23 +86,7 @@ func Monitoring(cfg types.Config) {
 				fmt.Printf("Successfully rsynced output.json to %s@%s:%s\n",user, host, path)
 			}
 		}
-
-		if cfg.Alerter.Enabled {
-			user, host, path := cfg.Alerter.Remote.User, cfg.Alerter.Remote.Host, cfg.Alerter.Remote.RemotePath
-			rsyncCmd := exec.Command(
-				"sudo", "-u", user, "rsync", "--inplace", "-az", alertPath,
-				fmt.Sprintf("%s@%s:%s", user, host, path))
-			
-			if err := rsyncCmd.Run(); err != nil {
-				logger.Log.Printf("Failed to rsync alerts.json to %s@%s:%s: %v", user, host, path, err)
-				fmt.Printf("Failed to rsync alerts.json to %s@%s:%s: %v\n", user, host, path, err)
-			} else {
-				logger.Log.Printf("Successfully rsynced alerts.json to %s@%s:%s", user, host, path)
-				fmt.Printf("Successfully rsynced alerts.json to %s@%s:%s\n", user, host, path)
-			}
-		}
 		
-
 		logger.Log.Println("Checks completed.")
 		fmt.Println("Checks completed.")
 		fmt.Printf("Wrote output to %s\n", outputPath)

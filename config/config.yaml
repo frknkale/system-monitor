@@ -4,7 +4,7 @@
 general:
   output_path: "/var/log/monitoring/metrics/output.json"
   log_path: "/var/log/monitoring/logs/monitoring.json"
-  interval: 1m
+  interval: 30s
   remote:
     enabled: true
     host: "10.10.0.6"
