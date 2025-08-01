@@ -235,7 +235,7 @@ func dnsCheck(hostname string) map[string]interface{} {
 func icmpCheck(hostname string) map[string]interface{} {
 	result := make(map[string]interface{})
 
-	_, err := exec.Command("ping", "-c", "2", "-w", "1", hostname).CombinedOutput()
+	_, err := exec.Command("ping", "-c", "2", "-W", "1", hostname).CombinedOutput()
 	if err != nil {
 		result["reachable"] = false
 		result["error"] = fmt.Sprintf("ping error: %s", "unreachable")
