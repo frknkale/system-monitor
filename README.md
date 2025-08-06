@@ -13,7 +13,7 @@ or build and run the binary:
 go build -o monitoring-app
 ./monitoring-app /path/to/config.yaml
 ```
-The monitoring web server will start on port :8080 by default and serve the metrics dashboard.
+The monitoring web server will start on port ```:8080``` by default and serve the metrics dashboard.
 
 ### Configuration
 
